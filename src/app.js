@@ -9,6 +9,9 @@ import Navbar from './components/common/Navbar'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 
+import VinylsIndex from './components/vinyls/Index'
+
+
 import 'bulma'
 import './style.scss'
 
@@ -19,6 +22,7 @@ class App extends React.Component {
         <div>
           <Navbar />
           <Switch>
+            <Route path="/vinyls" component={VinylsIndex} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/" component={Home} />

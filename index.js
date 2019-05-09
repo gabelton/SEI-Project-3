@@ -14,5 +14,5 @@ app.use(errorHandler)
 
 
 
-app.use(routes)
+app.use('/api', routes)
 app.listen(port, () => console.log(`Up and running on port ${port}`))
