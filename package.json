@@ -5,6 +5,13 @@
   "repository": "git@github.com:gabelton/SEI-Project-3.git",
   "author": "Gabe Naughton <gabriel.naughton135@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "run:client": "webpack-dev-server",
+    "run:server": "nodemon",
+    "seed": "node seeds",
+    "build": "webpack -p",
+    "start": "node index"
+  },
   "dependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
