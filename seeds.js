@@ -212,7 +212,7 @@ mongoose.connect(dbURI, (err, db) => {
       },{
         artist: 'Taylor Swift',
         title: '1989',
-        image: 'https://img.discogs.com/dZ9Nb-FAwkBTYrmrL4yTeC2-8FY=/fit-in/600x530/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-10163220-1522357384-7574.jpeg.jpg',
+        image: 'https://img.discogs.com/K8WJXpG9E9LFAQ2LwEzQMKR55m4=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-6379963-1420374554-5066.jpeg.jpg',
         releaseYear: 2014,
         genre: 'Pop',
         condition: 'Mint',
@@ -507,8 +507,8 @@ mongoose.connect(dbURI, (err, db) => {
         size: '12"',
         format: '2LP',
         speed: '45 RPM',
-        catalogueNumber: '3776149',
-        barcode: 602537761494
+        catalogueNumber: 'LC00383',
+        barcode: 60253750658
       },{
         artist: 'Thelonious Monk',
         title: 'Brilliant Corners',
