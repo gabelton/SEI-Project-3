@@ -644,6 +644,36 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '377307',
         barcode: 60253773070
+      },{
+        artist: 'St Vincent',
+        title: 'Masseduction',
+        image: 'https://img.discogs.com/FfzAasy9nEq11olzVxH0EJnZfh4=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-10989027-1507911115-7934.jpeg.jpg',
+        releaseYear: 2017,
+        genre: 'Alternative Rock',
+        condition: 'Mint',
+        length: '41:36',
+        notes: 'Masseduction is the fifth studio album by American musician St. Vincent. It was released on October 13, 2017, through Loma Vista Recordings.',
+        label: 'Loma Vista',
+        size: '12"',
+        format: '1LP',
+        speed: '45 RPM',
+        catalogueNumber: 'LVR00224',
+        barcode: 888072037113
+      },{
+        artist: 'The Rolling Stones',
+        title: 'Sticky Fingers',
+        image: 'https://img.discogs.com/1PdT0-wT2PddHiKp8IK9q4UEw8A=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-5583299-1463229882-3949.jpeg.jpg',
+        releaseYear: 1971,
+        genre: 'Rock & Roll',
+        condition: 'Mint',
+        length: '46:25',
+        notes: 'Sticky Fingers is the ninth British and eleventh American studio album by the English rock band The Rolling Stones, released in April 1971.',
+        label: 'Polydor',
+        size: '12"',
+        format: '1LP',
+        speed: '45 RPM',
+        catalogueNumber: '376482',
+        barcode: 60253764821
       }])
     })
 })
