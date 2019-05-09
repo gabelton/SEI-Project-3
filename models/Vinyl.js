@@ -27,15 +27,18 @@ const vinylSchema = new mongoose.Schema({
   condition: {
     type: String,
     required: true,
-    enum: ['Brand New','Slighty Worn','Tatered']
+    enum: ['Mint','Near-Mint','Very Good','Good','Fair']
   },
   length: {
-    type: String,
-    required: 'Add length of album'
+    type: String
   },
-  bio: {
+  notes: {
     type: String,
-    required: 'Add a bio'
+    maxlength: 300
+  },
+  label: {
+    type: String,
+    required: 'Add a label'
   },
   size: {
     type: String,
@@ -56,6 +59,10 @@ const vinylSchema = new mongoose.Schema({
     type: String,
     required: 'Catalogue No.',
     unique: 'That number is already in the database'
+  },
+  barcode: {
+    type: Number,
+    required: 'Enter barcode'
   }
 })
 
