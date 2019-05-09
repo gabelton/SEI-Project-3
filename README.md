@@ -2,3 +2,4 @@
 
 Sean Gray
 Gabe Naughton
+Pierrre-Emerick Aubameyang
