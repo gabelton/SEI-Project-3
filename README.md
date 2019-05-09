@@ -4,3 +4,4 @@ Emma Price
 Dragan Ceran
 Sean Gray
 Gabe Naughton
+Thierry Henry
