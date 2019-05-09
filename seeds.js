@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
-const { dbUri } = require('./config/environment')
+const { dbURI } = require('./config/environment')
 const User = require('./models/User')
 const Vinyl = require('./models/Vinyl')
 
-mongoose.connect(dbUri, (err, db) => {
+mongoose.connect(dbURI, (err, db) => {
   db.dropDatabase()
     .then(() => {
-      User.Create({
+      User.create({
         username: 'seangray1',
         email: 'sean.myles.gray@gmail.com',
         password: 'pass',
@@ -26,7 +26,7 @@ mongoose.connect(dbUri, (err, db) => {
         label: 'Glassnote',
         size: '12"',
         format: '2LP',
-        speed: '45RPM',
+        speed: '45 RPM',
         catalogueNumber: 'GLS-0209-01',
         barcode: 810599021412
       },{
@@ -41,7 +41,7 @@ mongoose.connect(dbUri, (err, db) => {
         label: 'Jive',
         size: '12"',
         format: '1LP',
-        speed: '45RPM',
+        speed: '45 RPM',
         catalogueNumber: '1418-1-JDJ',
         barcode: 3562749401700
       },{
@@ -56,7 +56,7 @@ mongoose.connect(dbUri, (err, db) => {
         label: 'Def Jam Recordings',
         size: '12"',
         format: '1LP',
-        speed: '45RPM',
+        speed: '45 RPM',
         catalogueNumber: 'GHS 24131',
         barcode: 6007535010540
       },{
@@ -71,7 +71,7 @@ mongoose.connect(dbUri, (err, db) => {
         label: 'Atlantic',
         size: '12"',
         format: '2LP',
-        speed: '45RPM',
+        speed: '45 RPM',
         catalogueNumber: 'ATL-5038',
         barcode: 7567813392
       }])
