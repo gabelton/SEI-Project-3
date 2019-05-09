@@ -227,7 +227,7 @@ mongoose.connect(dbURI, (err, db) => {
       },{
         artist: 'Tame Impala',
         title: 'Currents',
-        image: 'https://img.discogs.com/M0FsreRJsuTyo3yKEoDoHuRiIPA=/fit-in/596x540/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-7266433-1510163886-8146.jpeg.jpg',
+        image: 'https://img.discogs.com/TH3722IESsHH9YyVXkLFhgTRDyA=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-7268943-1437635726-4759.jpeg.jpg',
         releaseYear: 2015,
         genre: 'Alternative Rock',
         condition: 'Mint',
