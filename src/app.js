@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { HashRouter, Route } from 'react-router-dom'
 
-import Home from './components/Home'
+import Home from './components/common/Home'
 
 import 'bulma'
 import './style.scss'
