@@ -30,7 +30,7 @@ class Navbar extends React.Component{
           <div className="navbar-brand">
             {/* branding and burger menu */}
             <Link to="/" >
-              <img  className="logo" src="https://chttps://imgur.com/2MdZJ7h"/>
+              <img className="logo" src="https://chttps://imgur.com/2MdZJ7h"/>
             </Link>
 
             <a role="button" className={`navbar-burger${this.state.active ? ' is-active' : ''}`}
