@@ -15,8 +15,23 @@ function createRoute(req, res) {
     .then(vinyl => res.status(201).json(vinyl))
 }
 
+function updateRoute(req, res) {
+  Vinyl.findById(req.params.id)
+    .then(vinyl => vinyl.set(req.body))
+    .then(vinyl => vinyl.save())
+    .then(vinyl => res.json(vinyl))
+}
+
+function deleteRoute(req, res) {
+  Vinyl.findById(req.params.id)
+    .then(vinyl => vinyl.remove())
+    .then(() => res.sendStatus(204))
+}
+
 module.exports = {
   index: indexRoute,
   show: showRoute,
-  create: createRoute 
+  create: createRoute,
+  update: updateRoute,
+  delete: deleteRoute
 }
