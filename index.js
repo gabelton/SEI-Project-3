@@ -1,9 +1,14 @@
 const express = require('express')
 const bodyParser = require('body-parser') // this comes with express
 const mongoose = require('mongoose')
-const PORT = process.env.PORT || 4000
+const { port, dbURI } = require('./config/environment')
 
 const app = express()
 
+mongoose.connect(dbURI)
 
-app.listen(PORT, () => console.log(`Up and running on port ${PORT}`))
+app.use(bodyParser.json())
+
+
+
+app.listen(port, () => console.log(`Up and running on port ${port}`))
