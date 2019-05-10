@@ -10,7 +10,6 @@ class Navbar extends React.Component{
     this.toggleActive = this.toggleActive.bind(this)
   }
 
-
   logout(){
     Auth.removeToken()
     this.props.history.push('/')

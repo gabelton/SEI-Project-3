@@ -159,7 +159,7 @@ mongoose.connect(dbURI, (err, db) => {
         catalogueNumber: 'XLLP 324',
         barcode: 880882162313
       },{
-        artist: 'D\'Aneglo',
+        artist: 'D\'Angelo',
         title: 'Brown Sugar',
         image: 'https://img.discogs.com/qhZuVZb8wSWqKmvuJioQwzJsxTA=/fit-in/500x500/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-3997782-1419865751-1816.jpeg.jpg',
         releaseYear: 1995,
