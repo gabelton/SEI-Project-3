@@ -50,7 +50,6 @@ class Show extends React.Component {
           </div>
         </div>
       </section>
-
     )
   }
 }
