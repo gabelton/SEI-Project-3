@@ -43,10 +43,10 @@ class Navbar extends React.Component{
           </div>
           <div className="field has-addons">
             <div className="control">
-              <input className="input" type="text" placeholder="Search" />
+              <input className="input is-small" type="text" placeholder="Search" />
             </div>
             <div className="control">
-              <a className="button is-info">
+              <a className="button is-dark is-small">
           Search
               </a>
             </div>
