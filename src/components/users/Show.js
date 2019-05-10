@@ -23,7 +23,7 @@ class Show extends React.Component {
 
 
   render() {
-    // if(!this.state.user) return null
+    if(!this.state.user) return null
     console.log(this.state)
     return(
       <section className="section">
