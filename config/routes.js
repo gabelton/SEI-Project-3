@@ -14,5 +14,6 @@ router.delete('/vinyls/:id', secureRoute, vinylsController.delete)
 router.post('/register', authController.register)
 router.post('/login', authController.login)
 
+router.get('/me', secureRoute, authController.profile)
 
 module.exports = router
