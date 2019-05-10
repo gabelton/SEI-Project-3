@@ -20,8 +20,13 @@ function loginRoute(req, res, next){
     .catch(next)
 }
 
+function profileRoute(req, res) {
+  User.populate(req.currentUser, 'vinyls')
+    .then(user => res.json(user))
+}
 
 module.exports = {
   register: registerRoute,
-  login: loginRoute
+  login: loginRoute,
+  profile: profileRoute
 }
