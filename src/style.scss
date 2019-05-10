@@ -1,7 +1,28 @@
-h1 {
-  color: red;
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+$font-stack: Roboto, sans-serif;
+
+html {
+  color: #575656;
 }
 
 .logo {
   max-width: 50px;
 }
+
+#vinyl-show {
+  margin-top: 20px;
+}
+
+#artist-show {
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: #008CBA;
+}
+
+#title-show, span {
+  letter-spacing: 2px;
+}
+
+// #vinyl-show-container {
+//   background-color: #E2E2E2;
+// }
