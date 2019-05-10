@@ -43,7 +43,7 @@ const vinylSchema = new mongoose.Schema({
   size: {
     type: String,
     required: true,
-    enum: ['7"','10"','12"']
+    enum: ['7','10','12']
   },
   format: {
     type: String,

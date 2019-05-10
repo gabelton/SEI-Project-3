@@ -20,13 +20,12 @@ class Index extends React.Component {
       .then(res => this.setState({ vinyls: res.data }))
   }
 
+
   render() {
+    console.log(this.state.vinyls)
     return (
       <section className="section">
         <div className="container">
-
-          {Auth.isAuthenticated() && <Link to="/characters/new" className="button">Add Character</Link>}
-
           <div className="columns is-multiline">
             {this.state.vinyls.map(vinyl =>
               <div key={vinyl._id} className="column is-one-quarter-desktop is-one-third-tablet">
