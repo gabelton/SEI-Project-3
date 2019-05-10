@@ -16,8 +16,17 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: 'Please provide a password'
+  },
+  image: {
+    type: String,
+    default: 'https://candobristol.co.uk/img/profile-pic.svg'
+  },
+  bio: {
+    type: String
   }
-})
+},
+{ timestamps: true }
+)
 
 // `virtuals` are fields that do not get saved in the database
 userSchema.virtual('passwordConfirmation')
