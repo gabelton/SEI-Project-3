@@ -5,10 +5,9 @@ import Promise from 'bluebird'
 import Auth from '../../lib/Auth'
 import Card from './Card'
 
-// function randomImage {
+// function similarArtist {
 //
 // }
-
 class Show extends React.Component {
 
   constructor(props) {
@@ -21,12 +20,6 @@ class Show extends React.Component {
     }
   }
 
-  // componentDidMount(){
-  //   Promise.props({
-  //     data: axios.get(`/api/vinyls/${this.props.match.params.id}`).then(res => this.setState({ vinyl: res.data }))
-  //   })
-  // }
-
   componentDidMount(){
     Promise.props({
       vinyl: axios.get(`/api/vinyls/${this.props.match.params.id}`).then(res => res.data),
@@ -37,7 +30,6 @@ class Show extends React.Component {
       })
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
-
 
   render() {
     if(!this.state.vinyl) return null
@@ -77,7 +69,7 @@ class Show extends React.Component {
           <div className="column is-one-fifth-desktop is-half-tablet is-full-mobile">
             <h2 className="subtitle is-6 similar-show">You might also like</h2>
 
-            <figure className="image similar-artist-image">
+            <div className="similar-artist-image">
               {this.state.vinyls.map(vinyl =>
                 <div key={vinyl._id}>
                   <Link to={`/vinyls/${vinyl._id}`}>
@@ -85,7 +77,7 @@ class Show extends React.Component {
                   </Link>
                 </div>
               )}
-            </figure>
+            </div>
             <figure className="image similar-artist-image">
               <img src={image} alt={title} />
             </figure>

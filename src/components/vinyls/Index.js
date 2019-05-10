@@ -3,8 +3,6 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Auth from '../../lib/Auth'
 
-
-
 import Card from './Card'
 
 class Index extends React.Component {
@@ -20,11 +18,10 @@ class Index extends React.Component {
       .then(res => this.setState({ vinyls: res.data }))
   }
 
-
   render() {
     console.log(this.state.vinyls)
     return (
-      <section className="section">
+      <section className="section" id="index-page">
         <div className="columns is-multiline">
           {this.state.vinyls.map(vinyl =>
             <div key={vinyl._id} className="column is-one-fifth-desktop is-one-third-tablet">

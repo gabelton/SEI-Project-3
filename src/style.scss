@@ -2,7 +2,7 @@
 $font-stack: Roboto, sans-serif;
 
 #root{
-  background-color: #575656;
+  background-color: #e3e3e3;
 }
 
 .logo {
@@ -47,6 +47,10 @@ $font-stack: Roboto, sans-serif;
   letter-spacing: 4px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+#index-page {
+  margin-top: 20px;
 }
 
 span {
