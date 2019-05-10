@@ -32,6 +32,10 @@ $font-stack: Roboto, sans-serif;
   font-weight: bold;
 }
 
+.similar-artist-image {
+  padding: 4px;
+}
+
 #artist-show {
   text-transform: uppercase;
   letter-spacing: 6px;
@@ -43,7 +47,6 @@ $font-stack: Roboto, sans-serif;
   letter-spacing: 4px;
   font-weight: bold;
   text-transform: uppercase;
-
 }
 
 span {
@@ -72,9 +75,11 @@ span {
 text-shadow: 1px 1px 29px rgba(0, 84, 31, 1);
 
 }
+
 .section {
   padding-top: 60px;
 }
+
 .profile {
   color: white;
 }
