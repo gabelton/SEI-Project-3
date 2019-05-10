@@ -3,7 +3,40 @@ import { Link } from 'react-router-dom'
 import Card from '../vinyls/Card'
 import axios from 'axios'
 
+// const sortBy = (function () {
+//   const toString = Object.prototype.toString,
+//     // default parser function
+//     parse = function (x) {
+//       return x
+//     }
+//     // gets the item to be sorted
+//   const  getItem = function (x) {
+//     const isObject = x != null && typeof x === 'object'
+//     const isProp = isObject && this.prop in x
+//     return this.parser(isProp ? x[this.prop] : x)
+//   }
+//
+//   return function sortby (array, cfg) {
+//     if (!(array instanceof Array && array.length)) return []
+//     if (toString.call(cfg) !== '[object Object]') cfg = {}
+//     if (typeof cfg.parser !== 'function') cfg.parser = parse
+//     cfg.desc = !!cfg.desc ? -1 : 1
+//     return array.sort(function (a, b) {
+//       a = getItem.call(cfg, a)
+//       b = getItem.call(cfg, b)
+//       return cfg.desc * (a < b ? -1 : +(a > b))
+//     })
+//   }
+//
+// }())
+//const arr = this.state.vinyls
+//const createdAt = this.state.vinyls.createdAt
 
+function orderByDate(arr, createdAt) {
+  return arr.slice().sort(function (a, b) {
+    return a[createdAt] < b[createdAt] ? -1 : 1
+  })
+}
 
 class Home extends React.Component {
   constructor() {
@@ -18,8 +51,19 @@ class Home extends React.Component {
       .then(res => this.setState({ vinyls: res.data }))
   }
 
+
+
+
+
+
+
+
+
+
   render() {
-    console.log(this.state.vinyls)
+    let recentFour = orderByDate(this.state.vinyls, this.state.vinyls.createdAt)
+    recentFour = recentFour.slice(0,4)
+    //console.log(orderByDate(arr, createdAt))
     return (
       <section className="hero is-large">
         <div className="hero-body">
@@ -32,7 +76,7 @@ class Home extends React.Component {
           <div className="notification">
             <strong>RECENTLY ADDED</strong>
             <div className="columns is-multiline">
-              {this.state.vinyls.map(vinyl =>
+              {recentFour.map(vinyl =>
                 <div key={vinyl._id} className="column is-one-fifth-desktop is-one-third-tablet">
                   <Link to={`/vinyls/${vinyl._id}`}>
                     <Card {...vinyl} />
