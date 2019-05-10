@@ -32,9 +32,11 @@ import axios from 'axios'
 //const arr = this.state.vinyls
 //const createdAt = this.state.vinyls.createdAt
 
-function orderByDate(arr, createdAt) {
+function orderByDate(arr) {
   return arr.slice().sort(function (a, b) {
-    return a[createdAt] < b[createdAt] ? -1 : 1
+    const aDate = new Date(a.createdAt)
+    const bDate = new Date(b.createdAt)
+    return bDate - aDate
   })
 }
 
@@ -51,19 +53,13 @@ class Home extends React.Component {
       .then(res => this.setState({ vinyls: res.data }))
   }
 
-
-
-
-
-
-
-
-
-
   render() {
+    console.log(this.state.vinyls, 'ALL VINYLS')
+    console.log(this.state.vinyls.map(el => typeof el.createdAt))
     let recentFour = orderByDate(this.state.vinyls, this.state.vinyls.createdAt)
+    console.log(recentFour.map(el => el.title))
     recentFour = recentFour.slice(0,4)
-    //console.log(orderByDate(arr, createdAt))
+    console.log(recentFour)
     return (
       <section className="hero is-large">
         <div className="hero-body">
@@ -115,10 +111,10 @@ class Home extends React.Component {
               <img src="../images/rock.png" alt="rock"  />
             </div>
             {/*<div className="column is-one-third-desktop genre is-one-third-tablet  has-text-centered">
-              <Link to={`/vinyls/${this.state.vinyls.genre.reggae}`}><img src="../images/reggae.png" alt="reggae" />
+              <Link to={`/vinyls/${vinyl.genre.reggae}`}><img src="../images/reggae.png" alt="reggae" />
                 <img src="../images/reggaeclr.png" alt="reggae" />
               </Link>
-            </div> */}
+            </div>*/}
           </div>
         </div>
         <footer className="footer">
