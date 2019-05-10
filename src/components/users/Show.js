@@ -10,11 +10,12 @@ class Show extends React.Component {
     super(props)
 
     this.state = {
-      user: null
+      user: {}
     }
   }
 
   componentDidMount() {
+    console.log('I am running')
     axios.get(`/api/users/${this.props.match.params.id}`)
       .then(res => this.setState({ user: res.data }))
       .catch(err => console.error(err))
@@ -22,8 +23,8 @@ class Show extends React.Component {
 
 
   render() {
+    // if(!this.state.user) return null
     console.log(this.state)
-    if(!this.state.user) return null
     return(
       <section className="section">
         <div className="container">
