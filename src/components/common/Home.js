@@ -114,8 +114,8 @@ class Home extends React.Component {
             <div className="column is-one-third-desktop rock is-one-third-tablet has-text-centered">
               <img src="../images/rock.png" alt="rock"  />
             </div>
-            {/* <div className="column is-one-third-desktop genre is-one-third-tablet  has-text-centered">
-              <Link to={`/vinyls/${this.state.vinyls.genre.jazz}`}><img src="../images/reggae.png" alt="reggae" />
+            {/*<div className="column is-one-third-desktop genre is-one-third-tablet  has-text-centered">
+              <Link to={`/vinyls/${this.state.vinyls.genre.reggae}`}><img src="../images/reggae.png" alt="reggae" />
                 <img src="../images/reggaeclr.png" alt="reggae" />
               </Link>
             </div> */}

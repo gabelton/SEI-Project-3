@@ -5,7 +5,7 @@ import Auth from'../lib/Auth'
 class Navbar extends React.Component{
   constructor(props){
     super(props)
-    this.state ={ active: false}
+    this.state = { active: false}
     this.logout = this.logout.bind(this)
     this.toggleActive = this.toggleActive.bind(this)
   }
@@ -24,6 +24,7 @@ class Navbar extends React.Component{
     }
   }
   render(){
+    console.log(this.state)
     return (
       <nav className="navbar is-fixed-top">
         <div className="container">
@@ -43,10 +44,10 @@ class Navbar extends React.Component{
           </div>
           <div className="field has-addons">
             <div className="control">
-              <input className="input" type="text" placeholder="Search" />
+              <input className="input is-small" type="text" placeholder="Search" />
             </div>
             <div className="control">
-              <a className="button is-info">
+              <a className="button is-dark is-small">
           Search
               </a>
             </div>
@@ -62,7 +63,7 @@ class Navbar extends React.Component{
             </div>
 
             <div className="navbar-end">
-              {!Auth.isAuthenticated() && <Link to="/users/:id" className="navbar-item">Profile</Link>}
+              {Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().sub}`} className="navbar-item">Profile</Link>}
               {!Auth.isAuthenticated() && <Link to="/register" className="navbar-item">Register</Link>}
               {!Auth.isAuthenticated() && <Link to="/login" className="navbar-item">Login</Link>}
               {/* right hand links */}

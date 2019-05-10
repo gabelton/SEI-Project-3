@@ -6,7 +6,9 @@ function indexRoute(req, res) {
 }
 
 function showRoute(req, res) {
-  User.findById(req.params.id)
+  User
+    .findById(req.params.id)
+    .populate()
     .then(user => res.json(user))
 }
 
