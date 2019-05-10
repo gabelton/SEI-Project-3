@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Promise from 'bluebird'
 import Auth from '../../lib/Auth'
+import Card from './Card'
+
+// function randomImage {
+//
+// }
 
 class Show extends React.Component {
 
@@ -10,19 +15,37 @@ class Show extends React.Component {
     super(props)
 
     this.state = {
-      vinyl: []
+      vinyl: [],
+      vinyls: [],
+      errors: {}
     }
   }
 
+  // componentDidMount(){
+  //   Promise.props({
+  //     data: axios.get(`/api/vinyls/${this.props.match.params.id}`).then(res => this.setState({ vinyl: res.data }))
+  //   })
+  // }
+
   componentDidMount(){
-    axios.get(`/api/vinyls/${this.props.match.params.id}`)
-      .then(res => this.setState({ vinyl: res.data }))
+    Promise.props({
+      vinyl: axios.get(`/api/vinyls/${this.props.match.params.id}`).then(res => res.data),
+      vinyls: axios.get('/api/vinyls').then(res => res.data)
+    })
+      .then(res => {
+        this.setState({ vinyl: res.vinyl, vinyls: res.vinyls })
+      })
+      .catch(err => this.setState({ errors: err.response.data.errors }))
   }
+
 
   render() {
     if(!this.state.vinyl) return null
     const { _id, artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy } = this.state.vinyl
-
+    // const imageTwo = this.state.vinyls
+    console.log(this.state.vinyls.image, 'IMAGE')
+    console.log(this.state.vinyl, 'ONE VINYL')
+    console.log(this.state.vinyls, 'ALL VINYLS')
     return (
       <section className="section" id="vinyl-show">
         <div className="columns">
@@ -52,9 +75,16 @@ class Show extends React.Component {
             </div>
           </div>
           <div className="column is-one-fifth-desktop is-half-tablet is-full-mobile">
-            <h2 className="subtitle is-5 similar-show">Similar artists</h2>
+            <h2 className="subtitle is-6 similar-show">You might also like</h2>
+
             <figure className="image similar-artist-image">
-              <img src={image} alt={title} />
+              {this.state.vinyls.map(vinyl =>
+                <div key={vinyl._id}>
+                  <Link to={`/vinyls/${vinyl._id}`}>
+                    <Card {...vinyl} />
+                  </Link>
+                </div>
+              )}
             </figure>
             <figure className="image similar-artist-image">
               <img src={image} alt={title} />
