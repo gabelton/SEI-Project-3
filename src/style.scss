@@ -1,7 +1,56 @@
-h1 {
-  color: red;
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+$font-stack: Roboto, sans-serif;
+
+#root{
+  background-color: black
 }
 
 .logo {
   max-width: 50px;
+}
+
+#vinyl-show {
+  margin-top: 20px;
+}
+
+#artist-show {
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: #008CBA;
+}
+
+#title-show, span {
+  letter-spacing: 2px;
+}
+
+// #vinyl-show-container {
+//   background-color: #E2E2E2;
+// }
+.hero-body{
+  background-image: url('https://dancingastronaut.com/wp-content/uploads/2018/04/vinyl.jpg');
+  background-size: cover;
+}
+.title{
+  color: black;
+  font-size: 72px;
+  color: #FFFFFF;
+
+text-shadow: 1px 1px 29px rgba(0, 84, 31, 1);
+
+}
+.section{
+  padding-top: 60px;
+}
+.notification{
+  background-color: black;
+  color: whie;
+}
+a img:last-child {
+  display: none;
+}
+a:hover img:last-child {
+  display: inline;
+}
+a:hover img:first-child {
+  display: none;
 }

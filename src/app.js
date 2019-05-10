@@ -15,6 +15,8 @@ import Register from './components/auth/Register'
 
 import VinylsIndex from './components/vinyls/Index'
 
+import UsersShow from './components/users/Show'
+
 
 import 'bulma'
 import './style.scss'
@@ -27,6 +29,7 @@ class App extends React.Component {
           <Navbar />
           <FlashMessages />
           <Switch>
+            <SecureRoute path="/users/:id" component={UsersShow} />
             <SecureRoute path="/vinyls/new" component={VinylsNew} />
             <Route path="/vinyls/:id" component={VinylsShow} />
             <Route path="/vinyls" component={VinylsIndex} />
