@@ -30,12 +30,12 @@ class Show extends React.Component {
             <h1 className="title is-1">{artist}: {title}</h1>
             <hr />
             <div className="columns">
-              <div className="column is-one-third-desktop is-half-tablet is-full-mobile">
+              <div className="column is-half-desktop is-half-tablet is-full-mobile">
                 <figure className="image">
                   <img src={image} alt={title} />
                 </figure>
               </div>
-              <div className="column is-two-thirds-desktop is-half-tablet is-full-mobile">
+              <div className="column is-half-desktop is-half-tablet is-full-mobile">
                 <h2 className="subtitle is-5">Artist: {artist}</h2>
                 <h2 className="subtitle is-5">Title: {title}</h2>
                 <h2 className="subtitle is-5">Label: {label}</h2>
@@ -51,7 +51,7 @@ class Show extends React.Component {
         <section className="section">
           <div className="container">
             <div className="columns">
-              <div className="column is-one-third-desktop is-half-tablet is-full-mobile">
+              <div className="column is-half-desktop is-half-tablet is-full-mobile">
                 <h2 className="subtitle is-5">Condition: {condition}</h2>
                 <h2 className="subtitle is-5">Size: {size}</h2>
                 <h2 className="subtitle is-5">Format: {format}</h2>
@@ -61,7 +61,7 @@ class Show extends React.Component {
                 <h2 className="subtitle is-5">Tracklisting:</h2>
               </div>
 
-              <div className="column is-two-thirds-desktop is-half-tablet is-full-mobile">
+              <div className="column is-half-desktop is-half-tablet is-full-mobile">
 
 
               </div>
