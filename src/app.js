@@ -7,7 +7,7 @@ import FlashMessages from './components/common/FlashMessages'
 
 import Home from './components/common/Home'
 import Navbar from './components/common/Navbar'
-
+import VinylsShow from './components/vinyls/Show'
 
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
@@ -26,6 +26,7 @@ class App extends React.Component {
           <Navbar />
           <FlashMessages />
           <Switch>
+            <Route path="/vinyls/:id" component={VinylsShow} />
             <Route path="/vinyls" component={VinylsIndex} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
