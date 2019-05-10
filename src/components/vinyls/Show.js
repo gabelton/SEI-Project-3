@@ -24,8 +24,8 @@ class Show extends React.Component {
     const { _id, artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy } = this.state.vinyl
 
     return (
-      <section className="section">
-        <div className="columns" id="vinyl-show">
+      <section className="section" id="vinyl-show">
+        <div className="columns">
           <div className="column is-one-third-desktop is-half-tablet is-full-mobile">
             <figure className="image">
               <img src={image} alt={title} />
