@@ -142,7 +142,7 @@ mongoose.connect(dbURI, (err, db) => {
         genre: 'Alternative Rock',
         condition: 'Mint',
         length: '42:39',
-        notes: 'n Rainbows is the seventh studio album by English rock band Radiohead. It was self-released on 10 October 2007 as a pay-what-you-want download, followed by a physical release internationally by XL Recordings in December 2007.',
+        notes: 'In Rainbows is the seventh studio album by English rock band Radiohead. It was self-released on 10 October 2007 as a pay-what-you-want download, followed by a physical release internationally by XL Recordings in December 2007.',
         label: 'XL Recordings',
         size: '12"',
         format: '1LP',
