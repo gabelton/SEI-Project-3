@@ -63,7 +63,14 @@ const vinylSchema = new mongoose.Schema({
   barcode: {
     type: Number,
     required: 'Enter barcode'
+  },
+  createdBy: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User'
   }
+
+},
+{timestamps: true
 })
 
 vinylSchema.plugin(uniqueValidator)
