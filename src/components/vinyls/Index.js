@@ -20,7 +20,9 @@ class Index extends React.Component {
       .then(res => this.setState({ vinyls: res.data }))
   }
 
+
   render() {
+    console.log(this.state.vinyls)
     return (
       <section className="section">
         <div className="container">
