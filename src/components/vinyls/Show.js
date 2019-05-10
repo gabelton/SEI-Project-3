@@ -47,7 +47,8 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Barcode:</span> {barcode}</h2>
               <h2 className="subtitle is-6 show"><span>Catalogue number:</span>{catalogueNumber}</h2>
               <h2 className="subtitle is-6 show"><span>Notes: </span>{notes}</h2>
-              <h2 className="subtitle is-6 show"><span>Tracklisting:</span></h2>
+              <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
+              </h2>
             </div>
           </div>
           <div className="column is-one-fifth-desktop is-half-tablet is-full-mobile">
