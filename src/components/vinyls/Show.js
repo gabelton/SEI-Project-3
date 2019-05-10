@@ -31,22 +31,22 @@ class Show extends React.Component {
               <img src={image} alt={title} />
             </figure>
           </div>
-          <div className="column is-two-thirds-desktop is-half-tablet is-full-mobile" id="vinyl-show-container">
-            <h2 className="subtitle is-3" id="artist-show">{artist}</h2>
-            <h2 className="subtitle is-4" id="title-show">{title}</h2>
-            <h2 className="subtitle is-5"><span>Label: </span>{label}</h2>
-            <h2 className="subtitle is-5"><span>Year released:</span> {releaseYear}</h2>
-            <h2 className="subtitle is-5"><span>Genre: </span>{genre}</h2>
-            <h2 className="subtitle is-5"><span>Length: </span>{length}</h2>
-            <h2 className="subtitle is-5"><span>Notes: </span>{notes}</h2>
-            <h2 className="subtitle is-5"><span>Created by:</span> {createdBy}</h2>
-            <h2 className="subtitle is-5"><span>Condition: </span>{condition}</h2>
-            <h2 className="subtitle is-5"><span>Size: </span>{size}</h2>
-            <h2 className="subtitle is-5"><span>Format: </span>{format}</h2>
-            <h2 className="subtitle is-5"><span>Speed: </span>{speed}</h2>
-            <h2 className="subtitle is-5"><span>Barcode:</span> {barcode}</h2>
-            <h2 className="subtitle is-5"><span>Catalogue number:</span>{catalogueNumber}</h2>
-            <h2 className="subtitle is-5"><span>Tracklisting:</span></h2>
+          <div className="column is-two-thirds-desktop is-half-tablet is-full-mobile">
+            <h2 className="subtitle is-3 show" id="artist-show">{artist}</h2>
+            <h2 className="subtitle is-4 show" id="title-show">{title}</h2>
+            <h2 className="subtitle is-5 show"><span>Label: </span>{label}</h2>
+            <h2 className="subtitle is-5 show"><span>Year released:</span> {releaseYear}</h2>
+            <h2 className="subtitle is-5 show"><span>Genre: </span>{genre}</h2>
+            <h2 className="subtitle is-5 show"><span>Length: </span>{length}</h2>
+            <h2 className="subtitle is-5 show"><span>Notes: </span>{notes}</h2>
+            <h2 className="subtitle is-5 show"><span>Created by:</span> {createdBy}</h2>
+            <h2 className="subtitle is-5 show"><span>Condition: </span>{condition}</h2>
+            <h2 className="subtitle is-5 show"><span>Size: </span>{size}</h2>
+            <h2 className="subtitle is-5 show"><span>Format: </span>{format}</h2>
+            <h2 className="subtitle is-5 show"><span>Speed: </span>{speed}</h2>
+            <h2 className="subtitle is-5 show"><span>Barcode:</span> {barcode}</h2>
+            <h2 className="subtitle is-5 show"><span>Catalogue number:</span>{catalogueNumber}</h2>
+            <h2 className="subtitle is-5 show"><span>Tracklisting:</span></h2>
           </div>
         </div>
       </section>
