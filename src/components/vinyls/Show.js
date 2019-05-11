@@ -53,6 +53,7 @@ class Show extends React.Component {
             <div className="show-content">
               <h2 className="subtitle is-4 show" id="artist-show">{artist}</h2>
               <h2 className="subtitle is-5 show" id="title-show">{title}</h2>
+              <hr />
               <h2 className="subtitle is-6 show"><span>Label: </span>{label}</h2>
               <h2 className="subtitle is-6 show"><span>Year released:</span> {releaseYear}</h2>
               <h2 className="subtitle is-6 show"><span>Genre: </span>{genre}</h2>
@@ -65,6 +66,7 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Barcode:</span> {barcode}</h2>
               <h2 className="subtitle is-6 show"><span>Catalogue number:</span>{catalogueNumber}</h2>
               <h2 className="subtitle is-6 show"><span>Notes: </span>{notes}</h2>
+              <hr />
               <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
               </h2>
             </div>

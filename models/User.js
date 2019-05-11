@@ -28,6 +28,15 @@ const userSchema = new mongoose.Schema({
 { timestamps: true }
 )
 
+// this is a special virtual that will aggregate
+// all the charcters that a specific user has created
+// NB: **This needs to be populated in the controller**
+userSchema.virtual('characters', {
+  localField: '_id',
+  foreignField: 'createdBy',
+  ref: 'Character'
+})
+
 // `virtuals` are fields that do not get saved in the database
 userSchema.virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(plaintext) {
