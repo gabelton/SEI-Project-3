@@ -47,9 +47,9 @@ class Show extends React.Component {
             </figure>
           </div>
           <div className="column is-two-fifths-desktop is-half-tablet is-full-mobile">
-            <h2 className="subtitle is-4 show" id="artist-show">{artist}</h2>
-            <h2 className="subtitle is-5 show" id="title-show">{title}</h2>
             <div className="show-content">
+              <h2 className="subtitle is-4 show" id="artist-show">{artist}</h2>
+              <h2 className="subtitle is-5 show" id="title-show">{title}</h2>
               <h2 className="subtitle is-6 show"><span>Label: </span>{label}</h2>
               <h2 className="subtitle is-6 show"><span>Year released:</span> {releaseYear}</h2>
               <h2 className="subtitle is-6 show"><span>Genre: </span>{genre}</h2>

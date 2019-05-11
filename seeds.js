@@ -683,6 +683,51 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '376482',
         barcode: 60253764821
+      },{
+        artist: 'Caribou',
+        title: 'Our Love',
+        image: 'https://img.discogs.com/Ef5cNSau_8DzIHPWFjPp9K4EPhM=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-6148737-1413627633-4588.jpeg.jpg',
+        releaseYear: 2014,
+        genre: 'Electronic',
+        condition: 'Mint',
+        length: '41:53',
+        notes: 'Our Love is the seventh studio album by Canadian musician Dan Snaith, released under the moniker Caribou on October 6, 2014 by City Slang worldwide and October 7, 2014 by Merge in North America and South America. It is Snaith\'s fourth album as Caribou.',
+        label: 'City Slang',
+        size: '12',
+        format: '1LP',
+        speed: '45 RPM',
+        catalogueNumber: 'SLANG50070LP',
+        barcode: 4250506809560
+      },{
+        artist: 'Various Artists',
+        title: 'Guardians Of The Galaxy: Awesome Mix Volume. 1',
+        image: 'https://img.discogs.com/6JIQNhR1vWmQjzNAWKQ7r9PXl1g=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-6776503-1426408994-7166.jpeg.jpg',
+        releaseYear: 2014,
+        genre: 'Soundtrack',
+        condition: 'Mint',
+        length: '44:34',
+        notes: 'Guardians of the Galaxy: Awesome Mix Vol. 1 (Original Motion Picture Soundtrack) is the soundtrack album for the Marvel Studios film Guardians of the Galaxy.',
+        label: 'Hollywood Records',
+        size: '12',
+        format: '1LP',
+        speed: '45 RPM',
+        catalogueNumber: '731641',
+        barcode: 50087316419
+      },{
+        artist: 'David Bowie',
+        title: 'Aladdin Sane',
+        image: 'https://img.discogs.com/TPh1mp5_UCWzQ5eE5_R7WgpZ_yk=/fit-in/550x550/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-354906-1412775755-4012.jpeg.jpg',
+        releaseYear: 1973,
+        genre: 'Pop',
+        condition: 'Mint',
+        length: '40:47',
+        notes: 'Aladdin Sane is the sixth studio album by English musician David Bowie, released by RCA Records on 13 April 1973. The follow-up to his breakthrough The Rise and Fall of Ziggy Stardust and the Spiders from Mars, it was the first album he wrote and released from a position of stardom.',
+        label: 'RCA Records',
+        size: '12',
+        format: '1LP',
+        speed: '45 RPM',
+        catalogueNumber: 'LSP-4852',
+        barcode: 78763908747
       }])
     })
 })
