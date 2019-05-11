@@ -1,6 +1,28 @@
 const mongoose = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
 
+const commentSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  content: {
+    type: String,
+    required: true,
+    maxlength: 280
+  }
+}, {
+  timestamps: true, // this adds `createdAt` and `updatedAt` properties
+  toJSON: {
+    // whenever the comment is converted to JSON
+    transform(doc, json) {
+      delete json.__v
+      return json
+    }
+  }
+})
+
 const vinylSchema = new mongoose.Schema({
   artist: {
     type: String,
@@ -67,8 +89,16 @@ const vinylSchema = new mongoose.Schema({
   createdBy: {
     type: mongoose.Schema.ObjectId,
     ref: 'User'
+  },
+  comments: [ commentSchema ]
+}, {
+  toJSON: {
+    // whenever the character is converted to JSON
+    transform(doc, json) {
+      delete json.__v
+      return json
+    }
   }
-
 },
 {timestamps: true
 })

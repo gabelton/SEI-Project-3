@@ -12,6 +12,9 @@ router.get('/vinyls/:id', vinylsController.show)
 router.put('/vinyls/:id', secureRoute, vinylsController.update)
 router.delete('/vinyls/:id', secureRoute, vinylsController.delete)
 
+router.post('/vinyls/:id/comments', secureRoute, vinylsController.commentCreate)
+router.delete('/vinyls/:id/comments/:commentId', secureRoute, vinylsController.commentDelete)
+
 router.get('/users', usersController.index)
 router.post('/users', secureRoute, usersController.create)
 router.get('/users/:id', usersController.show)

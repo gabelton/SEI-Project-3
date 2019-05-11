@@ -408,7 +408,7 @@ mongoose.connect(dbURI, (err, db) => {
         length: '5:23',
         notes: 'Two lead singles from David Brent: Life on the Road, soundtrack to the 2016 British mockumentary comedy film written, directed, and produced by Ricky Gervais and released by Entertainment One.',
         label: 'Caroline International',
-        size: '7"',
+        size: '7',
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '5702631',
