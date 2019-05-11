@@ -20,6 +20,14 @@ $font-stack: Roboto, sans-serif;
   border-top: 1px solid #DD8964;
 }
 
+.show-content-video, .show-content-comments {
+  background-color: white;
+  padding: 5px;
+  border-radius: 2px;
+  border-top: 1px solid #DD8964;
+  margin-top: 10px;
+}
+
 #vinyl-show {
   margin-top: 20px;
   background-color: #e3e3e3;
@@ -29,11 +37,18 @@ $font-stack: Roboto, sans-serif;
   color: #575656;
 }
 
-.similar-show {
+.subheading-show {
   color: #008CBA;
   text-transform: uppercase;
   letter-spacing: 4px;
   font-weight: bold;
+}
+
+.similar-show {
+  background-color: white;
+  padding: 5px;
+  border-radius: 2px;
+  border-top: 1px solid #DD8964;
 }
 
 .similar-artist-image {
@@ -59,7 +74,8 @@ $font-stack: Roboto, sans-serif;
 
 span {
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .input {

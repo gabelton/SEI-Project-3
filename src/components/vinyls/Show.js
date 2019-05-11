@@ -45,6 +45,9 @@ class Show extends React.Component {
             <figure className="image">
               <img src={image} alt={title} />
             </figure>
+            <div className="show-content-video subheading-show">
+              YouTube videos
+            </div>
           </div>
           <div className="column is-two-fifths-desktop is-half-tablet is-full-mobile">
             <div className="show-content">
@@ -65,28 +68,35 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
               </h2>
             </div>
+
+            <div className="show-content-comments subheading-show">
+              Comments
+            </div>
           </div>
           <div className="column is-one-fifth-desktop is-half-tablet is-full-mobile">
-            <h2 className="subtitle is-6 similar-show">You might also like</h2>
+            <div className="similar-show">
 
-            <div className="similar-artist-image">
-              {this.state.vinyls.map(vinyl =>
-                <div key={vinyl._id}>
-                  <Link to={`/vinyls/${vinyl._id}`}>
-                    <Card {...vinyl} />
-                  </Link>
-                </div>
-              )}
+              <h2 className="subtitle is-6 subheading-show">You might also like</h2>
+
+              <div className="similar-artist-image">
+                {this.state.vinyls.map(vinyl =>
+                  <div key={vinyl._id}>
+                    <Link to={`/vinyls/${vinyl._id}`}>
+                      <Card {...vinyl} />
+                    </Link>
+                  </div>
+                )}
+              </div>
+              <figure className="image similar-artist-image">
+                <img src={image} alt={title} />
+              </figure>
+              <figure className="image similar-artist-image">
+                <img src={image} alt={title} />
+              </figure>
+              <figure className="image similar-artist-image">
+                <img src={image} alt={title} />
+              </figure>
             </div>
-            <figure className="image similar-artist-image">
-              <img src={image} alt={title} />
-            </figure>
-            <figure className="image similar-artist-image">
-              <img src={image} alt={title} />
-            </figure>
-            <figure className="image similar-artist-image">
-              <img src={image} alt={title} />
-            </figure>
           </div>
         </div>
       </section>
