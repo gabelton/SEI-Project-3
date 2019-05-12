@@ -20,6 +20,10 @@ $font-stack: Roboto, sans-serif;
   border-top: 1px solid #DD8964;
 }
 
+.show-tracklisting{
+  margin-top: 10px;
+}
+
 .show-content-video, .show-content-comments {
   background-color: white;
   padding: 5px;
@@ -81,6 +85,8 @@ span {
 audio {
   background-color: #DD8964;
   height: 30px;
+  margin-bottom: 5px;
+  width: 500px;
 }
 
 .card {
