@@ -34,10 +34,11 @@ class Show extends React.Component {
   render() {
     if(!this.state.vinyl) return null
     const { _id, artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy } = this.state.vinyl
-    // const imageTwo = this.state.vinyls
     console.log(this.state.vinyls.image, 'IMAGE')
     console.log(this.state.vinyl, 'ONE VINYL')
     console.log(this.state.vinyls, 'ALL VINYLS')
+    const similar = this.state.vinyls.filter(vinyl => vinyl.genre === this.state.vinyl.genre && vinyl.title !== this.state.vinyl.title)
+    console.log(similar)
     return (
       <section className="section" id="vinyl-show">
         <div className="columns">
@@ -81,7 +82,7 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 subheading-show">You might also like</h2>
 
               <div className="similar-artist-image">
-                {this.state.vinyls.map(vinyl =>
+                {similar.map(vinyl =>
                   <div key={vinyl._id}>
                     <Link to={`/vinyls/${vinyl._id}`}>
                       <Card {...vinyl} />
@@ -89,15 +90,7 @@ class Show extends React.Component {
                   </div>
                 )}
               </div>
-              <figure className="image similar-artist-image">
-                <img src={image} alt={title} />
-              </figure>
-              <figure className="image similar-artist-image">
-                <img src={image} alt={title} />
-              </figure>
-              <figure className="image similar-artist-image">
-                <img src={image} alt={title} />
-              </figure>
+
             </div>
           </div>
         </div>
