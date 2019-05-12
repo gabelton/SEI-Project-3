@@ -2,12 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Promise from 'bluebird'
-import Auth from '../../lib/Auth'
 import Card from './Card'
 
-// function similarArtist {
-//
-// }
 class Show extends React.Component {
 
   constructor(props) {
@@ -16,6 +12,7 @@ class Show extends React.Component {
     this.state = {
       vinyl: [],
       vinyls: [],
+      tracks: [],
       errors: {}
     }
   }
@@ -23,10 +20,11 @@ class Show extends React.Component {
   componentDidMount(){
     Promise.props({
       vinyl: axios.get(`/api/vinyls/${this.props.match.params.id}`).then(res => res.data),
-      vinyls: axios.get('/api/vinyls').then(res => res.data)
+      vinyls: axios.get('/api/vinyls').then(res => res.data),
+      tracks: axios.get('https://cors-anywhere.herokuapp.com/api.deezer.com/album/10709540').then(res => res.data)
     })
       .then(res => {
-        this.setState({ vinyl: res.vinyl, vinyls: res.vinyls })
+        this.setState({ vinyl: res.vinyl, vinyls: res.vinyls, tracks: res.tracks.tracks.data })
       })
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
@@ -38,7 +36,9 @@ class Show extends React.Component {
     console.log(this.state.vinyl, 'ONE VINYL')
     console.log(this.state.vinyls, 'ALL VINYLS')
     const similar = this.state.vinyls.filter(vinyl => vinyl.genre === this.state.vinyl.genre && vinyl.title !== this.state.vinyl.title)
-    console.log(similar)
+    const tracksTame = this.state.tracks
+    console.log(tracksTame, 'TRACKSTAME')
+    console.log(similar, 'SIMILAR')
     return (
       <section className="section" id="vinyl-show">
         <div className="columns">
@@ -69,6 +69,13 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Notes: </span>{notes}</h2>
               <hr />
               <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
+                <ul className="show-tracklisting">
+                  {tracksTame.map(track =>
+                    <li key={track.id}>
+                      <h4 className="subtitle is-6">{track.title}</h4>
+                      <audio src={track.preview} controls />
+                    </li>)}
+                </ul>
               </h2>
             </div>
 
@@ -81,9 +88,9 @@ class Show extends React.Component {
 
               <h2 className="subtitle is-6 subheading-show">You might also like</h2>
 
-              <div className="similar-artist-image">
+              <div>
                 {similar.map(vinyl =>
-                  <div key={vinyl._id}>
+                  <div className="similar-artist-image" key={vinyl._id}>
                     <Link to={`/vinyls/${vinyl._id}`}>
                       <Card {...vinyl} />
                     </Link>

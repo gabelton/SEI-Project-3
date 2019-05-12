@@ -24,7 +24,7 @@ class Index extends React.Component {
       <section className="section" id="index-page">
         <div className="columns is-multiline">
           {this.state.vinyls.map(vinyl =>
-            <div key={vinyl._id} className="column is-one-fifth-desktop is-one-third-tablet">
+            <div key={vinyl._id} className="column is-one-quarter-desktop is-one-third-tablet">
               <Link to={`/vinyls/${vinyl._id}`}>
                 <Card {...vinyl} />
               </Link>
