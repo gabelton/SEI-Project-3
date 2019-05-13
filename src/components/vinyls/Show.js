@@ -49,6 +49,7 @@ class Show extends React.Component {
 
     const tracksLastFm = this.state.tracks
     console.log(tracksLastFm, 'TRACKSLASTFM')
+    console.log(createdBy, 'Created By')
 
     return (
       <section className="section" id="vinyl-show">
@@ -70,7 +71,6 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Year released:</span> {releaseYear}</h2>
               <h2 className="subtitle is-6 show"><span>Genre: </span>{genre}</h2>
               <h2 className="subtitle is-6 show"><span>Length: </span>{length}</h2>
-              <h2 className="subtitle is-6 show"><span>Created by:</span> {createdBy}</h2>
               <h2 className="subtitle is-6 show"><span>Condition: </span>{condition}</h2>
               <h2 className="subtitle is-6 show"><span>Size: </span>{size}</h2>
               <h2 className="subtitle is-6 show"><span>Format: </span>{format}</h2>
