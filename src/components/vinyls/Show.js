@@ -2,16 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Promise from 'bluebird'
-<<<<<<< HEAD
-//import Auth from '../../lib/Auth'
-import Card from './Card'
-// function similarArtist {
-//
-// }
-=======
 import Card from './Card'
 import Loading from '../common/Loading'
->>>>>>> development
 class Show extends React.Component {
   constructor(props) {
     super(props)
@@ -22,7 +14,8 @@ class Show extends React.Component {
       errors: {}
     }
   }
-  componentDidMount(){
+
+  getData() {
     Promise.props({
       vinyl: axios.get(`/api/vinyls/${this.props.match.params.id}`).then(res => res.data),
       vinyls: axios.get('/api/vinyls').then(res => res.data),
@@ -33,6 +26,17 @@ class Show extends React.Component {
       })
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
+
+  componentDidMount(){
+    this.getData()
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.location.pathname !== this.props.location.pathname) {
+      this.getData()
+    }
+  }
+
   render() {
     if(!this.state.vinyl) return <Loading />
     const { _id, artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy } = this.state.vinyl
