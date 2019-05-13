@@ -28,16 +28,14 @@ class Index extends React.Component {
   render() {
     return (
       <section className="section">
-        <div className="container">
-          <div className="columns is-multiline">
-            {this.state.vinyls.map(vinyl =>
-              <div key={vinyl._id} className="column is-one-quarter-desktop is-one-third-tablet">
-                <Link to={`/vinyl/${vinyl._id}`}>
-                  <Card {...vinyl} />
-                </Link>
-              </div>
-            )}
-          </div>
+        <div className="columns is-multiline">
+          {this.state.vinyls.map(vinyl =>
+            <div key={vinyl._id} className="column is-one-fifth-desktop is-one-third-tablet">
+              <Link to={`/vinyl/${vinyl._id}`}>
+                <Card {...vinyl} />
+              </Link>
+            </div>
+          )}
         </div>
       </section>
     )
