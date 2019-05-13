@@ -2,19 +2,61 @@
 $font-stack: Roboto, sans-serif;
 
 #root{
-  background-color: #575656;
+  background-color: #e3e3e3;
 }
 
 .logo {
   max-width: 50px;
+  padding: 5px;
+}
+
+.column {
+  padding: 6px 3px;
+}
+.show-content {
+  background-color: white;
+  padding: 5px;
+  border-radius: 2px;
+  border-top: 5px solid #DD8964;
+}
+
+.show-tracklisting{
+  margin-top: 10px;
+}
+
+.show-content-video, .show-content-comments {
+  background-color: white;
+  padding: 5px;
+  border-radius: 2px;
+  border-top: 5px solid #DD8964;
+  margin-top: 10px;
 }
 
 #vinyl-show {
   margin-top: 20px;
+  background-color: #e3e3e3;
 }
 
 .show {
-  color: white;
+  color: #575656;
+}
+
+.subheading-show {
+  color: #008CBA;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+.similar-show {
+  background-color: white;
+  padding: 5px;
+  border-radius: 2px;
+  border-top: 5px solid #DD8964;
+}
+
+.similar-artist-image {
+  padding: 4px;
 }
 
 .formBox {
@@ -24,29 +66,56 @@ $font-stack: Roboto, sans-serif;
 #artist-show {
   text-transform: uppercase;
   letter-spacing: 6px;
-  color: #008CBA;
+  font-weight: bold;
+  color: #DD8964;
 }
 
-#title-show, span {
-  letter-spacing: 2px;
+#title-show {
+  letter-spacing: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#index-page {
+  margin-top: 20px;
+}
+
+span {
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+audio {
+  background-color: #DD8964;
+  height: 30px;
+  margin-bottom: 5px;
+  width: 500px;
+}
+
+.card {
+  border-bottom: 5px solid #DD8964;
 }
 
 .input {
   width: 300px;
 }
 
+nav {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
 .control {
   margin-top: 14px;
   margin-left: 10px;
 }
-// #vinyl-show-container {
-//   background-color: #E2E2E2;
-// }
+
 .hero-body{
   background-image: url('https://dancingastronaut.com/wp-content/uploads/2018/04/vinyl.jpg');
   background-size: cover;
 }
-.title{
+.title-home{
   color: black;
   font-size: 72px;
   color: #FFFFFF;
@@ -54,9 +123,11 @@ $font-stack: Roboto, sans-serif;
 text-shadow: 1px 1px 29px rgba(0, 84, 31, 1);
 
 }
+
 .section {
   padding-top: 60px;
 }
+
 .profile {
   color: white;
 }
