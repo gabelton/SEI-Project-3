@@ -238,7 +238,7 @@ const Form = ({ handleChange, handleSubmit, data, errors}) => {
               {errors.barcode && <div className="help is-danger">{errors.barcode}</div>}
             </div>
 
-            <button className="button is-primary">Submit</button>
+            <button className="button is-black">Submit</button>
           </form>
         </div>
       </div>

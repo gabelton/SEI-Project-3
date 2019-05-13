@@ -56,7 +56,7 @@ class Navbar extends React.Component{
 
           <div className="navbar-start">
             {/* left hand links */}
-            <Link to="/vinyls/all" className="navbar-item">Vinyl collection</Link>
+            <Link to="/vinyls" className="navbar-item">Vinyl collection</Link>
             {Auth.isAuthenticated() && <Link to="/vinyls/new" className="navbar-item">Add new vinyl</Link>}
           </div>
 

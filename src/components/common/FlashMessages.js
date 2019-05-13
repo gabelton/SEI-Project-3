@@ -30,7 +30,7 @@ class FlashMessages extends React.Component {
       <div>
         {this.state.messages && Object.keys(this.state.messages).map(type =>
           <div key={type} className={`notification is-${type}`}>
-            <div className="container">{this.state.messages[type]}</div>
+            <div className="container flashMessage">{this.state.messages[type]}</div>
           </div>
         )}
       </div>

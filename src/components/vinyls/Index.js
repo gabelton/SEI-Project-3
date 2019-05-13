@@ -13,10 +13,10 @@ class Index extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({list: this.props.match.params.list})
+    this.setState({list: this.props.location.search.substr(1)})
     axios('/api/vinyls')
       .then(res => {
-        if(this.state.list === 'all'){
+        if(this.state.list === ''){
           return this.setState({ vinyls: res.data })
         }
         const vinylsList = res.data.filter(vinyl => vinyl.genre === this.state.list)
@@ -26,18 +26,17 @@ class Index extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <section className="section">
-        <div className="container">
-          <div className="columns is-multiline">
-            {this.state.vinyls.map(vinyl =>
-              <div key={vinyl._id} className="column is-one-quarter-desktop is-one-third-tablet">
-                <Link to={`/vinyl/${vinyl._id}`}>
-                  <Card {...vinyl} />
-                </Link>
-              </div>
-            )}
-          </div>
+        <div className="columns is-multiline">
+          {this.state.vinyls.map(vinyl =>
+            <div key={vinyl._id} className="column is-one-fifth-desktop is-one-third-tablet">
+              <Link to={`/vinyls/${vinyl._id}`}>
+                <Card {...vinyl} />
+              </Link>
+            </div>
+          )}
         </div>
       </section>
     )
