@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
-// import Auth from '../../lib/Auth'
+import Auth from '../../lib/Auth'
+import { Link } from 'react-router-dom'
 
 import Card from './Card'
 
@@ -21,6 +22,10 @@ class Show extends React.Component {
       .catch(err => console.error(err))
   }
 
+  canModify() {
+    return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.user._id
+  }
+
 
   render() {
     if(!this.state.user) return null
@@ -28,7 +33,11 @@ class Show extends React.Component {
     return(
       <section className="section">
         <div className="container">
-          <Card {...this.state.user} />
+          
+
+          <Card {...this.state.user}
+
+          />
         </div>
       </section>
     )

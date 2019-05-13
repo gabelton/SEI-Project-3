@@ -59,6 +59,10 @@ $font-stack: Roboto, sans-serif;
   padding: 4px;
 }
 
+.formBox {
+  background-color: white;
+  padding: 20px;
+}
 #artist-show {
   text-transform: uppercase;
   letter-spacing: 6px;
@@ -131,12 +135,12 @@ text-shadow: 1px 1px 29px rgba(0, 84, 31, 1);
 //   background-color: black;
 //   color: whie;
 // }
-// // a img:last-child {
-// //   display: none;
-// // }
-// a:hover img:last-child {
-//   display: inline;
-// }
-// a:hover img:first-child {
-//   display: none;
-// }
+ .folder img:last-child {
+   display: none;
+ }
+.folder:hover img:last-child {
+  display: inline;
+}
+.folder:hover img:first-child {
+  display: none;
+}

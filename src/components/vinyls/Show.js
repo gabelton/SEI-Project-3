@@ -4,6 +4,10 @@ import axios from 'axios'
 import Promise from 'bluebird'
 import Card from './Card'
 import Loading from '../common/Loading'
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
 class Show extends React.Component {
   constructor(props) {
     super(props)

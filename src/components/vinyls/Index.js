@@ -1,25 +1,33 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
 import Card from './Card'
 
 class Index extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state= {
-      vinyls: []
+      vinyls: [],
+      list: ''
     }
   }
 
   componentDidMount() {
+    this.setState({list: this.props.match.params.list})
     axios('/api/vinyls')
-      .then(res => this.setState({ vinyls: res.data }))
+      .then(res => {
+        if(this.state.list === 'all'){
+          return this.setState({ vinyls: res.data })
+        }
+        const vinylsList = res.data.filter(vinyl => vinyl.genre === this.state.list)
+        return this.setState({ vinyls: vinylsList })
+      }
+      )
   }
 
   render() {
-    console.log(this.state.vinyls)
     return (
+<<<<<<< HEAD
       <section className="section" id="index-page">
         <div className="columns is-multiline">
           {this.state.vinyls.map(vinyl =>
@@ -30,6 +38,19 @@ class Index extends React.Component {
             </div>
           )}
 
+=======
+      <section className="section">
+        <div className="container">
+          <div className="columns is-multiline">
+            {this.state.vinyls.map(vinyl =>
+              <div key={vinyl._id} className="column is-one-quarter-desktop is-one-third-tablet">
+                <Link to={`/vinyl/${vinyl._id}`}>
+                  <Card {...vinyl} />
+                </Link>
+              </div>
+            )}
+          </div>
+>>>>>>> development
         </div>
       </section>
     )

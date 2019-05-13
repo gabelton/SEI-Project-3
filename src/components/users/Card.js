@@ -3,10 +3,10 @@ import React from 'react'
 const Card = ({ image, username, bio }) => {
   return(
     <section className="section">
-      <div className="container tag:red">
+      <div className="container">
         <div className="columns">
 
-          <div className="column is-third tag:blue">
+          <div className="column is-third">
             <div className="user-info">
               <div className="user-image">
                 <figure className="image">
