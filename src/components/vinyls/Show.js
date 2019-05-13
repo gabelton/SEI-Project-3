@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Promise from 'bluebird'
 import Card from './Card'
-
+import Loading from '../common/Loading'
 class Show extends React.Component {
 
   constructor(props) {
@@ -30,7 +30,7 @@ class Show extends React.Component {
   }
 
   render() {
-    if(!this.state.vinyl) return null
+    if(!this.state.vinyl) return <Loading />
     const { _id, artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy } = this.state.vinyl
     console.log(this.state.vinyls.image, 'IMAGE')
     console.log(this.state.vinyl, 'ONE VINYL')
