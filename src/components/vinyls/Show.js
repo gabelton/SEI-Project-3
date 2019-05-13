@@ -4,6 +4,7 @@ import axios from 'axios'
 import Promise from 'bluebird'
 import Card from './Card'
 import Loading from '../common/Loading'
+import Comment from '../comments/Comment'
 
 class Show extends React.Component {
   constructor(props) {
@@ -73,7 +74,7 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Year released:</span> {releaseYear}</h2>
               <h2 className="subtitle is-6 show"><span>Genre: </span>{genre}</h2>
               <h2 className="subtitle is-6 show"><span>Length: </span>{length}</h2>
-              <h2 className="subtitle is-6 show"><span>Created by: </span>{createdBy.username}</h2>
+              <h2 className="subtitle is-6 show"><span>Created by: </span>{createdBy.username}</h2> 
               <h2 className="subtitle is-6 show"><span>Condition: </span>{condition}</h2>
               <h2 className="subtitle is-6 show"><span>Size: </span>{size}</h2>
               <h2 className="subtitle is-6 show"><span>Format: </span>{format}</h2>
@@ -95,6 +96,8 @@ class Show extends React.Component {
 
             <div className="show-content-comments subheading-show">
               Comments
+              <Comment />
+
             </div>
           </div>
           <div className="column is-one-fifth-desktop is-half-tablet is-full-mobile">
