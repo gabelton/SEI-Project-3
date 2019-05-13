@@ -2,24 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Promise from 'bluebird'
-<<<<<<< HEAD
-//import Auth from '../../lib/Auth'
-import Card from './Card'
-// function similarArtist {
-//
-// }
-=======
 import Card from './Card'
 import Loading from '../common/Loading'
->>>>>>> development
+
 class Show extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      vinyl: [],
-      vinyls: [],
-      tracks: [],
-      errors: {}
+      vinyl: null,
+      vinyls: null,
+      tracks: null,
+      errors: null
     }
   }
   componentDidMount(){
@@ -34,7 +27,7 @@ class Show extends React.Component {
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
   render() {
-    if(!this.state.vinyl) return <Loading />
+    if(!this.state.vinyl) return null //<Loading />
     const { _id, artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy } = this.state.vinyl
 
     console.log(this.state.vinyls.image, 'IMAGE')
@@ -47,6 +40,7 @@ class Show extends React.Component {
     const tracksTame = this.state.tracks
     console.log(tracksTame, 'TRACKSTAME')
     console.log(similar, 'SIMILAR')
+    console.log(createdBy, 'Created By')
     return (
       <section className="section" id="vinyl-show">
         <div className="columns">
@@ -67,7 +61,7 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Year released:</span> {releaseYear}</h2>
               <h2 className="subtitle is-6 show"><span>Genre: </span>{genre}</h2>
               <h2 className="subtitle is-6 show"><span>Length: </span>{length}</h2>
-              <h2 className="subtitle is-6 show"><span>Created by:</span> {createdBy}</h2>
+              <h2 className="subtitle is-6 show"><span>Created by: </span>{createdBy.username}</h2>
               <h2 className="subtitle is-6 show"><span>Condition: </span>{condition}</h2>
               <h2 className="subtitle is-6 show"><span>Size: </span>{size}</h2>
               <h2 className="subtitle is-6 show"><span>Format: </span>{format}</h2>
