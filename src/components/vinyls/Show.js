@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -19,11 +18,11 @@ class Show extends React.Component {
   getData() {
     Promise.props({
       vinyl: axios.get(`/api/vinyls/${this.props.match.params.id}`).then(res => res.data),
-      vinyls: axios.get('/api/vinyls').then(res => res.data),
-      tracks: axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.LASTFM_API_KEY}&artist=Cher&album=Believe&format=json`).then(res => res.data)
+      vinyls: axios.get('/api/vinyls').then(res => res.data)
     })
       .then(res => {
-        this.setState({ vinyl: res.vinyl, vinyls: res.vinyls, tracks: res.tracks.album.tracks.track })
+        axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.LASTFM_API_KEY}&artist=${res.vinyl.artist}&album=${res.vinyl.title}&format=json`)
+          .then(trackRes => this.setState({ vinyl: res.vinyl, vinyls: res.vinyls, tracks: trackRes.data.album.tracks.track }))
       })
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
@@ -39,6 +38,7 @@ class Show extends React.Component {
   }
 
   render() {
+    console.log(this.state, 'I am state')
     if(!this.state.vinyl) return null
     const { _id, artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy } = this.state.vinyl
     console.log(this.state.vinyl, 'ONE VINYL')
