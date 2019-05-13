@@ -4,10 +4,7 @@ import axios from 'axios'
 import Promise from 'bluebird'
 import Card from './Card'
 import Loading from '../common/Loading'
-<<<<<<< HEAD
-=======
 
->>>>>>> development
 class Show extends React.Component {
   constructor(props) {
     super(props)
@@ -107,7 +104,7 @@ class Show extends React.Component {
               <div>
                 {similar.map(vinyl =>
                   <div className="similar-artist-image" key={vinyl._id}>
-                    <Link to={`/vinyls/${vinyl._id}`}>
+                    <Link to={`/vinyl/${vinyl._id}`}>
                       <Card {...vinyl} />
                     </Link>
                   </div>

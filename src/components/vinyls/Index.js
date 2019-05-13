@@ -27,18 +27,6 @@ class Index extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <section className="section" id="index-page">
-        <div className="columns is-multiline">
-          {this.state.vinyls.map(vinyl =>
-            <div key={vinyl._id} className="column is-one-fifth-desktop is-one-third-tablet">
-              <Link to={`/vinyls/${vinyl._id}`}>
-                <Card {...vinyl} />
-              </Link>
-            </div>
-          )}
-
-=======
       <section className="section">
         <div className="container">
           <div className="columns is-multiline">
@@ -50,7 +38,6 @@ class Index extends React.Component {
               </div>
             )}
           </div>
->>>>>>> development
         </div>
       </section>
     )
