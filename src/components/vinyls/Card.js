@@ -8,13 +8,9 @@ const Card = ({ artist, image, title }) => {
           <img src={image} alt={title} />
         </figure>
       </div>
-      <div className="card-header">
-        <h3 className="card-header-title">{title}</h3>
-      </div>
       <div className="card-content">
-        <div className="content">
-          <p>{artist}</p>
-        </div>
+        <p className="title is-5">{title}</p>
+        <p className="subtitle is-6">{artist}</p>
       </div>
     </div>
   )

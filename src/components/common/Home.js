@@ -64,7 +64,7 @@ class Home extends React.Component {
       <section className="hero is-large">
         <div className="hero-body">
           <div className="container">
-            <h1 className="title display">Project Black</h1>
+            <h1 className="title display title-home">Project Black</h1>
             <h2 className="subtitle"></h2>
           </div>
         </div>
