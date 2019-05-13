@@ -9,7 +9,7 @@ class Edit extends React.Component{
     super()
 
     this.state ={
-      data: {},
+      data: [],
       errors: {}
     }
 
@@ -18,7 +18,7 @@ class Edit extends React.Component{
   }
   componentDidMount() {
     axios.get(`/api/users/${this.props.match.params.id}`)
-      .then(res => res.data)
+      .then(res => this.setState({ data: res.data }))
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
 
@@ -29,6 +29,7 @@ class Edit extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault()
+    console.log(this.state, 'inside submit')
 
     const token = Auth.getToken()
 
@@ -41,67 +42,68 @@ class Edit extends React.Component{
 
 
   render() {
-    console.log(this.state)
+    console.log(this.state, 'i am state')
     return (
       <section className="section">
-        <div className="container">
+        <div className="container ">
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
-
-              <form onSubmit={this.handleSubmit}>
-                <div className="field">
-                  <label className="label">Username</label>
+              <div className="formBox">
+                <form onSubmit={this.handleSubmit}>
+                  <div className="field">
+                    <label className="label">Username</label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        name="username"
+                        placeholder={this.state.data.username}
+                        onChange={this.handleChange}
+                        value={this.state.data.username || ''}
+                      />
+                    </div>
+                    {this.state.errors.username && <div className="help is-danger">{this.state.errors.username}</div>}
+                  </div>
+                  <div className="field">
+                    <label className="label">Image</label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        name="image"
+                        placeholder="eg: some img"
+                        onChange={this.handleChange}
+                        value={this.state.data.image || ''}
+                      />
+                    </div>
+                    {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
+                  </div>
+                  <div className="field">
+                    <label className="label">Email</label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        name="email"
+                        placeholder="eg: vinylhead93@v-mail.com"
+                        onChange={this.handleChange}
+                        value={this.state.data.email || ''}
+                      />
+                    </div>
+                    {this.state.errors.email && <div className="help is-danger">{this.state.errors.email}</div>}
+                  </div>
+                  <label className="label">Bio</label>
                   <div className="control">
                     <input
-                      className="input"
-                      name="username"
+                      className="textarea"
+                      name="bio"
                       placeholder="eg: vinylhead93"
                       onChange={this.handleChange}
-                      value={this.state.data.username || ''}
+                      value={this.state.data.bio || ''}
                     />
                   </div>
-                  {this.state.errors.name && <div className="help is-danger">{this.state.errors.name}</div>}
-                </div>
-                <div className="field">
-                  <label className="label">Image</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      name="image"
-                      placeholder="eg: some img"
-                      onChange={this.handleChange}
-                      value={this.state.data.image || ''}
-                    />
-                  </div>
-                  {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
-                </div>
-                <div className="field">
-                  <label className="label">Email</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      name="email"
-                      placeholder="eg: vinylhead93@v-mail.com"
-                      onChange={this.handleChange}
-                      value={this.state.data.email || ''}
-                    />
-                  </div>
-                  {this.state.errors.email && <div className="help is-danger">{this.state.errors.email}</div>}
-                </div>
-                <label className="label">Bio</label>
-                <div className="control">
-                  <input
-                    className="textarea"
-                    name="bio"
-                    placeholder="eg: vinylhead93"
-                    onChange={this.handleChange}
-                    value={this.state.data.bio || ''}
-                  />
-                </div>
-                {this.state.errors.bio && <div className="help is-danger">{this.state.errors.bio}</div>}
+                  {this.state.errors.bio && <div className="help is-danger">{this.state.errors.bio}</div>}
 
-                <button className="button is-black">Submit</button>
-              </form>
+                  <button type="submit"className="button is-black">Submit</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>

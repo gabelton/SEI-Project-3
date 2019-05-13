@@ -2,7 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Promise from 'bluebird'
+
+//import Auth from '../../lib/Auth'
 import Card from './Card'
+// function similarArtist {
+//
+// }
+import Loading from '../common/Loading'
 
 class Show extends React.Component {
   constructor(props) {

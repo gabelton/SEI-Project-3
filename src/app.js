@@ -17,6 +17,7 @@ import VinylsIndex from './components/vinyls/Index'
 
 
 import UsersShow from './components/users/Show'
+import UsersEdit from './components/users/Edit'
 
 
 import 'bulma'
@@ -30,10 +31,13 @@ class App extends React.Component {
           <Navbar />
           <FlashMessages />
           <Switch>
+            <SecureRoute path="/users/:id/edit" component={UsersEdit} />
             <SecureRoute path="/users/:id" component={UsersShow} />
+
             <SecureRoute path="/vinyls/new" component={VinylsNew} />
             <Route path="/vinyls/:id" component={VinylsShow} />
             <Route path="/vinyls" component={VinylsIndex} />
+
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/" component={Home} />
