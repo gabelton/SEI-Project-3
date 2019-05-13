@@ -15,6 +15,7 @@ import Register from './components/auth/Register'
 
 import VinylsIndex from './components/vinyls/Index'
 
+
 import UsersShow from './components/users/Show'
 import UsersEdit from './components/users/Edit'
 

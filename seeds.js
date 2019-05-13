@@ -22,7 +22,7 @@ mongoose.connect(dbURI, (err, db) => {
         passwordConfirmation: 'pass'
       })
     })
-    .then(() => {
+    .then(user => {
       return Vinyl.create([{
         artist: 'Childish Gambino',
         title: 'Awaken, My Love',
@@ -37,7 +37,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: 'GLS-0209-01',
-        barcode: 810599021412
+        barcode: 810599021412,
+        createdBy: user
       },{
         artist: 'A Tribe Called Quest',
         title: 'The Low End Theory',
@@ -52,7 +53,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '1418-1-JDJ',
-        barcode: 3562749401700
+        barcode: 3562749401700,
+        createdBy: user
       },{
         artist: 'Slayer',
         title: 'Reign In Blood',
@@ -67,7 +69,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'GHS 24131',
-        barcode: 6007535010540
+        barcode: 6007535010540,
+        createdBy: user
       },{
         artist: 'Ornette Coleman',
         title: 'The Shape Of Jazz To Come',
@@ -82,7 +85,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: 'ATL-5038',
-        barcode: 7567813392
+        barcode: 7567813392,
+        createdBy: user
       },{
         artist: 'Chaka Khan',
         title: 'Hello Happiness',
@@ -97,7 +101,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '7738531',
-        barcode: 602577385315
+        barcode: 602577385315,
+        createdBy: user
       },{
         artist: 'Robyn',
         title: 'Honey',
@@ -112,7 +117,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'KOR057LP',
-        barcode: 602567994688
+        barcode: 602567994688,
+        createdBy: user
       },{
         artist: 'Nancy Wilson/Cannonball Adderley',
         title: 'Nancy Wilson/Cannonball Adderley',
@@ -127,7 +133,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'ST-1657',
-        barcode: 123456789
+        barcode: 123456789,
+        createdBy: user
       },{
         artist: 'St Vincent',
         title: 'St Vincent',
@@ -142,7 +149,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: 'UNIW40355',
-        barcode: 60253672509
+        barcode: 60253672509,
+        createdBy: user
       },{
         artist: 'Radiohead',
         title: 'In Rainbows',
@@ -157,7 +165,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'XLLP 324',
-        barcode: 880882162313
+        barcode: 880882162313,
+        createdBy: user
       },{
         artist: 'D\'Angelo',
         title: 'Brown Sugar',
@@ -172,7 +181,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: '4724081',
-        barcode: 602547240811
+        barcode: 602547240811,
+        createdBy: user
       },{
         artist: 'Kendrick Lamar',
         title: 'Damn',
@@ -187,7 +197,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: '5761828',
-        barcode: 602557618280
+        barcode: 602557618280,
+        createdBy: user
       },{
         artist: 'Glass Animals',
         title: 'How To Be A Human Being',
@@ -202,7 +213,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: 'WOLFTONE012LP',
-        barcode: 602547950871
+        barcode: 602547950871,
+        createdBy: user
       },{
         artist: 'Kate Tempest',
         title: 'Let Them Eat Chaos',
@@ -217,7 +229,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: 'CHAOS23',
-        barcode: 602557128277
+        barcode: 602557128277,
+        createdBy: user
       },{
         artist: 'Taylor Swift',
         title: '1989',
@@ -232,7 +245,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: 'LC01846',
-        barcode: 602547092687
+        barcode: 602547092687,
+        createdBy: user
       },{
         artist: 'Tame Impala',
         title: 'Currents',
@@ -247,7 +261,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: '4730677',
-        barcode: 602547306777
+        barcode: 602547306777,
+        createdBy: user
       },{
         artist: 'Sam Cooke',
         title: 'Portrait Of A Legend',
@@ -262,7 +277,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: 'LC22670',
-        barcode: 18771926412
+        barcode: 18771926412,
+        createdBy: user
       },{
         artist: 'Count Basie and his orchestra',
         title: 'April in Paris',
@@ -277,7 +293,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '5345893',
-        barcode: 600753458938
+        barcode: 600753458938,
+        createdBy: user
       },{
         artist: 'John Coltrane',
         title: 'Both Directions At Once: The Lost Album',
@@ -292,7 +309,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: '6749301',
-        barcode: 602567493013
+        barcode: 602567493013,
+        createdBy: user
       },{
         artist: 'Chris Stapleton',
         title: 'Traveller',
@@ -307,7 +325,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: '4725522',
-        barcode: 602547255228
+        barcode: 602547255228,
+        createdBy: user
       },{
         artist: 'Amy Winehouse',
         title: 'Back To Black',
@@ -322,7 +341,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '1734128',
-        barcode: 602517341289
+        barcode: 602517341289,
+        createdBy: user
       },{
         artist: 'Max Richter',
         title: 'Recomposed: Vivaldi - The Four Seasons',
@@ -337,7 +357,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: '4793337',
-        barcode: 28947933373
+        barcode: 28947933373,
+        createdBy: user
       },{
         artist: 'Bjork',
         title: 'Vulnicura',
@@ -352,7 +373,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: 'LC 03275',
-        barcode: 5016958998271
+        barcode: 5016958998271,
+        createdBy: user
       },{
         artist: 'Nina Simone',
         title: 'I Put A Spell On You',
@@ -367,7 +389,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '5360570',
-        barcode: 600753605707
+        barcode: 600753605707,
+        createdBy: user
       },{
         artist: 'Stevie Wonder',
         title: 'Innervisions',
@@ -382,7 +405,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'LC00881',
-        barcode: 50109032617
+        barcode: 50109032617,
+        createdBy: user
       },{
         artist: 'The Weeknd',
         title: 'Starboy',
@@ -397,7 +421,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: '5722751',
-        barcode: 602557227512
+        barcode: 602557227512,
+        createdBy: user
       },{
         artist: 'David Brent & Foregone Conclusion',
         title: 'Lady Gypsy / Life On The Road',
@@ -412,7 +437,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '5702631',
-        barcode: 602557026313
+        barcode: 602557026313,
+        createdBy: user
       },{
         artist: 'Keith Jarrett',
         title: 'The Koln Concert',
@@ -427,7 +453,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: '2727888',
-        barcode: 602527278889
+        barcode: 602527278889,
+        createdBy: user
       },{
         artist: 'Dr Dre',
         title: '2001',
@@ -442,7 +469,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: 'LC06406',
-        barcode: 606949048617
+        barcode: 606949048617,
+        createdBy: user
       },{
         artist: 'Kendrick Lamar',
         title: 'To Pimp A Butterfly',
@@ -457,7 +485,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: '4731100',
-        barcode: 602547311009
+        barcode: 602547311009,
+        createdBy: user
       },{
         artist: 'Nick Drake',
         title: 'Five Leaves Left',
@@ -472,7 +501,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '3734756',
-        barcode: 602537347568
+        barcode: 602537347568,
+        createdBy: user
       },{
         artist: 'Bill Evans',
         title: 'Conversations With Myself',
@@ -487,7 +517,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '5345891',
-        barcode: 600753458914
+        barcode: 600753458914,
+        createdBy: user
       },{
         artist: 'Frank Sinatra',
         title: 'Come Fly With Me',
@@ -502,7 +533,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '3776149',
-        barcode: 602537761494
+        barcode: 602537761494,
+        createdBy: user
       },{
         artist: 'Donna Summer',
         title: 'Love To Love You Donna',
@@ -517,7 +549,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: 'LC00383',
-        barcode: 60253750658
+        barcode: 60253750658,
+        createdBy: user
       },{
         artist: 'Thelonious Monk',
         title: 'Brilliant Corners',
@@ -532,7 +565,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'OJC-026',
-        barcode: 25218602617
+        barcode: 25218602617,
+        createdBy: user
       },{
         artist: 'Bon Iver',
         title: 'Bon Iver',
@@ -547,7 +581,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'CAD3117',
-        barcode: 652637311716
+        barcode: 652637311716,
+        createdBy: user
       },{
         artist: 'James Blake',
         title: 'James Blake',
@@ -562,7 +597,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'ATLAS02LP',
-        barcode: 602527554723
+        barcode: 602527554723,
+        createdBy: user
       },{
         artist: 'Charlie Parker',
         title: 'Charlie Parker With Strings',
@@ -577,7 +613,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'MG C-675',
-        barcode: 600753458884
+        barcode: 600753458884,
+        createdBy: user
       },{
         artist: 'Erykah Badu',
         title: 'Baduizm',
@@ -592,7 +629,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'LC 01056',
-        barcode: 601215302714
+        barcode: 601215302714,
+        createdBy: user
       },{
         artist: 'Marvin Gaye',
         title: 'Let\'s Get It On',
@@ -607,7 +645,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: '5353425',
-        barcode: 600753534250
+        barcode: 600753534250,
+        createdBy: user
       },{
         artist: 'Iggy Pop',
         title: 'Post Pop Depression',
@@ -622,7 +661,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '2LP',
         speed: '45 RPM',
         catalogueNumber: 'CAROLO11LP',
-        barcode: 602547778215
+        barcode: 602547778215,
+        createdBy: user
       },{
         artist: 'John Coltrane',
         title: 'Blue Train',
@@ -637,7 +677,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '3771410',
-        barcode: 602537714100
+        barcode: 602537714100,
+        createdBy: user
       },{
         artist: 'Cannonball Adderley',
         title: 'Somethin\' Else',
@@ -652,7 +693,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '377307',
-        barcode: 60253773070
+        barcode: 60253773070,
+        createdBy: user
       },{
         artist: 'St Vincent',
         title: 'Masseduction',
@@ -667,7 +709,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'LVR00224',
-        barcode: 888072037113
+        barcode: 888072037113,
+        createdBy: user
       },{
         artist: 'The Rolling Stones',
         title: 'Sticky Fingers',
@@ -682,7 +725,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '376482',
-        barcode: 60253764821
+        barcode: 60253764821,
+        createdBy: user
       },{
         artist: 'Caribou',
         title: 'Our Love',
@@ -697,7 +741,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'SLANG50070LP',
-        barcode: 4250506809560
+        barcode: 4250506809560,
+        createdBy: user
       },{
         artist: 'Various Artists',
         title: 'Guardians Of The Galaxy: Awesome Mix Volume. 1',
@@ -712,7 +757,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '731641',
-        barcode: 50087316419
+        barcode: 50087316419,
+        createdBy: user
       },{
         artist: 'David Bowie',
         title: 'Aladdin Sane',
@@ -727,7 +773,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'LSP-4852',
-        barcode: 78763908747
+        barcode: 78763908747,
+        createdBy: user
       },{
         artist: 'Various Artists',
         title: 'Baby Driver: Music From The Motion Picture',
@@ -742,7 +789,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '5477481',
-        barcode: 88985477481
+        barcode: 88985477481,
+        createdBy: user
       },{
         artist: 'Videosex',
         title: 'Videosex 84',
@@ -757,7 +805,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'RH RSS 26',
-        barcode: 4789387452
+        barcode: 4789387452,
+        createdBy: user
       },{
         artist: 'Metallica',
         title: 'Kill \'Em All',
@@ -772,7 +821,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'MRI 069',
-        barcode: 42283814240
+        barcode: 42283814240,
+        createdBy: user
       },{
         artist: 'Guns N\' Roses',
         title: 'Appetite For Destruction',
@@ -787,7 +837,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '4241481',
-        barcode: 720642414811
+        barcode: 720642414811,
+        createdBy: user
       },{
         artist: 'Herbert Von Karajan, Berlin Philharmonic',
         title: 'Stravinsky: Le Sacre Du Printemps',
@@ -802,7 +853,8 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: '138 920 SLPM, ',
-        barcode: 2895678948
+        barcode: 2895678948,
+        createdBy: user
       },{
         artist: 'Mystery Jets',
         title: 'Curve Of The Earth',
@@ -817,7 +869,14 @@ mongoose.connect(dbURI, (err, db) => {
         format: '1LP',
         speed: '45 RPM',
         catalogueNumber: 'CAROL009CD',
-        barcode: 602547595546
+        barcode: 602547595546,
+        createdBy: user
       }])
+    })
+
+    .then(() => mongoose.connection.close()) // disconnect from the database
+    .catch(err => {
+      console.log(err) // log any errors
+      mongoose.connection.close() // disconnect from the database
     })
 })
