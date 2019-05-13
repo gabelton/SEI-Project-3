@@ -2,16 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Promise from 'bluebird'
-<<<<<<< HEAD
+
 //import Auth from '../../lib/Auth'
 import Card from './Card'
 // function similarArtist {
 //
 // }
-=======
-import Card from './Card'
 import Loading from '../common/Loading'
->>>>>>> development
+
 class Show extends React.Component {
   constructor(props) {
     super(props)
