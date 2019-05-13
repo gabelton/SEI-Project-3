@@ -3,34 +3,6 @@ import { Link } from 'react-router-dom'
 import Card from '../vinyls/Card'
 import axios from 'axios'
 
-// const sortBy = (function () {
-//   const toString = Object.prototype.toString,
-//     // default parser function
-//     parse = function (x) {
-//       return x
-//     }
-//     // gets the item to be sorted
-//   const  getItem = function (x) {
-//     const isObject = x != null && typeof x === 'object'
-//     const isProp = isObject && this.prop in x
-//     return this.parser(isProp ? x[this.prop] : x)
-//   }
-//
-//   return function sortby (array, cfg) {
-//     if (!(array instanceof Array && array.length)) return []
-//     if (toString.call(cfg) !== '[object Object]') cfg = {}
-//     if (typeof cfg.parser !== 'function') cfg.parser = parse
-//     cfg.desc = !!cfg.desc ? -1 : 1
-//     return array.sort(function (a, b) {
-//       a = getItem.call(cfg, a)
-//       b = getItem.call(cfg, b)
-//       return cfg.desc * (a < b ? -1 : +(a > b))
-//     })
-//   }
-//
-// }())
-//const arr = this.state.vinyls
-//const createdAt = this.state.vinyls.createdAt
 
 function orderByDate(arr) {
   return arr.slice().sort(function (a, b) {
@@ -47,11 +19,10 @@ class Home extends React.Component {
       vinyls: [],
       genre: {}
     }
-    this.handleClick = this.handleClick.bind(this)
+
   }
-  handleClick() {
-    this.setState({genre: 'raggae'})
-  }
+
+
 
   componentDidMount() {
     axios('/api/vinyls')
@@ -60,23 +31,23 @@ class Home extends React.Component {
 
   render() {
     let recentFour = orderByDate(this.state.vinyls, this.state.vinyls.createdAt)
-    recentFour = recentFour.slice(0,5)
+    recentFour = recentFour.slice(0,4)
     console.log(this.state.genre)
     console.log(this.state.vinyls)
     return (
       <section className="hero is-large">
         <div className="hero-body">
           <div className="container">
-            <h1 className="title display">Project Black</h1>
+            <h1 className="title display title-home">Project Black</h1>
             <h2 className="subtitle"></h2>
           </div>
         </div>
-        <div className="container has-background-black">
-          <div className="notification has-background-black">
+        <div className="container">
+          <div className="notification ">
             <strong>RECENTLY ADDED</strong>
-            <div className="columns is-multiline has-background-black">
+            <div className="columns is-multiline">
               {recentFour.map(vinyl =>
-                <div key={vinyl._id} className="column is-one-fifth-desktop is-one-third-tablet">
+                <div key={vinyl._id} className="column is-one-quarter-desktop is-one-third-tablet">
                   <Link to={`/vinyl/${vinyl._id}`}>
                     <Card {...vinyl} />
                   </Link>

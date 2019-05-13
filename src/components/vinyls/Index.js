@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import Auth from '../../lib/Auth'
 import Card from './Card'
 
 class Index extends React.Component {
@@ -26,10 +25,8 @@ class Index extends React.Component {
       )
   }
 
-
   render() {
     return (
-
       <section className="section">
         <div className="container">
           <div className="columns is-multiline">
@@ -40,7 +37,6 @@ class Index extends React.Component {
                 </Link>
               </div>
             )}
-
           </div>
         </div>
       </section>
