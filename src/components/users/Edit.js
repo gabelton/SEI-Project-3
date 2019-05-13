@@ -45,7 +45,7 @@ class Edit extends React.Component{
     console.log(this.state, 'i am state')
     return (
       <section className="section">
-        <div className="container is-fluid">
+        <div className="container ">
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
               <div className="formBox">

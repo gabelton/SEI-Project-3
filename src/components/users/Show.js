@@ -9,7 +9,8 @@ class Show extends React.Component {
     super(props)
 
     this.state = {
-      user: {}
+      user: {},
+      vinyl: []
     }
   }
 
@@ -47,7 +48,7 @@ class Show extends React.Component {
                   </figure>
                 </div>
                 <div className="username">
-                  <h3 className="profile">{this.state.user.username}</h3>
+                  <h3 className="subheading-show">{this.state.user.username}</h3>
                 </div>
                 <div className="user-bio">
                   <p className="profile">{this.state.user.bio}</p>
@@ -56,18 +57,21 @@ class Show extends React.Component {
             </div>
 
             <div className="column is-third">
-              <div className="placeholder1">
-                <h3 className="subtitle profile">Vinyl collection</h3>
+              <div className="vinylCollection">
+                <h3 className="subtitle subheading-show">Vinyl collection</h3>
+                <div className="vinylArray">{this.state.vinyl}
+
+                </div>
               </div>
             </div>
             <div className="column is-third">
-              <div className="placeholder2">
-                <div className="wishlist">
-                  <h3 className="subtitle profile">wishlist</h3>
+              <div className="wishList">
+                <div className="wishList">
+                  <h3 className="subtitle subheading-show">Wish List</h3>
                 </div>
-                <div className="selllist">
-                  <h3 className="subtitle profile">selllist</h3>
-                </div>
+              </div>
+              <div className="sellList">
+                <h3 className="subtitle subheading-show">Sell List</h3>
               </div>
             </div>
           </div>
