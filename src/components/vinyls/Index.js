@@ -13,10 +13,10 @@ class Index extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({list: this.props.match.params.list})
+    this.setState({list: this.props.location.search.substr(1)})
     axios('/api/vinyls')
       .then(res => {
-        if(this.state.list === 'all'){
+        if(this.state.list === ''){
           return this.setState({ vinyls: res.data })
         }
         const vinylsList = res.data.filter(vinyl => vinyl.genre === this.state.list)
@@ -26,6 +26,7 @@ class Index extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <section className="section">
         <div className="columns is-multiline">

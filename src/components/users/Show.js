@@ -33,8 +33,7 @@ class Show extends React.Component {
     return(
       <section className="section">
         <div className="container">
-          
-
+           
           <Card {...this.state.user}
 
           />
