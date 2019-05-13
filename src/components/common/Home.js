@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Card from '../vinyls/Card'
 import axios from 'axios'
 
-
 function orderByDate(arr) {
   return arr.slice().sort(function (a, b) {
     const aDate = new Date(a.createdAt)
@@ -19,10 +18,7 @@ class Home extends React.Component {
       vinyls: [],
       genre: {}
     }
-
   }
-
-
 
   componentDidMount() {
     axios('/api/vinyls')
@@ -48,7 +44,7 @@ class Home extends React.Component {
             <div className="columns is-multiline">
               {recentFour.map(vinyl =>
                 <div key={vinyl._id} className="column is-one-quarter-desktop is-one-third-tablet">
-                  <Link to={`/vinyl/${vinyl._id}`}>
+                  <Link to={`/vinyls/${vinyl._id}`}>
                     <Card {...vinyl} />
                   </Link>
                 </div>

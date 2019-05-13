@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Promise from 'bluebird'
 import Card from './Card'
-import Loading from '../common/Loading'
 
 class Show extends React.Component {
   constructor(props) {
@@ -20,7 +19,7 @@ class Show extends React.Component {
     Promise.props({
       vinyl: axios.get(`/api/vinyls/${this.props.match.params.id}`).then(res => res.data),
       vinyls: axios.get('/api/vinyls').then(res => res.data),
-      tracks: axios.get('http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=4caa3752359bc9cfe863c4e3eb272f76&artist=Cher&album=Believe&format=json').then(res => res.data)
+      tracks: axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.LASTFM_API_KEY}&artist=Cher&album=Believe&format=json`).then(res => res.data)
     })
       .then(res => {
         this.setState({ vinyl: res.vinyl, vinyls: res.vinyls, tracks: res.tracks.album.tracks.track })
@@ -81,10 +80,10 @@ class Show extends React.Component {
               <hr />
               <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
                 <ul className="show-tracklisting">
-                   {tracksLastFm.map(track =>
+                  {tracksLastFm.map(track =>
                     <li key={track.url}>
                       <h4 className="subtitle is-6">{track.name}</h4>
-                    {/* }<audio src={track.preview} controls /> */}
+                      {/* }<audio src={track.preview} controls /> */}
                     </li>)}
                 </ul>
               </h2>
@@ -102,7 +101,7 @@ class Show extends React.Component {
               <div>
                 {similar.map(vinyl =>
                   <div className="similar-artist-image" key={vinyl._id}>
-                    <Link to={`/vinyl/${vinyl._id}`}>
+                    <Link to={`/vinyls/${vinyl._id}`}>
                       <Card {...vinyl} />
                     </Link>
                   </div>

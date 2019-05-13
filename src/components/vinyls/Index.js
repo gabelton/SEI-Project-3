@@ -31,7 +31,7 @@ class Index extends React.Component {
         <div className="columns is-multiline">
           {this.state.vinyls.map(vinyl =>
             <div key={vinyl._id} className="column is-one-fifth-desktop is-one-third-tablet">
-              <Link to={`/vinyl/${vinyl._id}`}>
+              <Link to={`/vinyls/${vinyl._id}`}>
                 <Card {...vinyl} />
               </Link>
             </div>
