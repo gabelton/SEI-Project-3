@@ -15,7 +15,8 @@ class Show extends React.Component {
       errors: null
     }
   }
-  componentDidMount(){
+
+  getData() {
     Promise.props({
       vinyl: axios.get(`/api/vinyls/${this.props.match.params.id}`).then(res => res.data),
       vinyls: axios.get('/api/vinyls').then(res => res.data),
@@ -26,6 +27,17 @@ class Show extends React.Component {
       })
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
+
+  componentDidMount(){
+    this.getData()
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.location.pathname !== this.props.location.pathname) {
+      this.getData()
+    }
+  }
+
   render() {
     if(!this.state.vinyl) return null //<Loading />
     const { _id, artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy } = this.state.vinyl
@@ -93,7 +105,7 @@ class Show extends React.Component {
               <div>
                 {similar.map(vinyl =>
                   <div className="similar-artist-image" key={vinyl._id}>
-                    <Link to={`/vinyls/${vinyl._id}`}>
+                    <Link to={`/vinyl/${vinyl._id}`}>
                       <Card {...vinyl} />
                     </Link>
                   </div>
