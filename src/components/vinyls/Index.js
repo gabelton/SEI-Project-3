@@ -16,7 +16,7 @@ class Index extends React.Component {
     this.setState({list: this.props.location.search.substr(1)})
     axios('/api/vinyls')
       .then(res => {
-        if(this.state.list === ''){
+        if(!this.state.list){
           return this.setState({ vinyls: res.data })
         }
         const vinylsList = res.data.filter(vinyl => vinyl.genre === this.state.list)

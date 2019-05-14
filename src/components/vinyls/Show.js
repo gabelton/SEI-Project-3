@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Promise from 'bluebird'
 import Card from './Card'
+import Auth from '../../lib/Auth'
 
 import Loading from '../common/Loading'
 import Comment from '../comments/Comment'
@@ -14,7 +15,8 @@ class Show extends React.Component {
       vinyl: null,
       vinyls: null,
       tracks: null,
-      errors: null
+      errors: null,
+      data: null
     }
   }
 
@@ -24,8 +26,21 @@ class Show extends React.Component {
       vinyls: axios.get('/api/vinyls').then(res => res.data)
     })
       .then(res => {
-        axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.LASTFM_API_KEY}&artist=${res.vinyl.artist}&album=${res.vinyl.title}&format=json`)
-          .then(trackRes => this.setState({ vinyl: res.vinyl, vinyls: res.vinyls, tracks: trackRes.data.album.tracks.track, lastFmData: trackRes.data.album }))
+        axios.get('http://ws.audioscrobbler.com/2.0', {
+          params: {
+            method: 'album.getinfo',
+            api_key: process.env.LASTFM_API_KEY,
+            artist: res.vinyl.artist,
+            album: res.vinyl.title,
+            format: 'json'
+          }
+        })
+          .then(trackRes => this.setState({
+            vinyl: res.vinyl,
+            vinyls: res.vinyls,
+            tracks: trackRes.data.album.tracks.track,
+            lastFmData: trackRes.data.album
+          }))
       })
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
@@ -40,10 +55,26 @@ class Show extends React.Component {
     }
   }
 
+  handleChange(e) {
+    const data = { ...this.state.data, [e.target.name]: e.target.value }
+    this.setState({ data })
+    console.log(this.state.data)
+  }
+
+  handleClick(e) {
+    e.preventDefault()
+
+    const token = Auth.getToken()
+
+    axios.post(`/api/vinyls/${this.props.match.params.id}/comments`, this.state.data, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
+  }
+
   render() {
     console.log(this.state, 'I am state')
     if(!this.state.vinyl) return null
-    const { _id, artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy } = this.state.vinyl
+    const { artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy } = this.state.vinyl
     console.log(this.state.vinyl, 'ONE VINYL')
     console.log(this.state.vinyls, 'ALL VINYLS')
 
@@ -75,7 +106,7 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Label: </span>{label}</h2>
               <h2 className="subtitle is-6 show"><span>Year released:</span> {releaseYear}</h2>
               <h2 className="subtitle is-6 show"><span>Genre: </span>{genre}</h2>
-              <h2 className="subtitle is-6 show"><span>Length: </span>{length}</h2> 
+              <h2 className="subtitle is-6 show"><span>Length: </span>{length}</h2>
               <h2 className="subtitle is-6 show"><span>Condition: </span>{condition}</h2>
               <h2 className="subtitle is-6 show"><span>Size: </span>{size}</h2>
               <h2 className="subtitle is-6 show"><span>Format: </span>{format}</h2>
@@ -97,7 +128,34 @@ class Show extends React.Component {
 
             <div className="show-content-comments subheading-show">
               Comments
-              <Comment />
+              <article className="media">
+                <figure className="media-left">
+                  <p className="image is-64x64">
+                    <img src="https://bulma.io/images/placeholders/128x128.png" />
+                  </p>
+                </figure>
+                <div className="media-content">
+                  <div className="field">
+                    <p className="control">
+                      <textarea className="textarea" name="content" placeholder="Add a comment..." onChange= {this.handleChange}></textarea>
+                    </p>
+                  </div>
+                  <nav className="level">
+                    <div className="level-left">
+                      <div className="level-item">
+                        <a className="button is-info" onClick={this.handleClick}>Submit</a>
+                      </div>
+                    </div>
+                    <div className="level-right">
+                      <div className="level-item">
+                        <label className="checkbox">
+                          <input type="checkbox"  /> Press enter to submit
+                        </label>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+              </article>
 
             </div>
           </div>

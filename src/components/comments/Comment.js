@@ -4,15 +4,16 @@ import Auth from '../../lib/Auth'
 
 class Comment extends React.Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    console.log(props, 'PROPS')
+    super(props)
 
     this.state = {
       data: null
     }
 
     this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
 
@@ -24,8 +25,8 @@ class Comment extends React.Component {
     console.log(this.state.data)
   }
 
-  handleSubmit(e) {
-    e.preventDefault()
+  handleClick(e) {
+    //e.preventDefault()
 
     const token = Auth.getToken()
 
@@ -51,7 +52,7 @@ class Comment extends React.Component {
           <nav className="level">
             <div className="level-left">
               <div className="level-item">
-                <a className="button is-info" onSubmit={this.handleSubmit}>Submit</a>
+                <a className="button is-info" onClick={this.handleClick}>Submit</a>
               </div>
             </div>
             <div className="level-right">

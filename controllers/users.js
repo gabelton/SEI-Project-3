@@ -12,6 +12,7 @@ function showRoute(req, res) {
     .then(user => res.json(user))
 }
 
+// no need for this
 function createRoute(req, res) {
   User.create(req.body)
     .then(user => res.status(201).json(user))
