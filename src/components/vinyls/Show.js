@@ -18,6 +18,8 @@ class Show extends React.Component {
       errors: null,
       data: null
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   getData() {
@@ -73,6 +75,7 @@ class Show extends React.Component {
 
   render() {
     console.log(this.state, 'I am state')
+    console.log(this.state.data, 'DATA')
     if(!this.state.vinyl) return null
     const { artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy } = this.state.vinyl
     console.log(this.state.vinyl, 'ONE VINYL')
