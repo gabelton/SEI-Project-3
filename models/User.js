@@ -25,16 +25,23 @@ const userSchema = new mongoose.Schema({
     type: String
   }
 },
-{ timestamps: true }
-)
+{
+  timestamps: true,
+  toJSON: {
+    virtuals: true, // add virtals to the JSON
+    // whenever the user is converted to JSON
+    transform(doc, json) {
+      delete json.password // delete the password
+      delete json.__v
+      return json
+    }
+  }
+})
 
-// this is a special virtual that will aggregate
-// all the charcters that a specific user has created
-// NB: **This needs to be populated in the controller**
-userSchema.virtual('characters', {
+userSchema.virtual('vinyls', {
   localField: '_id',
   foreignField: 'createdBy',
-  ref: 'Character'
+  ref: 'Vinyl'
 })
 
 // `virtuals` are fields that do not get saved in the database
@@ -75,6 +82,12 @@ userSchema.methods.isPasswordValid = function isPasswordValid(plaintext) {
   return bcrypt.compareSync(plaintext, this.password)
 }
 
+userSchema.set('toJSON', {
+  virtuals: true,
+  transform(doc,json) {
+    return json
+  }
+})
 
 
 userSchema.plugin(uniqueValidator)

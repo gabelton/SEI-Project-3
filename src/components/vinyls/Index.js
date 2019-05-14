@@ -68,11 +68,13 @@ class Index extends React.Component {
                   <option>Hip-Hop</option>
                   <option>Rock</option>
                   <option>Electronic</option>
-                  <option>Rap</option>
                   <option>Reggae</option>
                   <option>Country</option>
                   <option>Folk</option>
                   <option>Alternative</option>
+                  <option>RnB</option>
+                  <option>Classical</option>
+
 
                 </select>
               </div>

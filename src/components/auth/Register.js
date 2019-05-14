@@ -44,7 +44,7 @@ class Register extends React.Component {
                     <input
                       className="input"
                       name="username"
-                      placeholder="eg: leela3000"
+                      placeholder="eg: VinnieDaVinylHead45"
                       onChange={this.handleChange}
                     />
                   </div>
@@ -56,7 +56,7 @@ class Register extends React.Component {
                     <input
                       className="input"
                       name="email"
-                      placeholder="eg: leela@planetexpress.nnyc"
+                      placeholder="eg: VinnieDaVinyl@technics.com"
                       onChange={this.handleChange}
                     />
                   </div>
