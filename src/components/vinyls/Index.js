@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Card from './Card'
 import qs from 'query-string'
-// import Search from '../common/Search'
+import genres from '../../lib/genres'
 
 
 class Index extends React.Component {
@@ -12,7 +12,7 @@ class Index extends React.Component {
 
     this.props.match.query = qs.parse(this.props.location.search)
     this.handleChange = this.handleChange.bind(this)
-
+    console.log(this.props.location.search ,'SHOW ME')
     this.state= {
       vinyls: [],
       list: '',
@@ -62,18 +62,9 @@ class Index extends React.Component {
                   value={this.state.genre}
                 >
                   <option></option>
-                  <option>Jazz</option>
-                  <option>Blues</option>
-                  <option>Pop</option>
-                  <option>Hip-Hop</option>
-                  <option>Rock</option>
-                  <option>Electronic</option>
-                  <option>Reggae</option>
-                  <option>Country</option>
-                  <option>Folk</option>
-                  <option>Alternative</option>
-                  <option>RnB</option>
-                  <option>Classical</option>
+                  {genres.map(genre =>
+                    <option key={genre} value={genre}>{genre.charAt(0).toUpperCase() + genre.substr(1)}</option>
+                  )}
 
 
                 </select>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Card from '../vinyls/Card'
 import axios from 'axios'
-import genres from '../lib/genres'
+import genres from '../../lib/genres'
 
 function orderByDate(arr) {
   return arr.slice().sort(function (a, b) {
@@ -29,6 +29,7 @@ class Home extends React.Component {
   render() {
     let recentFour = orderByDate(this.state.vinyls, this.state.vinyls.createdAt)
     recentFour = recentFour.slice(0,4)
+    console.log(this.state.vinyls.createdAt, '4')
     return (
       <section className="hero is-large">
         <div className="hero-body">
@@ -57,7 +58,7 @@ class Home extends React.Component {
           <div className="columns is-multiline is-centered">
             {genres.map(genre =>
               <div key={genre} className="column  is-one-third-desktop  blues is-one-third-tablet has-text-centered folder">
-                <Link to={`/vinyls/${genre}`}>
+                <Link to={`/vinyls?genre=${genre}`}>
                   <img src={`/images/${genre}.png`} alt={genre} />
                   <img src={`/images/${genre}-clr.png`} alt={genre} />
                 </Link>
