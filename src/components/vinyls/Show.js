@@ -75,8 +75,7 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Label: </span>{label}</h2>
               <h2 className="subtitle is-6 show"><span>Year released:</span> {releaseYear}</h2>
               <h2 className="subtitle is-6 show"><span>Genre: </span>{genre}</h2>
-              <h2 className="subtitle is-6 show"><span>Length: </span>{length}</h2>
-              <h2 className="subtitle is-6 show"><span>Created by: </span>{createdBy.username}</h2> 
+              <h2 className="subtitle is-6 show"><span>Length: </span>{length}</h2> 
               <h2 className="subtitle is-6 show"><span>Condition: </span>{condition}</h2>
               <h2 className="subtitle is-6 show"><span>Size: </span>{size}</h2>
               <h2 className="subtitle is-6 show"><span>Format: </span>{format}</h2>
