@@ -9,8 +9,7 @@ class Show extends React.Component {
     super(props)
 
     this.state = {
-      user: {},
-      vinyl: []
+      user: {}
     }
   }
 
