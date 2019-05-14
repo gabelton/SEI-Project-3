@@ -73,6 +73,18 @@ class Show extends React.Component {
     })
   }
 
+  handleDelete() {
+    const token = Auth.getToken()
+    axios.delete(`/api/vinyls/${this.props.match.params.id}`, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
+      .then(() => this.props.history.push('/vinyls'))
+  }
+
+  canModify() {
+    return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.vinyl.createdBy._id
+  }
+
   render() {
     console.log(this.state, 'I am state')
     console.log(this.state.data, 'DATA')
@@ -182,6 +194,13 @@ class Show extends React.Component {
             </div>
           </div>
         </div>
+        {this.canModify() &&
+              <div className="level-right">
+
+                <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
+              </div>
+        }
+
       </section>
     )
   }
