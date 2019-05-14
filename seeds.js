@@ -133,8 +133,8 @@ mongoose.connect(dbURI, (err, db) => {
         barcode: 123456789,
         createdBy: sean
       },{
-        artist: 'St Vincent',
-        title: 'St Vincent',
+        artist: 'St. Vincent',
+        title: 'St. Vincent',
         image: 'https://images-na.ssl-images-amazon.com/images/I/91mV8CQIoCL._SL1200_.jpg',
         releaseYear: 2014,
         genre: 'Alternative Rock',
@@ -453,7 +453,7 @@ mongoose.connect(dbURI, (err, db) => {
         barcode: 602527278889,
         createdBy: sean
       },{
-        artist: 'Dr Dre',
+        artist: 'Dr. Dre',
         title: '2001',
         image: 'https://img.discogs.com/M15MmeokEOy6kTMxuTq8YQ2Uswo=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-1544966-1374424889-6865.jpeg.jpg',
         releaseYear: 2007,
@@ -693,7 +693,7 @@ mongoose.connect(dbURI, (err, db) => {
         barcode: 60253773070,
         createdBy: gabe
       },{
-        artist: 'St Vincent',
+        artist: 'St. Vincent',
         title: 'Masseduction',
         image: 'https://img.discogs.com/FfzAasy9nEq11olzVxH0EJnZfh4=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-10989027-1507911115-7934.jpeg.jpg',
         releaseYear: 2017,
