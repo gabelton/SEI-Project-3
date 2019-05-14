@@ -9,7 +9,7 @@ import Card from './Card'
 // function similarArtist {
 //
 // }
-import Loading from '../common/Loading'
+// import Loading from '../common/Loading'
 
 class Show extends React.Component {
   constructor(props) {
