@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Card from '../vinyls/Card'
 import axios from 'axios'
-import genres from '../lib/genres'
+import genres from '../../lib/genres'
 
 function orderByDate(arr) {
   return arr.slice().sort(function (a, b) {

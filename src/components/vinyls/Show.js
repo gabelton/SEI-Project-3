@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Promise from 'bluebird'
 import Card from './Card'
-import Auth from '../lib/Auth'
+import Auth from '../../lib/Auth'
 
 import Loading from '../common/Loading'
 import Comment from '../comments/Comment'

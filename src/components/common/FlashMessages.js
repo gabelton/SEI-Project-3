@@ -1,5 +1,5 @@
 import React from 'react'
-import Flash from '../lib/Flash'
+import Flash from '../../lib/Flash'
 import { withRouter } from 'react-router-dom'
 
 class FlashMessages extends React.Component {

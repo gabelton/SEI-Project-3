@@ -1,9 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 
-import Flash from '../lib/Flash'
+import Flash from '../../lib/Flash'
 
-import Auth from '../lib/Auth'
+import Auth from '../../lib/Auth'
 //import Flash from '../../lib/Flash'
 
 class Login extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import Auth from '../lib/Auth'
-import Flash from '../lib/Flash'
+import Auth from '../../lib/Auth'
+import Flash from '../../lib/Flash'
 
 // make a `Component` variable containing the component
 // make an `otherProps` object containing all the other props
