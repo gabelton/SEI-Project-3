@@ -44,7 +44,7 @@ const vinylSchema = new mongoose.Schema({
   genre: {
     type: String,
     required: true,
-    enum: ['Rock','Jazz','Hip-Hop','Metal','Country','Alternative','Pop','Electronic','Reggae','Folk','Blues','Classical']
+    enum: ['Rock','Jazz','Hip-Hop','Country','Alternative','Pop','Electronic','Reggae','Folk','Metal','Classical']
   },
   condition: {
     type: String,
