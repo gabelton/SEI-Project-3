@@ -20,6 +20,7 @@ class Show extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   getData() {
@@ -163,7 +164,7 @@ class Show extends React.Component {
                         <a className="button is-info" onClick={this.handleClick}>Submit</a>
                       </div>
                     </div>
-                    
+
                   </nav>
                 </div>
               </article>
@@ -223,7 +224,7 @@ class Show extends React.Component {
         </div>
         {this.canModify() &&
               <div className="level-right">
-
+                <Link to={`/vinyls/${this.state.vinyl._id}/edit`} className="button is-black">Edit</Link>
                 <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
               </div>
         }
