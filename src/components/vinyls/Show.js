@@ -73,11 +73,23 @@ class Show extends React.Component {
     })
   }
 
+  handleDelete() {
+    const token = Auth.getToken()
+    axios.delete(`/api/vinyls/${this.props.match.params.id}`, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
+      .then(() => this.props.history.push('/vinyls'))
+  }
+
+  canModify() {
+    return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.vinyl.createdBy._id
+  }
+
   render() {
     console.log(this.state, 'I am state')
     console.log(this.state.data, 'DATA')
     if(!this.state.vinyl) return null
-    const { artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy } = this.state.vinyl
+    const { artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy, comments } = this.state.vinyl
     console.log(this.state.vinyl, 'ONE VINYL')
     console.log(this.state.vinyls, 'ALL VINYLS')
 
@@ -151,17 +163,44 @@ class Show extends React.Component {
                         <a className="button is-info" onClick={this.handleClick}>Submit</a>
                       </div>
                     </div>
-                    <div className="level-right">
-                      <div className="level-item">
-                        <label className="checkbox">
-                          <input type="checkbox"  /> Press enter to submit
-                        </label>
-                      </div>
-                    </div>
+                    
                   </nav>
                 </div>
               </article>
-
+              {this.state.vinyl.comments.map(comment =>
+                <article key={comment.id} className="media">
+                  <figure className="media-left">
+                    <p className="image is-64x64">
+                      <img src={comment.user.image} />
+                    </p>
+                  </figure>
+                  <div className="media-content">
+                    <div className="content">
+                      <p>
+                        <strong>{comment.user.username}</strong>  <small>{comment.createdAt.substring(0, comment.createdAt.length - 5).replace(/T/g, ' ')}</small>
+                        <br />
+                        {comment.content}
+                      </p>
+                    </div>
+                    <nav className="level is-mobile">
+                      <div className="level-left">
+                        <a className="level-item">
+                          <span className="icon is-small"><i className="fas fa-reply"></i></span>
+                        </a>
+                        <a className="level-item">
+                          <span className="icon is-small"><i className="fas fa-retweet"></i></span>
+                        </a>
+                        <a className="level-item">
+                          <span className="icon is-small"><i className="fas fa-heart"></i></span>
+                        </a>
+                      </div>
+                    </nav>
+                  </div>
+                  <div className="media-right">
+                    <button className="delete"></button>
+                  </div>
+                </article>
+              )}
             </div>
           </div>
           <div className="column is-one-fifth-desktop is-half-tablet is-full-mobile">
@@ -182,6 +221,13 @@ class Show extends React.Component {
             </div>
           </div>
         </div>
+        {this.canModify() &&
+              <div className="level-right">
+
+                <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
+              </div>
+        }
+
       </section>
     )
   }

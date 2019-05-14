@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, withRouter} from 'react-router-dom'
 import Auth from '../../lib/Auth'
-// import Search from './Search'
+
 
 class Navbar extends React.Component{
   constructor(){
