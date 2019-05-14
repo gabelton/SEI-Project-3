@@ -1,15 +1,11 @@
-
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Promise from 'bluebird'
-
-//import Auth from '../../lib/Auth'
 import Card from './Card'
-// function similarArtist {
-//
-// }
-// import Loading from '../common/Loading'
+
+import Loading from '../common/Loading'
+import Comment from '../comments/Comment'
 
 class Show extends React.Component {
   constructor(props) {
@@ -25,11 +21,11 @@ class Show extends React.Component {
   getData() {
     Promise.props({
       vinyl: axios.get(`/api/vinyls/${this.props.match.params.id}`).then(res => res.data),
-      vinyls: axios.get('/api/vinyls').then(res => res.data),
-      tracks: axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.LASTFM_API_KEY}&artist=Cher&album=Believe&format=json`).then(res => res.data)
+      vinyls: axios.get('/api/vinyls').then(res => res.data)
     })
       .then(res => {
-        this.setState({ vinyl: res.vinyl, vinyls: res.vinyls, tracks: res.tracks.album.tracks.track })
+        axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.LASTFM_API_KEY}&artist=${res.vinyl.artist}&album=${res.vinyl.title}&format=json`)
+          .then(trackRes => this.setState({ vinyl: res.vinyl, vinyls: res.vinyls, tracks: trackRes.data.album.tracks.track, lastFmData: trackRes.data.album }))
       })
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
@@ -45,6 +41,7 @@ class Show extends React.Component {
   }
 
   render() {
+    console.log(this.state, 'I am state')
     if(!this.state.vinyl) return null
     const { _id, artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy } = this.state.vinyl
     console.log(this.state.vinyl, 'ONE VINYL')
@@ -54,7 +51,9 @@ class Show extends React.Component {
     console.log(similar, 'SIMILAR')
 
     const tracksLastFm = this.state.tracks
+    const lastFmData = this.state.lastFmData
     console.log(tracksLastFm, 'TRACKSLASTFM')
+    console.log(lastFmData, 'LASTFMDATA')
     console.log(createdBy, 'Created By')
 
     return (
@@ -84,13 +83,13 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Barcode:</span> {barcode}</h2>
               <h2 className="subtitle is-6 show"><span>Catalogue number:</span>{catalogueNumber}</h2>
               <h2 className="subtitle is-6 show"><span>Notes: </span>{notes}</h2>
+              <h2 className="subtitle is-6 show"><span>Link to more info on Last FM: </span>{lastFmData.url}</h2>
               <hr />
               <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
                 <ul className="show-tracklisting">
                   {tracksLastFm.map(track =>
                     <li key={track.url}>
                       <h4 className="subtitle is-6">{track.name}</h4>
-                      {/* }<audio src={track.preview} controls /> */}
                     </li>)}
                 </ul>
               </h2>
@@ -98,6 +97,8 @@ class Show extends React.Component {
 
             <div className="show-content-comments subheading-show">
               Comments
+              <Comment />
+
             </div>
           </div>
           <div className="column is-one-fifth-desktop is-half-tablet is-full-mobile">

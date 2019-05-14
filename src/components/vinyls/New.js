@@ -27,6 +27,7 @@ class New extends React.Component {
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     this.setState({ data })
+    console.log(data)
   }
 
   handleSubmit(e) {
@@ -41,6 +42,7 @@ class New extends React.Component {
   }
 
   render() {
+
     return (
       <section className="section">
         <div className="container">
