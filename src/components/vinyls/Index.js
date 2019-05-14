@@ -82,7 +82,7 @@ class Index extends React.Component {
           </div>
           <div className="columns is-multiline">
             {this.searchVinyl().map(vinyl =>
-              <div key={vinyl._id} className="column is-one-quarter-desktop is-one-third-tablet">
+              <div key={vinyl._id} className="column is-one-fifth-desktop is-one-third-tablet">
                 <Link to={`/vinyls/${vinyl._id}`}>
                   <Card {...vinyl} />
                 </Link>
