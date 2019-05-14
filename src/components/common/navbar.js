@@ -1,14 +1,18 @@
 import React from 'react'
 import { Link, withRouter} from 'react-router-dom'
 import Auth from'../lib/Auth'
+// import Search from './Search'
 
 class Navbar extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = { active: false}
+  constructor(){
+    super()
+    this.state = {
+      active: false
+    }
     this.logout = this.logout.bind(this)
     this.toggleActive = this.toggleActive.bind(this)
   }
+
 
   logout(){
     Auth.removeToken()
@@ -23,11 +27,9 @@ class Navbar extends React.Component{
     }
   }
   render(){
-    console.log(this.state)
     return (
       <nav className="navbar is-fixed-top">
         <div className="navbar-brand">
-          {/* branding and burger menu */}
           <Link to="/" >
             <img className="logo" src="https://i.imgur.com/2MdZJ7h.png"/>
           </Link>
@@ -40,15 +42,8 @@ class Navbar extends React.Component{
             <span aria-hidden="true"></span>
           </a>
         </div>
-        <div className="field has-addons">
-          <div className="control">
-            <input className="input is-small" type="text" placeholder="Search" />
-          </div>
-          <div className="control">
-            <a className="button is-dark is-small">
-        Search
-            </a>
-          </div>
+        <div>
+
         </div>
 
         <div className={`navbar-menu${this.state.active ? ' is-active' : ''}`}>
@@ -56,7 +51,7 @@ class Navbar extends React.Component{
 
           <div className="navbar-start">
             {/* left hand links */}
-            <Link to="/vinyls/all" className="navbar-item">Vinyl collection</Link>
+            <Link to="/vinyls" className="navbar-item">Vinyl collection</Link>
             {Auth.isAuthenticated() && <Link to="/vinyls/new" className="navbar-item">Add new vinyl</Link>}
           </div>
 

@@ -32,8 +32,6 @@ class Home extends React.Component {
   render() {
     let recentFour = orderByDate(this.state.vinyls, this.state.vinyls.createdAt)
     recentFour = recentFour.slice(0,4)
-    console.log(this.state.genre)
-    console.log(this.state.vinyls)
     return (
       <section className="hero is-large">
         <div className="hero-body">
@@ -61,55 +59,55 @@ class Home extends React.Component {
           <strong>GENRE</strong>
           <div className="columns is-multiline is-centered">
             <div className="column  is-one-third-desktop  blues is-one-third-tablet has-text-centered folder">
-              <Link to={'./vinyls/Blues'}>
+              <Link to={'/vinyls?genre=Blues'}>
                 <img src="../images/Blues 2 .png" alt="blues" />
                 <img src="../images/Blues 2clr.png" alt="blues" />
               </Link>
             </div>
             <div className="column is-one-third-desktop hip-hop is-one-third-tablet has-text-centered folder">
-              <Link to={'./vinyls/Hip-Hop'}>
+              <Link to={'/vinyls?genre=Hip-Hop'}>
                 <img src="../images/hip hop.png" alt="hip hop" />
                 <img src="../images/hip hopclr.png" alt="hip hop" />
               </Link>
             </div>
             <div className="column is-one-third-desktop pop is-one-third-tablet has-text-centered folder">
-              <Link to={'./vinyls/Pop'}>
+              <Link to={'/vinyls?genre=Pop'}>
                 <img src="../images/pop.png" alt="pop" />
                 <img src="../images/popclr.png" alt="pop" />
               </Link>
             </div>
             <div className="column is-one-third-desktop jazz is-one-third-tablet has-text-centered folder">
-              <Link to={'./vinyls/Jazz'}>
+              <Link to={'/vinyls?genre=Jazz'}>
                 <img src="../images/jazz.png" alt="jazz" />
                 <img src="../images/jazzclr.png" alt="jazz" />
               </Link>
             </div>
             <div className="column is-one-third-desktop electronic is-one-third-tablet has-text-centered folder">
-              <Link to={'./vinyls/Electro'}>
+              <Link to={'/vinyls?genre=Electro'}>
                 <img src="../images/electronic.png" alt="electronic" />
                 <img src="../images/electronicclr.png" alt="electronic" />
               </Link>
             </div>
             <div className="column is-one-third-desktop metal is-one-third-tablet has-text-centered folder">
-              <Link to={'./vinyls/Heavy Metal'}>
+              <Link to={'/vinyls?genre=Heavy Metal'}>
                 <img src="../images/metal.png" alt="metal" />
                 <img src="../images/metalclr.png" alt="metal" />
               </Link>
             </div>
             <div className="column is-one-third-desktop classical is-one-third-tablet has-text-centered folder">
-              <Link to={'./vinyls/Classical'}>
+              <Link to={'/vinyls?genre=Classical'}>
                 <img src="../images/classical.png" alt="classical" />
                 <img src="../images/classicalclr.png" alt="classical" />
               </Link>
             </div>
             <div className="column is-one-third-desktop rock is-one-third-tablet has-text-centered folder">
-              <Link to={'./vinyls/Rock & Roll'}>
+              <Link to={'/vinyls?genre=Rock & Roll'}>
                 <img src="../images/rock.png" alt="rock"  />
                 <img src="../images/rockclr.png" alt="rock"  />
               </Link>
             </div>
             <div className="column is-one-third-desktop genre is-one-third-tablet  has-text-centered folder">
-              <Link to={'./vinyls/Reggae'}>
+              <Link to="/vinyls?genre=Reggae">
                 <img src="../images/reggae.png" alt="reggae" />
                 <img src="../images/reggaeclr.png" alt="reggae" />
               </Link>
