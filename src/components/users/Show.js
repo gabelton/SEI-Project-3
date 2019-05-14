@@ -9,15 +9,19 @@ class Show extends React.Component {
     super(props)
 
     this.state = {
-      user: {}
+      user: {
+        vinyls: []
+      }
     }
+
   }
 
+
   componentDidMount() {
-    console.log('I am running')
     axios.get(`/api/users/${this.props.match.params.id}`)
       .then(res => this.setState({ user: res.data }))
       .catch(err => console.error(err))
+
   }
 
   canModify() {
@@ -26,9 +30,10 @@ class Show extends React.Component {
 
 
   render() {
+
     if(!this.state.user) return null
+    console.log(this.state.user)
     const { _id } = this.state.user
-    console.log(this.state)
     return(
       <section className="section">
         <div className="container">
@@ -58,11 +63,18 @@ class Show extends React.Component {
             <div className="column is-third">
               <div className="vinylCollection">
                 <h3 className="subtitle subheading-show">Vinyl collection</h3>
-                <div className="vinylArray">{this.state.vinyl}
-
+                <div className="columns is-multiline">
+                  {this.state.user.vinyls.map(vinyl =>
+                    <div key={vinyl._id} className="column is-one-third">
+                      <Link to={`/vinyls/${vinyl._id}`}>
+                        <img src={vinyl.image} alt="meeeeee"/>
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
+
             <div className="column is-third">
               <div className="wishList">
                 <div className="wishList">
@@ -78,7 +90,9 @@ class Show extends React.Component {
       </section>
     )
   }
-
 }
+
+
+
 
 export default Show
