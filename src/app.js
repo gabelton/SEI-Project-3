@@ -33,7 +33,6 @@ class App extends React.Component {
           <Switch>
             <SecureRoute path="/users/:id/edit" component={UsersEdit} />
             <SecureRoute path="/users/:id" component={UsersShow} />
-
             <SecureRoute path="/vinyls/new" component={VinylsNew} />
             <Route path="/vinyls/:id" component={VinylsShow} />
             <Route path="/vinyls" component={VinylsIndex} />
