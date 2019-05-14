@@ -42,7 +42,8 @@ class Show extends React.Component {
                 <Link to={`/users/${_id}/edit`} className="button is-black">Edit</Link>
               </div>
           }
-          <div className="columns">
+
+          <div className="columns is-variable is-2">
 
             <div className="column is-third">
               <div className="user-info">
