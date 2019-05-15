@@ -19,6 +19,9 @@ router.get('/users', usersController.index)
 router.post('/users', secureRoute, usersController.create)
 router.get('/users/:id', usersController.show)
 router.put('/users/:id', secureRoute, usersController.update)
+
+router.post('/users/:id/vinylWish', secureRoute, usersController.create)
+
 router.delete('/users/:id', secureRoute, usersController.delete)
 
 router.post('/register', authController.register)

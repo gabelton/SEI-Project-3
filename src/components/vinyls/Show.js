@@ -16,10 +16,12 @@ class Show extends React.Component {
       vinyls: null,
       tracks: null,
       errors: null,
+      previews: null,
       data: null
     }
+
     this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleComment = this.handleComment.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
     this.handleDeleteComments = this.handleDeleteComments.bind(this)
   }
@@ -30,23 +32,28 @@ class Show extends React.Component {
       vinyls: axios.get('/api/vinyls').then(res => res.data)
     })
       .then(res => {
-        axios.get('http://ws.audioscrobbler.com/2.0', {
-          params: {
-            method: 'album.getinfo',
-            api_key: process.env.LASTFM_API_KEY,
-            artist: res.vinyl.artist,
-            album: res.vinyl.title,
-            format: 'json'
-          }
+        return Promise.props({
+
+          albumInfo: axios.get('http://ws.audioscrobbler.com/2.0', {
+            params: {
+              method: 'album.getinfo',
+              api_key: process.env.LASTFM_API_KEY,
+              artist: res.vinyl.artist,
+              album: res.vinyl.title,
+              format: 'json'
+            }
+          }).then(res2 => res2.data),
+          previews: axios.get(`https://cors-anywhere.herokuapp.com/api.deezer.com/search/track?q=${res.vinyl.artist}`).then(res2 => res2.data)
         })
           .then(trackRes => this.setState({
             vinyl: res.vinyl,
             vinyls: res.vinyls,
-            tracks: trackRes.data.album.tracks.track,
-            lastFmData: trackRes.data.album
+            tracks: trackRes.albumInfo.album.tracks.track,
+            lastFmData: trackRes.albumInfo.album,
+            previews: trackRes.previews.data
           }))
       })
-      .catch(err => this.setState({ errors: err.response.data.errors }))
+      .catch(err => this.setState({ errors: err.response }))
   }
 
   componentDidMount(){
@@ -65,9 +72,8 @@ class Show extends React.Component {
     console.log(this.state.data)
   }
 
-  handleClick(e) {
-    //e.preventDefault()
-
+  handleComment(e) {
+    e.preventDefault()
 
     const token = Auth.getToken()
 
@@ -126,6 +132,8 @@ class Show extends React.Component {
     // console.log(lastFmData, 'LASTFMDATA')
     console.log(createdBy, 'Created By')
 
+    const trackPreviews = this.state.previews.slice(0,10)
+    console.log(trackPreviews, 'DEEZER PREVIEW')
 
     return (
       <section className="section" id="vinyl-show">
@@ -135,7 +143,50 @@ class Show extends React.Component {
               <img src={image} alt={title} />
             </figure>
 
-{/* COMMENTS ==============================================*/}
+            {/* COMMENTS ==============================================*/}
+
+            <div className="show-content-video subheading-show">
+              <h2 className="title is-5 subheading-show">{artist} Top Tracks</h2>
+              <ul>
+                {trackPreviews.map(track =>
+                  <li key={track.id}>
+                    <h4 className="subtitle is-6">{track.title}</h4>
+                    <audio src={track.preview} controls />
+                  </li>)}
+              </ul>
+            </div>
+          </div>
+
+
+          <div className="column is-two-fifths-desktop is-half-tablet is-full-mobile">
+            <div className="show-content">
+              <h2 className="subtitle is-4 show" id="artist-show">{artist}</h2>
+              <h2 className="subtitle is-5 show" id="title-show">{title}</h2>
+              <hr />
+              <h2 className="subtitle is-6 show"><span>Label: </span>{label}</h2>
+              <h2 className="subtitle is-6 show"><span>Year released:</span> {releaseYear}</h2>
+              <h2 className="subtitle is-6 show"><span>Genre: </span>{genre}</h2>
+              <h2 className="subtitle is-6 show"><span>Length: </span>{length}</h2>
+              <h2 className="subtitle is-6 show"><span>Condition: </span>{condition}</h2>
+              <h2 className="subtitle is-6 show"><span>Size: </span>{size}</h2>
+              <h2 className="subtitle is-6 show"><span>Format: </span>{format}</h2>
+              <h2 className="subtitle is-6 show"><span>Speed: </span>{speed}</h2>
+              <h2 className="subtitle is-6 show"><span>Barcode:</span> {barcode}</h2>
+              <h2 className="subtitle is-6 show"><span>Catalogue number:</span>{catalogueNumber}</h2>
+              <h2 className="subtitle is-6 show"><span>Notes: </span>{notes}</h2>
+              <h2 className="subtitle is-6 show"><span>Link to more info on Last FM: </span>{lastFmData.url}</h2>
+              <hr />
+              <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
+                <ul className="show-tracklisting">
+                  {tracksLastFm.map(track =>
+                    <li key={track.url}>
+                      <h4 className="subtitle is-6">{track.name}</h4>
+                    </li>)}
+                </ul>
+              </h2>
+            </div>
+            {/* TOP TRACKS =======================================================*/}
+
             <div className="show-content-comments subheading-show">
               Comments
               <article className="media">
@@ -153,7 +204,7 @@ class Show extends React.Component {
                   <nav className="level">
                     <div className="level-left">
                       <div className="level-item">
-                        <a className="button is-info" onClick={this.handleClick}>Submit</a>
+                        <a className="button is-info" onClick={this.handleComment}>Submit</a>
                       </div>
                     </div>
 
@@ -163,8 +214,13 @@ class Show extends React.Component {
               {this.state.vinyl.comments.map(comment =>
                 <article key={comment._id} className="media">
                   <figure className="media-left">
+
                     <p className="image is-64x64">
-                      <img src={comment.user.image} />
+                      <Link to={`/users/${comment.user.id}`}>
+
+
+                        <img src={comment.user.image} />
+                      </Link>
                     </p>
                   </figure>
                   <div className="media-content">
@@ -197,43 +253,7 @@ class Show extends React.Component {
             </div>
           </div>
 
-
-
-          <div className="column is-two-fifths-desktop is-half-tablet is-full-mobile">
-            <div className="show-content">
-              <h2 className="subtitle is-4 show" id="artist-show">{artist}</h2>
-              <h2 className="subtitle is-5 show" id="title-show">{title}</h2>
-              <hr />
-              <h2 className="subtitle is-6 show"><span>Label: </span>{label}</h2>
-              <h2 className="subtitle is-6 show"><span>Year released:</span> {releaseYear}</h2>
-              <h2 className="subtitle is-6 show"><span>Genre: </span>{genre}</h2>
-              <h2 className="subtitle is-6 show"><span>Length: </span>{length}</h2>
-              <h2 className="subtitle is-6 show"><span>Condition: </span>{condition}</h2>
-              <h2 className="subtitle is-6 show"><span>Size: </span>{size}</h2>
-              <h2 className="subtitle is-6 show"><span>Format: </span>{format}</h2>
-              <h2 className="subtitle is-6 show"><span>Speed: </span>{speed}</h2>
-              <h2 className="subtitle is-6 show"><span>Barcode:</span> {barcode}</h2>
-              <h2 className="subtitle is-6 show"><span>Catalogue number:</span>{catalogueNumber}</h2>
-              <h2 className="subtitle is-6 show"><span>Notes: </span>{notes}</h2>
-              <h2 className="subtitle is-6 show"><span>Link to more info on Last FM: </span>{lastFmData.url}</h2>
-              <hr />
-              <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
-                <ul className="show-tracklisting">
-                  {tracksLastFm.map(track =>
-                    <li key={track.url}>
-                      <h4 className="subtitle is-6">{track.name}</h4>
-                    </li>)}
-                </ul>
-              </h2>
-            </div>
-{/* TOP TRACKS =======================================================*/}
-            <div className="show-content-video subheading-show">
-              Top tracks
-
-            </div>
-          </div>
-
-{/* SIMILAR ARITSTS ====================================================== */}
+          {/* SIMILAR ARITSTS ====================================================== */}
           <div className="column is-one-fifth-desktop is-half-tablet is-full-mobile">
             <div className="similar-show">
 
@@ -257,6 +277,15 @@ class Show extends React.Component {
                 <Link to={`/vinyls/${this.state.vinyl._id}/edit`} className="button is-black">Edit</Link>
                 <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
               </div>
+        }
+
+        {Auth.isAuthenticated() &&
+          <Link to={{
+            pathname: `/users/${Auth.getPayload().sub}`,
+            state: {vinyl: this.state.vinyl}
+          }}>
+            <button className="button is-black">Add to Wish List</button>
+          </Link>
         }
 
       </section>

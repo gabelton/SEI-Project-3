@@ -56,7 +56,7 @@ const vinylSchema = new mongoose.Schema({
   },
   notes: {
     type: String,
-    maxlength: 300
+    maxlength: 700
   },
   label: {
     type: String,
