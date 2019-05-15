@@ -20,14 +20,14 @@ class New extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/vinyls')
-      .then(res => this.setState({ vinyls: res.data }))
+    // axios.get('/api/vinyls')
+    //   .then(res => this.setState({ vinyls: res.data }))
   }
 
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     this.setState({ data })
-    console.log(data)
+
   }
 
   handleSubmit(e) {
