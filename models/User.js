@@ -24,8 +24,7 @@ const userSchema = new mongoose.Schema({
   bio: {
     type: String
   }
-},
-{
+}, {
   timestamps: true,
   toJSON: {
     virtuals: true, // add virtals to the JSON

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 $font-stack: Roboto, sans-serif;
 
-#root{
+html {
   background-color: #e3e3e3;
 }
 
@@ -60,9 +60,19 @@ $font-stack: Roboto, sans-serif;
 }
 
 .formBox {
+  border-top: 5px solid #008CBA;
   background-color: white;
   padding: 20px;
+
+    .field {
+      // margin: 0;
+    }
+
+    input {
+      width: 360px;
+    }
 }
+
 #artist-show {
   text-transform: uppercase;
   letter-spacing: 6px;
@@ -120,7 +130,7 @@ nav {
   font-size: 72px;
   color: #FFFFFF;
 
-text-shadow: 1px 1px 29px rgba(0, 84, 31, 1);
+// text-shadow: 1px 1px 29px rgba(0, 84, 31, 1);
 
 }
 
@@ -135,16 +145,19 @@ text-shadow: 1px 1px 29px rgba(0, 84, 31, 1);
 .flashMessage {
   margin-top: 50px;
 }
-// .notification  {
-//   background-color: black;
-//   color: whie;
-// }
- .folder img:last-child {
+
+.folder img:last-child {
    display: none;
  }
+
 .folder:hover img:last-child {
   display: inline;
 }
+
 .folder:hover img:first-child {
   display: none;
+}
+
+.footer {
+  height: 5px;
 }

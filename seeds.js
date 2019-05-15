@@ -217,7 +217,7 @@ mongoose.connect(dbURI, (err, db) => {
         title: 'Let Them Eat Chaos',
         image: 'https://img.discogs.com/R9wIAj630uAbtGSzNjUvGLtOoBU=/fit-in/600x591/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-9177038-1508366911-3218.jpeg.jpg',
         releaseYear: 2017,
-        genre: 'Hip-Hop',
+        genre: 'Alternative',
         condition: 'Mint',
         length: '47:43',
         notes: 'Let Them Eat Chaos is the second studio album by English poet and spoken word artist Kate Tempest, the follow up to her Mercury Prize-nominated debut Everybody Down.',
@@ -835,22 +835,6 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '4241481',
         barcode: 720642414811,
-        createdBy: sean
-      },{
-        artist: 'Herbert Von Karajan, Berlin Philharmonic',
-        title: 'Stravinsky: Le Sacre Du Printemps',
-        image: 'https://img.discogs.com/8spjFzeTU7fXkSy8_1dQDj8d-Bw=/fit-in/600x596/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-7996546-1496168852-1158.jpeg.jpg',
-        releaseYear: '1997',
-        genre: 'Classical',
-        condition: 'Good',
-        length: '36:40',
-        notes: 'The Rite of Spring is a ballet and orchestral concert work by Russian composer Igor Stravinsky.',
-        label: 'Deutsche Grammophon',
-        size: '12',
-        format: '1LP',
-        speed: '45 RPM',
-        catalogueNumber: '138 920 SLPM, ',
-        barcode: 2895678948,
         createdBy: sean
       },{
         artist: 'Mystery Jets',

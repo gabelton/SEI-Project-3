@@ -91,16 +91,16 @@ class Show extends React.Component {
     if(!this.state.vinyl) return null
     const { artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy, comments } = this.state.vinyl
     console.log(this.state.vinyl, 'ONE VINYL')
-    console.log(this.state.vinyls, 'ALL VINYLS')
+    // console.log(this.state.vinyls, 'ALL VINYLS')
 
     const similar = this.state.vinyls.filter(vinyl => vinyl.genre === this.state.vinyl.genre && vinyl.title !== this.state.vinyl.title)
-    console.log(similar, 'SIMILAR')
+    // console.log(similar, 'SIMILAR')
 
 
     const tracksLastFm = this.state.tracks
     const lastFmData = this.state.lastFmData
-    console.log(tracksLastFm, 'TRACKSLASTFM')
-    console.log(lastFmData, 'LASTFMDATA')
+    // console.log(tracksLastFm, 'TRACKSLASTFM')
+    // console.log(lastFmData, 'LASTFMDATA')
     console.log(createdBy, 'Created By')
 
 
@@ -163,7 +163,7 @@ class Show extends React.Component {
                         <a className="button is-info" onClick={this.handleClick}>Submit</a>
                       </div>
                     </div>
-                    
+
                   </nav>
                 </div>
               </article>

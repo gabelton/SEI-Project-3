@@ -92,15 +92,14 @@ const vinylSchema = new mongoose.Schema({
   },
   comments: [ commentSchema ]
 }, {
+  timestamps: true,
   toJSON: {
-    // whenever the character is converted to JSON
+    // whenever the vinyl is converted to JSON
     transform(doc, json) {
       delete json.__v
       return json
     }
   }
-},
-{timestamps: true
 })
 
 vinylSchema.plugin(uniqueValidator)

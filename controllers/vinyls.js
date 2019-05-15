@@ -2,6 +2,7 @@ const Vinyl = require('../models/Vinyl')
 
 function indexRoute(req, res, next) {
   Vinyl.find()
+    .populate('createdBy')
     .then(vinyls => res.json(vinyls))
     .catch(next)
 }
