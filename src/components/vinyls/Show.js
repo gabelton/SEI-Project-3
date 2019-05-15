@@ -16,8 +16,10 @@ class Show extends React.Component {
       vinyls: null,
       tracks: null,
       errors: null,
+      previews: null,
       data: null
     }
+
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
@@ -27,7 +29,8 @@ class Show extends React.Component {
   getData() {
     Promise.props({
       vinyl: axios.get(`/api/vinyls/${this.props.match.params.id}`).then(res => res.data),
-      vinyls: axios.get('/api/vinyls').then(res => res.data)
+      vinyls: axios.get('/api/vinyls').then(res => res.data),
+      previews: axios.get('https://cors-anywhere.herokuapp.com/api.deezer.com/search/track?q=radiohead').then(res => res.data)
     })
       .then(res => {
         axios.get('http://ws.audioscrobbler.com/2.0', {
@@ -43,7 +46,8 @@ class Show extends React.Component {
             vinyl: res.vinyl,
             vinyls: res.vinyls,
             tracks: trackRes.data.album.tracks.track,
-            lastFmData: trackRes.data.album
+            lastFmData: trackRes.data.album,
+            previews: res.previews.data
           }))
       })
       .catch(err => this.setState({ errors: err.response.data.errors }))
@@ -67,7 +71,6 @@ class Show extends React.Component {
 
   handleClick(e) {
     //e.preventDefault()
-
 
     const token = Auth.getToken()
 
@@ -126,6 +129,8 @@ class Show extends React.Component {
     // console.log(lastFmData, 'LASTFMDATA')
     console.log(createdBy, 'Created By')
 
+    const trackPreviews = this.state.previews.slice(0,10)
+    console.log(trackPreviews, 'DEEZER PREVIEW')
 
     return (
       <section className="section" id="vinyl-show">
@@ -135,7 +140,7 @@ class Show extends React.Component {
               <img src={image} alt={title} />
             </figure>
 
-{/* COMMENTS ==============================================*/}
+            {/* COMMENTS ==============================================*/}
             <div className="show-content-comments subheading-show">
               Comments
               <article className="media">
@@ -197,8 +202,6 @@ class Show extends React.Component {
             </div>
           </div>
 
-
-
           <div className="column is-two-fifths-desktop is-half-tablet is-full-mobile">
             <div className="show-content">
               <h2 className="subtitle is-4 show" id="artist-show">{artist}</h2>
@@ -226,14 +229,20 @@ class Show extends React.Component {
                 </ul>
               </h2>
             </div>
-{/* TOP TRACKS =======================================================*/}
+            {/* TOP TRACKS =======================================================*/}
             <div className="show-content-video subheading-show">
-              Top tracks
-
+              <h2 className="title is-5 subheading-show">{artist} Top Tracks</h2>
+              <ul>
+                {trackPreviews.map(track =>
+                  <li key={track.id}>
+                    <h4 className="subtitle is-6">{track.title}</h4>
+                    <audio src={track.preview} controls />
+                  </li>)}
+              </ul>
             </div>
           </div>
 
-{/* SIMILAR ARITSTS ====================================================== */}
+          {/* SIMILAR ARITSTS ====================================================== */}
           <div className="column is-one-fifth-desktop is-half-tablet is-full-mobile">
             <div className="similar-show">
 
