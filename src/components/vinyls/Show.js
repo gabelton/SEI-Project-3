@@ -163,7 +163,7 @@ class Show extends React.Component {
                         <a className="button is-info" onClick={this.handleClick}>Submit</a>
                       </div>
                     </div>
-                    
+
                   </nav>
                 </div>
               </article>
