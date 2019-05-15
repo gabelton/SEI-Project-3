@@ -16,7 +16,7 @@ mongoose.connect(dbURI, (err, db) => {
         email: 'gabelton@gables.com',
         password: 'pass',
         passwordConfirmation: 'pass',
-        image: 'https://imgur.com/aFoCicH'
+        image: 'https://i.imgur.com/aFoCicH.jpg'
       }])
     })
     .then(users => {
@@ -853,7 +853,127 @@ mongoose.connect(dbURI, (err, db) => {
         catalogueNumber: 'CAROL009CD',
         barcode: 602547595546,
         createdBy: gabe
-      }])
+      },
+      {
+        artist: 'Nic Jones',
+        title: 'Penguin Eggs',
+        image: 'https://images-na.ssl-images-amazon.com/images/I/61uxb4BfcfL.jpg',
+        releaseYear: 1980,
+        genre: 'Folk',
+        condition: 'Mint',
+        length: '44:26',
+        notes: 'The magnum opus from this near-legendary folksinger, Penguin Eggs stands in a virtual class by itself -- a folk record built on playing of such virtuosity that anyone who enjoys guitar, of any type or style, should hear it; a body of traditional songs played with an immediacy and urgency that transcends any dry notions of scholarship; and a record that stands astride the opposing virtues of youth and antiquity, in its execution and source, respectively.',
+        label: 'Topic',
+        size: '12',
+        format: '1LP',
+        speed: '33 1/3 RPM',
+        catalogueNumber: '12TS 411',
+        barcode: 18371826412,
+        createdBy: gabe
+      },
+      {
+        artist: 'Bob Dylan',
+        title: 'New Morning',
+        image: 'https://images-na.ssl-images-amazon.com/images/I/71sFHFubBgL._SY355_.jpg',
+        releaseYear: 1970,
+        genre: 'Folk',
+        condition: 'Good',
+        length: '35:21',
+        notes: 'Coming only four months after the controversial Self Portrait, the more concise and immediate New Morning received a much warmer reception from fans and critics. Most welcome was the return of Dylan\'s familiar, nasal singing voice. While he has a slightly nasal tone to his voice on "Alberta #1" from , this was the first full album with his familiar voice since John Wesley Harding in 1967, when he began singing with a country croon.',
+        label: 'Columbia',
+        size: '12',
+        format: '1LP',
+        speed: '33 1/3 RPM',
+        catalogueNumber: '	KC 30290',
+        barcode: 18371827772,
+        createdBy: gabe
+      },
+      {
+        artist: 'Johnny Flynn',
+        title: 'Detectorists',
+        image: 'https://images-na.ssl-images-amazon.com/images/I/61uxb4BfcfL.jpg',
+        releaseYear: 1980,
+        genre: 'Folk',
+        condition: 'Mint',
+        length: '2:05',
+        notes: 'Original soundtrack from the BBC tv series Detectorists',
+        label: 'Transgressive',
+        size: '7',
+        format: '1LP',
+        speed: '45 RPM',
+        catalogueNumber: '12TS 412',
+        barcode: 11371826411,
+        createdBy: gabe
+      },
+      {
+        artist: 'Toots and the Maytals',
+        title: 'Funky Kingston',
+        image: 'https://img.discogs.com/jE0VirTIBBW2v1oBdVJDPBpljlE=/fit-in/600x575/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-1078894-1292008755.jpeg.jpg',
+        releaseYear: 1972,
+        genre: 'Reggae',
+        condition: 'Mint',
+        length: '2:05',
+        notes: 'Initially released in 1973 by Dragon (2) with 2 different covers (one with drawing, the other with a photo). The photo version was later used by Trojan Records. In 1975, Mango released a revised version with the original drawn cover but kept only 3 tracks ("Funky Kingston", "Louie Louie" and "Pomp And Pride") and added 6 tracks from the In The Dark album (1974) (plus the 1970 single "Pressure Drop").',
+        label: 'Dragon',
+        size: '12',
+        format: '1LP',
+        speed: '33 1/3 RPM',
+        catalogueNumber: 'DRLS 5002',
+        barcode: 16471826413,
+        createdBy: gabe
+      },
+      {
+        artist: 'Bob Marley and the Wailers',
+        title: 'Catch a Fire',
+        image: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Thewailerscatchafire.jpg/220px-Thewailerscatchafire.jpg',
+        releaseYear: 1972,
+        genre: 'Reggae',
+        condition: 'Fair',
+        length: '37:51',
+        notes: 'Catch a Fire is the fifth studio album by the reggae band The Wailers, released in April 1973. It was their first album released by Island Records.[1] After touring and recording in the United Kingdom with Johnny Nash, Nash\'s departure to the United States left the band without enough money to return home; they approached producer Chris Blackwell, who agreed to advance the Wailers money for an album and paid their fares back to Jamaica, where they recorded Catch a Fire.',
+        label: 'Island',
+        size: '12',
+        format: '1LP',
+        speed: '33 1/3 RPM',
+        catalogueNumber: 'DRLS 500',
+        barcode: 22471826414,
+        createdBy: gabe
+      },
+      {
+        artist: 'Johnny Cash',
+        title: 'At Folsom Prison',
+        image: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/Johnny_Cash_At_Folsom_Prison.jpg/220px-Johnny_Cash_At_Folsom_Prison.jpg',
+        releaseYear: 1968,
+        genre: 'Country',
+        condition: 'Fair',
+        length: '45:05',
+        notes: 'At Folsom Prison is a live album and 27th overall album by Johnny Cash, released on Columbia Records in May 1968. After his 1955 song "Folsom Prison Blues", Cash had been interested in recording a performance at a prison. His idea was put on hold until 1967, when personnel changes at Columbia Records put Bob Johnston in charge of producing Cash\'s material. Cash had recently controlled his drug abuse problems, and was looking to turn his career around after several years of limited commercial success. Backed with June Carter, Carl Perkins and the Tennessee Three, Cash performed two shows at Folsom State Prison in California on January 13, 1968.',
+        label: 'Columbia',
+        size: '12',
+        format: '1LP',
+        speed: '33 1/3 RPM',
+        catalogueNumber: '	CS 9639',
+        barcode: 22471826515,
+        createdBy: gabe
+      },
+      {
+        artist: 'Jonas Kaufmann',
+        title: 'Schubert: Winterreise',
+        image: 'https://images-na.ssl-images-amazon.com/images/I/81%2BvK4YYI6L._SL1500_.jpg',
+        releaseYear: 2014,
+        genre: 'Classical',
+        condition: 'Good',
+        length: '60:10',
+        notes: 'Winterreise (Winter Journey) is a song cycle for voice and piano by Franz Schubert (D. 911, published as Op. 89 in 1828), a setting of 24 poems by Wilhelm Müller. It is the second of Schubert\'s two great song cycles on Müller\'s poems, the earlier being Die schöne Müllerin (D. 795, Op. 25, 1823).',
+        label: 'Sony',
+        size: '12',
+        format: '1LP',
+        speed: '33 1/3 RPM',
+        catalogueNumber: '379563',
+        barcode: 22471726545,
+        createdBy: gabe
+      }
+      ])
     })
 
     .then(() => mongoose.connection.close()) // disconnect from the database
