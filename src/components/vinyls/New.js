@@ -39,6 +39,8 @@ class New extends React.Component {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(() => this.props.history.push('/vinyls'))
+      .catch(err => this.setState({ errors: err.response.data.errors }))
+
   }
 
   render() {
