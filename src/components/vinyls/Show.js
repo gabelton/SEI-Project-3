@@ -132,7 +132,7 @@ class Show extends React.Component {
     // console.log(lastFmData, 'LASTFMDATA')
     console.log(createdBy, 'Created By')
 
-    const trackPreviews = this.state.previews.slice(0,10)
+    const trackPreviews = this.state.previews.slice(1,15)
     console.log(trackPreviews, 'DEEZER PREVIEW')
 
     return (
@@ -172,7 +172,7 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Format: </span>{format}</h2>
               <h2 className="subtitle is-6 show"><span>Speed: </span>{speed}</h2>
               <h2 className="subtitle is-6 show"><span>Barcode:</span> {barcode}</h2>
-              <h2 className="subtitle is-6 show"><span>Catalogue number:</span>{catalogueNumber}</h2>
+              <h2 className="subtitle is-6 show"><span>Catalogue number:</span> {catalogueNumber}</h2>
               <h2 className="subtitle is-6 show"><span>Notes: </span>{notes}</h2>
               <h2 className="subtitle is-6 show"><span>Link to more info on Last FM: </span>{lastFmData.url}</h2>
               <hr />
