@@ -10,9 +10,7 @@ const app = express()
 mongoose.connect(dbURI)
 
 app.use(bodyParser.json())
+app.use('/api', routes)
 app.use(errorHandler)
 
-
-
-app.use('/api', routes)
 app.listen(port, () => console.log(`Up and running on port ${port}`))
