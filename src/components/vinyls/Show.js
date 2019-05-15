@@ -144,6 +144,49 @@ class Show extends React.Component {
             </figure>
 
             {/* COMMENTS ==============================================*/}
+
+            <div className="show-content-video subheading-show">
+              <h2 className="title is-5 subheading-show">{artist} Top Tracks</h2>
+              <ul>
+                {trackPreviews.map(track =>
+                  <li key={track.id}>
+                    <h4 className="subtitle is-6">{track.title}</h4>
+                    <audio src={track.preview} controls />
+                  </li>)}
+              </ul>
+            </div>
+          </div>
+
+
+          <div className="column is-two-fifths-desktop is-half-tablet is-full-mobile">
+            <div className="show-content">
+              <h2 className="subtitle is-4 show" id="artist-show">{artist}</h2>
+              <h2 className="subtitle is-5 show" id="title-show">{title}</h2>
+              <hr />
+              <h2 className="subtitle is-6 show"><span>Label: </span>{label}</h2>
+              <h2 className="subtitle is-6 show"><span>Year released:</span> {releaseYear}</h2>
+              <h2 className="subtitle is-6 show"><span>Genre: </span>{genre}</h2>
+              <h2 className="subtitle is-6 show"><span>Length: </span>{length}</h2>
+              <h2 className="subtitle is-6 show"><span>Condition: </span>{condition}</h2>
+              <h2 className="subtitle is-6 show"><span>Size: </span>{size}</h2>
+              <h2 className="subtitle is-6 show"><span>Format: </span>{format}</h2>
+              <h2 className="subtitle is-6 show"><span>Speed: </span>{speed}</h2>
+              <h2 className="subtitle is-6 show"><span>Barcode:</span> {barcode}</h2>
+              <h2 className="subtitle is-6 show"><span>Catalogue number:</span>{catalogueNumber}</h2>
+              <h2 className="subtitle is-6 show"><span>Notes: </span>{notes}</h2>
+              <h2 className="subtitle is-6 show"><span>Link to more info on Last FM: </span>{lastFmData.url}</h2>
+              <hr />
+              <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
+                <ul className="show-tracklisting">
+                  {tracksLastFm.map(track =>
+                    <li key={track.url}>
+                      <h4 className="subtitle is-6">{track.name}</h4>
+                    </li>)}
+                </ul>
+              </h2>
+            </div>
+            {/* TOP TRACKS =======================================================*/}
+
             <div className="show-content-comments subheading-show">
               Comments
               <article className="media">
@@ -202,46 +245,6 @@ class Show extends React.Component {
                   </div>
                 </article>
               )}
-            </div>
-          </div>
-
-          <div className="column is-two-fifths-desktop is-half-tablet is-full-mobile">
-            <div className="show-content">
-              <h2 className="subtitle is-4 show" id="artist-show">{artist}</h2>
-              <h2 className="subtitle is-5 show" id="title-show">{title}</h2>
-              <hr />
-              <h2 className="subtitle is-6 show"><span>Label: </span>{label}</h2>
-              <h2 className="subtitle is-6 show"><span>Year released:</span> {releaseYear}</h2>
-              <h2 className="subtitle is-6 show"><span>Genre: </span>{genre}</h2>
-              <h2 className="subtitle is-6 show"><span>Length: </span>{length}</h2>
-              <h2 className="subtitle is-6 show"><span>Condition: </span>{condition}</h2>
-              <h2 className="subtitle is-6 show"><span>Size: </span>{size}</h2>
-              <h2 className="subtitle is-6 show"><span>Format: </span>{format}</h2>
-              <h2 className="subtitle is-6 show"><span>Speed: </span>{speed}</h2>
-              <h2 className="subtitle is-6 show"><span>Barcode:</span> {barcode}</h2>
-              <h2 className="subtitle is-6 show"><span>Catalogue number:</span>{catalogueNumber}</h2>
-              <h2 className="subtitle is-6 show"><span>Notes: </span>{notes}</h2>
-              <h2 className="subtitle is-6 show"><span>Link to more info on Last FM: </span>{lastFmData.url}</h2>
-              <hr />
-              <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
-                <ul className="show-tracklisting">
-                  {tracksLastFm.map(track =>
-                    <li key={track.url}>
-                      <h4 className="subtitle is-6">{track.name}</h4>
-                    </li>)}
-                </ul>
-              </h2>
-            </div>
-            {/* TOP TRACKS =======================================================*/}
-            <div className="show-content-video subheading-show">
-              <h2 className="title is-5 subheading-show">{artist} Top Tracks</h2>
-              <ul>
-                {trackPreviews.map(track =>
-                  <li key={track.id}>
-                    <h4 className="subtitle is-6">{track.title}</h4>
-                    <audio src={track.preview} controls />
-                  </li>)}
-              </ul>
             </div>
           </div>
 
