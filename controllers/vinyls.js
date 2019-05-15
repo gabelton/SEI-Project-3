@@ -55,7 +55,10 @@ function commentDeleteRoute(req, res, next) {
   // find the vinyl we want to delete the comment from
   Vinyl.findById(req.params.id)
     .then(vinyl => {
+      console.log(vinyl)
+      console.log(req.params.commentId, 'LOOK ALIVE!')
       const comment = vinyl.comments.id(req.params.commentId) // find the comment by its ID
+      console.log(comment, 'OVER HERE!')
       comment.remove() // remove the comment
       return vinyl.save() // save the vinyl
     })

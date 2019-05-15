@@ -20,6 +20,7 @@ class Show extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   getData() {
@@ -73,6 +74,23 @@ class Show extends React.Component {
     })
   }
 
+
+  handleDeleteComments(e) {
+
+    console.log(e.target.value)
+    console.log(this.props.match.params.id)
+
+    const token = Auth.getToken()
+
+    if (e.target.value === Auth.getPayload().sub) {
+      console.log('yooooooo')
+      console.log(`${this.props.match.params.id}`)
+      axios.delete(`/api/vinyls/${this.props.match.params.id}/comments/${e.target.id}`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      } )
+    }
+  }
+
   handleDelete() {
     const token = Auth.getToken()
     axios.delete(`/api/vinyls/${this.props.match.params.id}`, {
@@ -83,6 +101,7 @@ class Show extends React.Component {
 
   canModify() {
     return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.vinyl.createdBy._id
+
   }
 
   render() {
@@ -168,7 +187,7 @@ class Show extends React.Component {
                 </div>
               </article>
               {this.state.vinyl.comments.map(comment =>
-                <article key={comment.id} className="media">
+                <article key={comment._id} className="media">
                   <figure className="media-left">
                     <p className="image is-64x64">
                       <img src={comment.user.image} />
@@ -197,7 +216,7 @@ class Show extends React.Component {
                     </nav>
                   </div>
                   <div className="media-right">
-                    <button className="delete"></button>
+                    <button id={comment._id} value={comment.user._id} className="delete" onClick={this.handleDeleteComments}></button>
                   </div>
                 </article>
               )}
@@ -223,7 +242,7 @@ class Show extends React.Component {
         </div>
         {this.canModify() &&
               <div className="level-right">
-
+                <Link to={`/vinyls/${this.state.vinyl._id}/edit`} className="button is-black">Edit</Link>
                 <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
               </div>
         }

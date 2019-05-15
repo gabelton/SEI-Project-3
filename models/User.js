@@ -43,6 +43,10 @@ userSchema.virtual('vinyls', {
   ref: 'Vinyl'
 })
 
+userSchema.virtual('vinylWish', {
+  
+})
+
 // `virtuals` are fields that do not get saved in the database
 userSchema.virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(plaintext) {
