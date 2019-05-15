@@ -136,7 +136,7 @@ class Show extends React.Component {
               <img src={image} alt={title} />
             </figure>
 
-{/* YOUTUBE VIDEOS ==============================================*/}
+{/* COMMENTS ==============================================*/}
             <div className="show-content-comments subheading-show">
               Comments
               <article className="media">
@@ -227,14 +227,14 @@ class Show extends React.Component {
                 </ul>
               </h2>
             </div>
-{/* COMMENTS =======================================================*/}
+{/* TOP TRACKS =======================================================*/}
             <div className="show-content-video subheading-show">
               Top tracks
 
             </div>
           </div>
 
-{/* SIMILAR SHOW ====================================================== */}
+{/* SIMILAR ARITSTS ====================================================== */}
           <div className="column is-one-fifth-desktop is-half-tablet is-full-mobile">
             <div className="similar-show">
 
