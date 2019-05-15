@@ -8,7 +8,7 @@ class Edit extends React.Component{
   constructor() {
     super()
 
-    this.state ={
+    this.state = {
       data: [],
       errors: {}
     }
