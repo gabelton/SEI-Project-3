@@ -20,6 +20,7 @@ class Show extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   getData() {
@@ -71,6 +72,22 @@ class Show extends React.Component {
     axios.post(`/api/vinyls/${this.props.match.params.id}/comments`, this.state.data, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
+  }
+
+  handleDelete(e) {
+
+    console.log(e.target.value)
+    console.log(this.props.match.params.id)
+
+    const token = Auth.getToken()
+
+    if (e.target.value === Auth.getPayload().sub) {
+      console.log('yooooooo')
+      console.log(`${this.props.match.params.id}`)
+      axios.delete(`/api/vinyls/${this.props.match.params.id}/comments/${e.target.id}`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      } )
+    }
   }
 
   render() {
@@ -151,12 +168,12 @@ class Show extends React.Component {
                         <a className="button is-info" onClick={this.handleClick}>Submit</a>
                       </div>
                     </div>
-                    
+
                   </nav>
                 </div>
               </article>
               {this.state.vinyl.comments.map(comment =>
-                <article key={comment.id} className="media">
+                <article key={comment._id} className="media">
                   <figure className="media-left">
                     <p className="image is-64x64">
                       <img src={comment.user.image} />
@@ -185,7 +202,7 @@ class Show extends React.Component {
                     </nav>
                   </div>
                   <div className="media-right">
-                    <button className="delete"></button>
+                    <button id={comment._id} value={comment.user._id} className="delete" onClick={this.handleDelete}></button>
                   </div>
                 </article>
               )}
