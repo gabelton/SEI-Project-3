@@ -875,7 +875,7 @@ mongoose.connect(dbURI, (err, db) => {
       {
         artist: 'Johnny Flynn',
         title: 'Detectorists',
-        image: 'https://images-na.ssl-images-amazon.com/images/I/61uxb4BfcfL.jpg',
+        image: 'https://m.media-amazon.com/images/I/81I6vmVSevL._SS500_.jpg',
         releaseYear: 1980,
         genre: 'Folk',
         condition: 'Mint',
