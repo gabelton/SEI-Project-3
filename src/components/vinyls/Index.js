@@ -63,9 +63,9 @@ class Index extends React.Component {
                 <select
                   name="genre"
                   onChange={this.handleChange}
-                  value={this.state.genre}
+                  value={this.state.genre || 'All'}
                 >
-                  <option></option>
+                  <option value=''>All</option>
                   {genres.map(genre =>
                     <option key={genre} value={genre}>{genre.charAt(0).toUpperCase() + genre.substr(1)}</option>
                   )}
