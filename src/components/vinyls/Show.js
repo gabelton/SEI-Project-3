@@ -214,8 +214,13 @@ class Show extends React.Component {
               {this.state.vinyl.comments.map(comment =>
                 <article key={comment._id} className="media">
                   <figure className="media-left">
+
                     <p className="image is-64x64">
-                      <img src={comment.user.image} />
+                      <Link to={`/users/${comment.user.id}`}>
+
+                      
+                        <img src={comment.user.image} />
+                      </Link>
                     </p>
                   </figure>
                   <div className="media-content">
