@@ -2,7 +2,7 @@ export default [
   'pop',
   'rock',
   'classical',
-  'blues',
+  'metal',
   'hip-hop',
   'jazz',
   'rnb',

@@ -74,7 +74,8 @@ class Show extends React.Component {
     })
   }
 
-  handleDelete(e) {
+
+  handleDeleteComments(e) {
 
     console.log(e.target.value)
     console.log(this.props.match.params.id)
@@ -88,6 +89,19 @@ class Show extends React.Component {
         headers: { 'Authorization': `Bearer ${token}` }
       } )
     }
+  }
+
+  handleDelete() {
+    const token = Auth.getToken()
+    axios.delete(`/api/vinyls/${this.props.match.params.id}`, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
+      .then(() => this.props.history.push('/vinyls'))
+  }
+
+  canModify() {
+    return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.vinyl.createdBy._id
+
   }
 
   render() {
@@ -202,7 +216,7 @@ class Show extends React.Component {
                     </nav>
                   </div>
                   <div className="media-right">
-                    <button id={comment._id} value={comment.user._id} className="delete" onClick={this.handleDelete}></button>
+                    <button id={comment._id} value={comment.user._id} className="delete" onClick={this.handleDeleteComments}></button>
                   </div>
                 </article>
               )}
@@ -226,6 +240,13 @@ class Show extends React.Component {
             </div>
           </div>
         </div>
+        {this.canModify() &&
+              <div className="level-right">
+
+                <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
+              </div>
+        }
+
       </section>
     )
   }
