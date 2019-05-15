@@ -83,7 +83,7 @@ const Form = ({ handleChange, handleSubmit, data, errors}) => {
                     <option value="Reggae">Reggae</option>
                     <option value="Folk">Folk</option>
                     <option value="RnB">RnB</option>
-                    <option value="Blues">Blues</option>
+                    <option value="Metal">Metal</option>
                     <option value="Classical">Classical</option>
                   </select>
                 </div>
