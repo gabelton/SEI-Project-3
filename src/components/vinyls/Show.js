@@ -21,6 +21,7 @@ class Show extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleDeleteComments = this.handleDeleteComments.bind(this)
   }
 
   getData() {
