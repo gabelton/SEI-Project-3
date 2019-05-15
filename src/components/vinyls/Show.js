@@ -78,7 +78,6 @@ class Show extends React.Component {
     window.location.reload()
   }
 
-
   handleDeleteComments(e) {
 
     console.log(e.target.value)
