@@ -21,6 +21,7 @@ class Show extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleDeleteComments = this.handleDeleteComments.bind(this)
   }
 
   getData() {
@@ -65,13 +66,16 @@ class Show extends React.Component {
   }
 
   handleClick(e) {
-    e.preventDefault()
+    //e.preventDefault()
+
 
     const token = Auth.getToken()
 
     axios.post(`/api/vinyls/${this.props.match.params.id}/comments`, this.state.data, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
+
+    window.location.reload()
   }
 
 
@@ -89,6 +93,7 @@ class Show extends React.Component {
         headers: { 'Authorization': `Bearer ${token}` }
       } )
     }
+    window.location.reload()
   }
 
   handleDelete() {
