@@ -18,6 +18,8 @@ class Index extends React.Component {
       list: '',
       searchText: '',
       genre: this.props.match.query.genre || ''
+
+
     }
   }
 
@@ -32,6 +34,7 @@ class Index extends React.Component {
   }
 
   searchVinyl() {
+
     const search = new RegExp(this.state.searchText, 'i')
     const genre = new RegExp(this.state.genre, 'i')
     return this.state.vinyls.filter(vinyl => {
@@ -40,12 +43,13 @@ class Index extends React.Component {
   }
 
   render() {
+
     if(!this.state.vinyls) return null
     return (
       <section className="section">
         <div className="container">
-          <div>
-            <div className="control">
+          <div className="container columns navigatore">
+            <div className="control column">
               <input
                 className="input"
                 type="text"
@@ -54,7 +58,7 @@ class Index extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div className="control">
+            <div className="control column">
               <div className="select">
                 <select
                   name="genre"
