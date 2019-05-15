@@ -21,6 +21,7 @@ class Show extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleDeleteComments = this.handleDeleteComments.bind(this)
   }
 
   getData() {
@@ -65,13 +66,16 @@ class Show extends React.Component {
   }
 
   handleClick(e) {
-    e.preventDefault()
+    //e.preventDefault()
+
 
     const token = Auth.getToken()
 
     axios.post(`/api/vinyls/${this.props.match.params.id}/comments`, this.state.data, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
+
+    window.location.reload()
   }
 
 
@@ -89,6 +93,7 @@ class Show extends React.Component {
         headers: { 'Authorization': `Bearer ${token}` }
       } )
     }
+    window.location.reload()
   }
 
   handleDelete() {
@@ -167,7 +172,7 @@ class Show extends React.Component {
               <article className="media">
                 <figure className="media-left">
                   <p className="image is-64x64">
-                    <img src="https://bulma.io/images/placeholders/128x128.png" />
+                    <img src="https://candobristol.co.uk/img/profile-pic.svg" />
                   </p>
                 </figure>
                 <div className="media-content">
@@ -195,7 +200,7 @@ class Show extends React.Component {
                   </figure>
                   <div className="media-content">
                     <div className="content">
-                      <p>
+                      <p className="commentText">
                         <strong>{comment.user.username}</strong>  <small>{comment.createdAt.substring(0, comment.createdAt.length - 5).replace(/T/g, ' ')}</small>
                         <br />
                         {comment.content}
