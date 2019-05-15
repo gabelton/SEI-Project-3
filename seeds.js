@@ -741,22 +741,6 @@ mongoose.connect(dbURI, (err, db) => {
         barcode: 4250506809560,
         createdBy: sean
       },{
-        artist: 'Various Artists',
-        title: 'Guardians Of The Galaxy: Awesome Mix Volume. 1',
-        image: 'https://img.discogs.com/6JIQNhR1vWmQjzNAWKQ7r9PXl1g=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-6776503-1426408994-7166.jpeg.jpg',
-        releaseYear: 2014,
-        genre: 'Rock',
-        condition: 'Mint',
-        length: '44:34',
-        notes: 'Guardians of the Galaxy: Awesome Mix Vol. 1 (Original Motion Picture Soundtrack) is the soundtrack album for the Marvel Studios film Guardians of the Galaxy.',
-        label: 'Hollywood Records',
-        size: '12',
-        format: '1LP',
-        speed: '45 RPM',
-        catalogueNumber: '731641',
-        barcode: 50087316419,
-        createdBy: sean
-      },{
         artist: 'David Bowie',
         title: 'Aladdin Sane',
         image: 'https://img.discogs.com/TPh1mp5_UCWzQ5eE5_R7WgpZ_yk=/fit-in/550x550/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-354906-1412775755-4012.jpeg.jpg',
