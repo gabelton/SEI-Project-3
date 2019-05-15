@@ -44,7 +44,7 @@ const vinylSchema = new mongoose.Schema({
   genre: {
     type: String,
     required: true,
-    enum: ['Rock','Jazz','Hip-Hop','Country','Alternative','Pop','Electronic','Reggae','Folk','Metal','Classical']
+    enum: ['Rock','Jazz','Hip-Hop','Country','Alternative','Pop','Electronic','Reggae','Folk','Metal','Classical', 'RnB']
   },
   condition: {
     type: String,
@@ -92,15 +92,14 @@ const vinylSchema = new mongoose.Schema({
   },
   comments: [ commentSchema ]
 }, {
+  timestamps: true,
   toJSON: {
-    // whenever the character is converted to JSON
+    // whenever the vinyl is converted to JSON
     transform(doc, json) {
       delete json.__v
       return json
     }
   }
-},
-{timestamps: true
 })
 
 vinylSchema.plugin(uniqueValidator)

@@ -27,9 +27,11 @@ class Home extends React.Component {
   }
 
   render() {
+    if(!this.state.vinyls.length===0) return null
     let recentFour = orderByDate(this.state.vinyls, this.state.vinyls.createdAt)
+    console.log(this.state.vinyls, 'VINYL HOME')
     recentFour = recentFour.slice(0,4)
-    console.log(this.state.vinyls.createdAt, '4')
+    // console.log(this.state.vinyls.createdAt, '4')
     return (
       <section className="hero is-large">
         <div className="hero-body">

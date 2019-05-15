@@ -7,14 +7,14 @@ import FlashMessages from './components/common/FlashMessages'
 
 import Home from './components/common/Home'
 import Navbar from './components/common/Navbar'
+
 import VinylsShow from './components/vinyls/Show'
 import VinylsNew from './components/vinyls/New'
+import VinylsIndex from './components/vinyls/Index'
+import VinylsEdit from './components/vinyls/Edit'
 
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
-
-import VinylsIndex from './components/vinyls/Index'
-
 
 import UsersShow from './components/users/Show'
 import UsersEdit from './components/users/Edit'
@@ -33,6 +33,8 @@ class App extends React.Component {
           <Switch>
             <SecureRoute path="/users/:id/edit" component={UsersEdit} />
             <SecureRoute path="/users/:id" component={UsersShow} />
+
+            <SecureRoute path="/vinyls/:id/edit" component={VinylsEdit} />
             <SecureRoute path="/vinyls/new" component={VinylsNew} />
             <Route path="/vinyls/:id" component={VinylsShow} />
             <Route path="/vinyls/genre" component={VinylsIndex} />
