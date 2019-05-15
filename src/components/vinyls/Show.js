@@ -172,7 +172,7 @@ class Show extends React.Component {
               <article className="media">
                 <figure className="media-left">
                   <p className="image is-64x64">
-                    <img src="https://bulma.io/images/placeholders/128x128.png" />
+                    <img src="https://candobristol.co.uk/img/profile-pic.svg" />
                   </p>
                 </figure>
                 <div className="media-content">
@@ -200,7 +200,7 @@ class Show extends React.Component {
                   </figure>
                   <div className="media-content">
                     <div className="content">
-                      <p>
+                      <p className="commentText">
                         <strong>{comment.user.username}</strong>  <small>{comment.createdAt.substring(0, comment.createdAt.length - 5).replace(/T/g, ' ')}</small>
                         <br />
                         {comment.content}

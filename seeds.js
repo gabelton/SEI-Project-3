@@ -15,7 +15,8 @@ mongoose.connect(dbURI, (err, db) => {
         username: 'gabelton',
         email: 'gabelton@gables.com',
         password: 'pass',
-        passwordConfirmation: 'pass'
+        passwordConfirmation: 'pass',
+        image: 'https://imgur.com/aFoCicH'
       }])
     })
     .then(users => {
