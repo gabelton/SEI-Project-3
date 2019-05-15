@@ -13,11 +13,16 @@ html {
 .column {
   padding: 6px 3px;
 }
+
+.recently-added {
+  margin-top: 20px;
+}
+
 .show-content {
   background-color: white;
   padding: 5px;
   border-radius: 2px;
-  border-top: 5px solid #DD8964;
+  border-top: 2px solid #DD8964;
 }
 
 .show-tracklisting{
@@ -28,7 +33,7 @@ html {
   background-color: white;
   padding: 5px;
   border-radius: 2px;
-  border-top: 5px solid #DD8964;
+  border-top: 2px solid #DD8964;
   margin-top: 10px;
 }
 
@@ -52,7 +57,7 @@ html {
   background-color: white;
   padding: 5px;
   border-radius: 2px;
-  border-top: 5px solid #DD8964;
+  border-top: 2px solid #DD8964;
 }
 
 .similar-artist-image {
@@ -60,7 +65,7 @@ html {
 }
 
 .formBox {
-  border-top: 5px solid #008CBA;
+  border-top: 2px solid #008CBA;
   background-color: white;
   padding: 20px;
 
@@ -130,7 +135,7 @@ nav {
   color: black;
   font-size: 72px;
   color: #FFFFFF;
-  text-shadow: 1px 1px 29px rgba(0, 84, 31, 1);
+  // text-shadow: 1px 1px 29px rgba(0, 84, 31, 1);
 }
 
 .section {
@@ -159,5 +164,18 @@ nav {
 
 .footer {
   height: 5px;
+
+}
+
+.commentText {
+  font-size: 1rem;
+  color: #575656;
+  font-weight: 400;
+  line-height: 1.25;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  text-transform: none;
+  letter-spacing: 1px;
+
+
 
 }

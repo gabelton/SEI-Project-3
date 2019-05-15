@@ -15,7 +15,8 @@ mongoose.connect(dbURI, (err, db) => {
         username: 'gabelton',
         email: 'gabelton@gables.com',
         password: 'pass',
-        passwordConfirmation: 'pass'
+        passwordConfirmation: 'pass',
+        image: 'https://imgur.com/aFoCicH'
       }])
     })
     .then(users => {
@@ -739,22 +740,6 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'SLANG50070LP',
         barcode: 4250506809560,
-        createdBy: sean
-      },{
-        artist: 'Various Artists',
-        title: 'Guardians Of The Galaxy: Awesome Mix Volume. 1',
-        image: 'https://img.discogs.com/6JIQNhR1vWmQjzNAWKQ7r9PXl1g=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-6776503-1426408994-7166.jpeg.jpg',
-        releaseYear: 2014,
-        genre: 'Rock',
-        condition: 'Mint',
-        length: '44:34',
-        notes: 'Guardians of the Galaxy: Awesome Mix Vol. 1 (Original Motion Picture Soundtrack) is the soundtrack album for the Marvel Studios film Guardians of the Galaxy.',
-        label: 'Hollywood Records',
-        size: '12',
-        format: '1LP',
-        speed: '45 RPM',
-        catalogueNumber: '731641',
-        barcode: 50087316419,
         createdBy: sean
       },{
         artist: 'David Bowie',
