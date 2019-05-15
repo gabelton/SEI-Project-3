@@ -10,10 +10,9 @@ class Show extends React.Component {
 
     this.state = {
       user: {
-        vinyls: []
-      },
-      vinylWish: []
-
+        vinyls: [],
+        vinylWish: []
+      }
     }
 
   }
@@ -21,9 +20,35 @@ class Show extends React.Component {
   componentDidMount() {
     axios.get(`/api/users/${this.props.match.params.id}`)
       .then(res => this.setState({ user: res.data }))
+      .then(() => {
+        if(this.props.location.state) {
+          return this.handleWish()
+        }
+      })
       .catch(err => console.error(err))
-
   }
+
+  handleWish() {
+    const token = Auth.getToken()
+    console.log(this.props.match.params.id)
+    console.log(Auth.getPayload().sub)
+    console.log(this.state.data)
+    const currentUser = this.state.user._id
+
+
+    const vinylWish = this.state.user.vinylWish.slice()
+    console.log('I AM USER', this.state.user._id)
+    vinylWish.push(this.props.location.state.vinyl)
+    const user = {...this.state.user, vinylWish}
+    axios.put(`/api/users/${currentUser}`, {vinylWish: vinylWish._id}, {headers: { 'Authorization': `Bearer ${token}` }})
+      .then(() => this.setState({ user }))
+
+
+    //axios.post(`/api/users/${Auth.getPayload().sub}/vinylWish`, this.state.vinyl._id ,{
+    //  headers: { 'Authorization': `Bearer ${token}` }
+    //  })
+  }
+
 
   canModify() {
     return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.user._id
@@ -32,6 +57,7 @@ class Show extends React.Component {
 
   render() {
 
+    console.log(this.props.location.state, 'new item')
     if(!this.state.user) return null
     console.log(this.state.user)
     const { _id } = this.state.user
@@ -82,10 +108,10 @@ class Show extends React.Component {
                 <div className="wishList">
                   <h3 className="subtitle subheading-show">Wish List</h3>
                   <div className="columns is-multiline">
-                    {this.state.vinylWish.map(wish =>
-                      <div key={wish._id} className="column is-one-fifth">
-                        <Link to={`/vinyls/${wish._id}`}>
-                          <img src={wish.image} alt="meeeeee"/>
+                    {this.state.user.vinylWish.map(vinyl =>
+                      <div key={vinyl._id} className="column is-one-fifth">
+                        <Link to={`/vinyls/${vinyl._id}`}>
+                          <img src={vinyl.image} alt={vinyl.title}/>
                         </Link>
                       </div>
                     )}

@@ -19,7 +19,7 @@ class Show extends React.Component {
       data: null
     }
     this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleComment = this.handleComment.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
   }
 
@@ -64,7 +64,7 @@ class Show extends React.Component {
     console.log(this.state.data)
   }
 
-  handleClick(e) {
+  handleComment(e) {
     e.preventDefault()
 
     const token = Auth.getToken()
@@ -179,7 +179,7 @@ class Show extends React.Component {
                   <nav className="level">
                     <div className="level-left">
                       <div className="level-item">
-                        <a className="button is-info" onClick={this.handleClick}>Submit</a>
+                        <a className="button is-info" onClick={this.handleComment}>Submit</a>
                       </div>
                     </div>
 
@@ -245,6 +245,15 @@ class Show extends React.Component {
                 <Link to={`/vinyls/${this.state.vinyl._id}/edit`} className="button is-black">Edit</Link>
                 <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
               </div>
+        }
+
+        {Auth.isAuthenticated() &&
+          <Link to={{
+            pathname: `/users/${Auth.getPayload().sub}`,
+            state: {vinyl: this.state.vinyl}
+          }}>
+            <button className="button is-black">Add to Wish List</button>
+          </Link>
         }
 
       </section>

@@ -23,7 +23,11 @@ const userSchema = new mongoose.Schema({
   },
   bio: {
     type: String
-  }
+  },
+  vinylWish: [{ 
+    type: mongoose.Schema.ObjectId,
+    ref: 'Vinyl'
+  }]
 }, {
   timestamps: true,
   toJSON: {
@@ -41,10 +45,6 @@ userSchema.virtual('vinyls', {
   localField: '_id',
   foreignField: 'createdBy',
   ref: 'Vinyl'
-})
-
-userSchema.virtual('vinylWish', {
-  
 })
 
 // `virtuals` are fields that do not get saved in the database
