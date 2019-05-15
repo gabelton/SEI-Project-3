@@ -16,11 +16,14 @@ class Show extends React.Component {
       vinyls: null,
       tracks: null,
       errors: null,
+      previews: null,
       data: null
     }
+
     this.handleChange = this.handleChange.bind(this)
     this.handleComment = this.handleComment.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleDeleteComments = this.handleDeleteComments.bind(this)
   }
 
   getData() {
@@ -29,23 +32,28 @@ class Show extends React.Component {
       vinyls: axios.get('/api/vinyls').then(res => res.data)
     })
       .then(res => {
-        axios.get('http://ws.audioscrobbler.com/2.0', {
-          params: {
-            method: 'album.getinfo',
-            api_key: process.env.LASTFM_API_KEY,
-            artist: res.vinyl.artist,
-            album: res.vinyl.title,
-            format: 'json'
-          }
+        return Promise.props({
+
+          albumInfo: axios.get('http://ws.audioscrobbler.com/2.0', {
+            params: {
+              method: 'album.getinfo',
+              api_key: process.env.LASTFM_API_KEY,
+              artist: res.vinyl.artist,
+              album: res.vinyl.title,
+              format: 'json'
+            }
+          }).then(res2 => res2.data),
+          previews: axios.get(`https://cors-anywhere.herokuapp.com/api.deezer.com/search/track?q=${res.vinyl.artist}`).then(res2 => res2.data)
         })
           .then(trackRes => this.setState({
             vinyl: res.vinyl,
             vinyls: res.vinyls,
-            tracks: trackRes.data.album.tracks.track,
-            lastFmData: trackRes.data.album
+            tracks: trackRes.albumInfo.album.tracks.track,
+            lastFmData: trackRes.albumInfo.album,
+            previews: trackRes.previews.data
           }))
       })
-      .catch(err => this.setState({ errors: err.response.data.errors }))
+      .catch(err => this.setState({ errors: err.response }))
   }
 
   componentDidMount(){
@@ -72,8 +80,9 @@ class Show extends React.Component {
     axios.post(`/api/vinyls/${this.props.match.params.id}/comments`, this.state.data, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
-  }
 
+    window.location.reload()
+  }
 
   handleDeleteComments(e) {
 
@@ -89,6 +98,7 @@ class Show extends React.Component {
         headers: { 'Authorization': `Bearer ${token}` }
       } )
     }
+    window.location.reload()
   }
 
   handleDelete() {
@@ -122,6 +132,8 @@ class Show extends React.Component {
     // console.log(lastFmData, 'LASTFMDATA')
     console.log(createdBy, 'Created By')
 
+    const trackPreviews = this.state.previews.slice(0,10)
+    console.log(trackPreviews, 'DEEZER PREVIEW')
 
     return (
       <section className="section" id="vinyl-show">
@@ -130,10 +142,22 @@ class Show extends React.Component {
             <figure className="image">
               <img src={image} alt={title} />
             </figure>
+
+            {/* COMMENTS ==============================================*/}
+
             <div className="show-content-video subheading-show">
-              YouTube videos
+              <h2 className="title is-5 subheading-show">{artist} Top Tracks</h2>
+              <ul>
+                {trackPreviews.map(track =>
+                  <li key={track.id}>
+                    <h4 className="subtitle is-6">{track.title}</h4>
+                    <audio src={track.preview} controls />
+                  </li>)}
+              </ul>
             </div>
           </div>
+
+
           <div className="column is-two-fifths-desktop is-half-tablet is-full-mobile">
             <div className="show-content">
               <h2 className="subtitle is-4 show" id="artist-show">{artist}</h2>
@@ -161,13 +185,14 @@ class Show extends React.Component {
                 </ul>
               </h2>
             </div>
+            {/* TOP TRACKS =======================================================*/}
 
             <div className="show-content-comments subheading-show">
               Comments
               <article className="media">
                 <figure className="media-left">
                   <p className="image is-64x64">
-                    <img src="https://bulma.io/images/placeholders/128x128.png" />
+                    <img src="https://candobristol.co.uk/img/profile-pic.svg" />
                   </p>
                 </figure>
                 <div className="media-content">
@@ -189,13 +214,18 @@ class Show extends React.Component {
               {this.state.vinyl.comments.map(comment =>
                 <article key={comment._id} className="media">
                   <figure className="media-left">
+
                     <p className="image is-64x64">
-                      <img src={comment.user.image} />
+                      <Link to={`/users/${comment.user.id}`}>
+
+
+                        <img src={comment.user.image} />
+                      </Link>
                     </p>
                   </figure>
                   <div className="media-content">
                     <div className="content">
-                      <p>
+                      <p className="commentText">
                         <strong>{comment.user.username}</strong>  <small>{comment.createdAt.substring(0, comment.createdAt.length - 5).replace(/T/g, ' ')}</small>
                         <br />
                         {comment.content}
@@ -222,6 +252,8 @@ class Show extends React.Component {
               )}
             </div>
           </div>
+
+          {/* SIMILAR ARITSTS ====================================================== */}
           <div className="column is-one-fifth-desktop is-half-tablet is-full-mobile">
             <div className="similar-show">
 
