@@ -29,28 +29,31 @@ class Show extends React.Component {
   getData() {
     Promise.props({
       vinyl: axios.get(`/api/vinyls/${this.props.match.params.id}`).then(res => res.data),
-      vinyls: axios.get('/api/vinyls').then(res => res.data),
-      previews: axios.get('https://cors-anywhere.herokuapp.com/api.deezer.com/search/track?q=radiohead').then(res => res.data)
+      vinyls: axios.get('/api/vinyls').then(res => res.data)
     })
       .then(res => {
-        axios.get('http://ws.audioscrobbler.com/2.0', {
-          params: {
-            method: 'album.getinfo',
-            api_key: process.env.LASTFM_API_KEY,
-            artist: res.vinyl.artist,
-            album: res.vinyl.title,
-            format: 'json'
-          }
+        return Promise.props({
+
+          albumInfo: axios.get('http://ws.audioscrobbler.com/2.0', {
+            params: {
+              method: 'album.getinfo',
+              api_key: process.env.LASTFM_API_KEY,
+              artist: res.vinyl.artist,
+              album: res.vinyl.title,
+              format: 'json'
+            }
+          }).then(res2 => res2.data),
+          previews: axios.get(`https://cors-anywhere.herokuapp.com/api.deezer.com/search/track?q=${res.vinyl.artist}`).then(res2 => res2.data)
         })
           .then(trackRes => this.setState({
             vinyl: res.vinyl,
             vinyls: res.vinyls,
-            tracks: trackRes.data.album.tracks.track,
-            lastFmData: trackRes.data.album,
-            previews: res.previews.data
+            tracks: trackRes.albumInfo.album.tracks.track,
+            lastFmData: trackRes.albumInfo.album,
+            previews: trackRes.previews.data
           }))
       })
-      .catch(err => this.setState({ errors: err.response.data.errors }))
+      .catch(err => this.setState({ errors: err.response }))
   }
 
   componentDidMount(){
