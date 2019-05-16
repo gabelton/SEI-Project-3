@@ -16,6 +16,13 @@ html {
 
 .recently-added {
   margin-top: 20px;
+  background-color: #e3e3e3;
+}
+
+.home-recent {
+  font-size: 10px;
+  margin: 0;
+  letter-spacing: 5px;
 }
 
 .show-content {
@@ -117,10 +124,6 @@ nav {
   font-size: 14px;
 }
 
-// .register, .login {
-//   padding-top: 10px;
-// }
-
 .control {
   margin-top: 14px;
   margin-left: 10px;
@@ -189,12 +192,15 @@ nav {
 }
 .edit {
   .e1 {
-  border: solid black 2px;
+  border: solid #008CBA 1px;
+  background-color: white;
   }
   .d2 {
-    border: solid black 2px;
+    border: solid #008CBA 1px;
+    background-color: white;
   }
   .a1 {
-    border: solid black 2px;
+    border: solid #008CBA 1px;
+    background-color: white;
   }
 }

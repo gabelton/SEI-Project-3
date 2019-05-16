@@ -40,9 +40,10 @@ class Home extends React.Component {
             <h2 className="subtitle"></h2>
           </div>
         </div>
+
         <div className="recently-added">
           <div className="notification">
-            <h2 className="subtitle is-6">RECENTLY ADDED</h2>
+            <h2 className="subtitle is-6 home-recent">RECENTLY ADDED</h2>
             <div className="columns is-multiline">
               {recentFour.map(vinyl =>
                 <div key={vinyl._id} className="column is-2 is-one-third-tablet">
@@ -55,6 +56,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
+
         <div className="columns is-multiline is-centered">
           {genres.map(genre =>
             <div key={genre} className="column is-one-quarter-desktop  blues is-one-third-tablet has-text-centered folder">
@@ -65,6 +67,7 @@ class Home extends React.Component {
             </div>
           )}
         </div>
+
         <footer className="footer">
           <div className="content has-text-centered">
             <p>
