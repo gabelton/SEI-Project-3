@@ -7,7 +7,7 @@ import FlashMessages from './components/common/FlashMessages'
 
 import Home from './components/common/Home'
 import Navbar from './components/common/Navbar'
-import Team from './components/common/team'
+import Team from './components/common/Team'
 
 import VinylsShow from './components/vinyls/Show'
 import VinylsNew from './components/vinyls/New'
