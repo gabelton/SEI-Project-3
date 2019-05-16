@@ -123,7 +123,6 @@ class Show extends React.Component {
     similar = similar.slice(0,5)
     // console.log(similar, 'SIMILAR')
 
-
     const tracksLastFm = this.state.tracks
     const lastFmData = this.state.lastFmData
     // console.log(tracksLastFm, 'TRACKSLASTFM')
@@ -158,7 +157,7 @@ class Show extends React.Component {
                 }
               </div>
             </div>
-            {/* COMMENTS ==============================================*/}
+            {/* COMMENTS =====================================================*/}
             <div className="show-content-video subheading-show">
               <h2 className="title is-5 subheading-show">{artist} Top Tracks</h2>
               <ul>
@@ -171,7 +170,7 @@ class Show extends React.Component {
             </div>
           </div>
 
-
+          {/* ALBUM INFO =====================================================*/}
           <div className="column is-two-fifths-desktop is-half-tablet is-full-mobile">
             <div className="show-content">
               <h2 className="subtitle is-4 show" id="artist-show">{artist}</h2>
@@ -199,7 +198,7 @@ class Show extends React.Component {
                 </ul>
               </h2>
             </div>
-            {/* TOP TRACKS =======================================================*/}
+            {/* TOP TRACKS ===================================================*/}
 
             <div className="show-content-comments subheading-show">
               Comments
@@ -231,8 +230,6 @@ class Show extends React.Component {
 
                     <p className="image is-64x64">
                       <Link to={`/users/${comment.user.id}`}>
-
-
                         <img src={comment.user.image} />
                       </Link>
                     </p>
@@ -267,7 +264,7 @@ class Show extends React.Component {
             </div>
           </div>
 
-          {/* SIMILAR ARITSTS ====================================================== */}
+          {/* SIMILAR ARITSTS ============================================== */}
           <div className="column is-one-fifth-desktop is-half-tablet is-full-mobile">
             <div className="similar-show">
 
