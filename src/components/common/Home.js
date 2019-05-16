@@ -30,7 +30,7 @@ class Home extends React.Component {
     if(!this.state.vinyls.length===0) return null
     let recentFour = orderByDate(this.state.vinyls, this.state.vinyls.createdAt)
     console.log(this.state.vinyls, 'VINYL HOME')
-    recentFour = recentFour.slice(0, 5)
+    recentFour = recentFour.slice(0, 6)
     // console.log(this.state.vinyls.createdAt, '4')
     return (
       <section className="hero is-large">
@@ -45,7 +45,7 @@ class Home extends React.Component {
             <h2 className="subtitle is-6">RECENTLY ADDED</h2>
             <div className="columns is-multiline">
               {recentFour.map(vinyl =>
-                <div key={vinyl._id} className="column is-one-fifth-desktop is-one-third-tablet">
+                <div key={vinyl._id} className="column is-2 is-one-third-tablet">
                   <Link to={`/vinyls/${vinyl._id}`}>
                     <Card {...vinyl} />
                   </Link>

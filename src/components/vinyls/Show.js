@@ -33,7 +33,6 @@ class Show extends React.Component {
     })
       .then(res => {
         return Promise.props({
-
           albumInfo: axios.get('http://ws.audioscrobbler.com/2.0', {
             params: {
               method: 'album.getinfo',
@@ -117,7 +116,7 @@ class Show extends React.Component {
   render() {
     console.log(this.state, 'I am state')
     console.log(this.state.data, 'DATA')
-    if(!this.state.vinyl) return null
+    if(!this.state.vinyl) return <Loading />
     const { artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy, comments } = this.state.vinyl
     console.log(this.state.vinyl, 'ONE VINYL')
     // console.log(this.state.vinyls, 'ALL VINYLS')
@@ -178,7 +177,7 @@ class Show extends React.Component {
               <hr />
               <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
                 <ul className="show-tracklisting">
-                  {tracksLastFm.map(track =>
+                  {tracksLastFm.length === 0 ? <p>Tracklisting not available</p> : tracksLastFm.map(track =>
                     <li key={track.url}>
                       <h4 className="subtitle is-6">{track.name}</h4>
                     </li>)}

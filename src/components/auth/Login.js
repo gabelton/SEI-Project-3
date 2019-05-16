@@ -43,38 +43,40 @@ class Login extends React.Component {
     console.log(this.state)
     return (
       <section className="section">
-        <div className="container login">
-          <div className="columns is-centered">
-            <div className="column is-half-desktop is-two-thirds-tablet">
-              <form onSubmit={this.handleSubmit}>
-                <div className="field">
-                  <label className="label">Email</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      name="email"
-                      placeholder="eg: leela@planetexpress.nnyc"
-                      onChange={this.handleChange}
-                    />
+        <div className="section">
+          <div className="container login">
+            <div className="columns is-centered">
+              <div className="column is-half-desktop is-two-thirds-tablet">
+                <form onSubmit={this.handleSubmit}>
+                  <div className="field">
+                    <label className="label">Email</label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        name="email"
+                        placeholder="eg: leela@planetexpress.nnyc"
+                        onChange={this.handleChange}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="field">
-                  <label className="label">Password</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      name="password"
-                      type="password"
-                      placeholder="eg: ••••••••"
-                      onChange={this.handleChange}
-                    />
+                  <div className="field">
+                    <label className="label">Password</label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        name="password"
+                        type="password"
+                        placeholder="eg: ••••••••"
+                        onChange={this.handleChange}
+                      />
+                    </div>
+
+                    {this.state.error && <div className="help is-danger">{this.state.error}</div>}
                   </div>
 
-                  {this.state.error && <div className="help is-danger">{this.state.error}</div>}
-                </div>
-
-                <button className="button is-dark">Submit</button>
-              </form>
+                  <button className="button is-dark">Submit</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
