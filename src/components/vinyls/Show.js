@@ -4,9 +4,7 @@ import axios from 'axios'
 import Promise from 'bluebird'
 import Card from './Card'
 import Auth from '../../lib/Auth'
-
 import Loading from '../common/Loading'
-import Comment from '../comments/Comment'
 
 class Show extends React.Component {
   constructor(props) {
@@ -33,7 +31,7 @@ class Show extends React.Component {
     })
       .then(res => {
         return Promise.props({
-          albumInfo: axios.get('http://ws.audioscrobbler.com/2.0', {
+          albumInfo: axios.get('https://ws.audioscrobbler.com/2.0', {
             params: {
               method: 'album.getinfo',
               api_key: process.env.LASTFM_API_KEY,
@@ -121,7 +119,8 @@ class Show extends React.Component {
     console.log(this.state.vinyl, 'ONE VINYL')
     // console.log(this.state.vinyls, 'ALL VINYLS')
 
-    const similar = this.state.vinyls.filter(vinyl => vinyl.genre === this.state.vinyl.genre && vinyl.title !== this.state.vinyl.title)
+    let similar = this.state.vinyls.filter(vinyl => vinyl.genre === this.state.vinyl.genre && vinyl.title !== this.state.vinyl.title)
+    similar = similar.slice(0,5)
     // console.log(similar, 'SIMILAR')
 
 
@@ -131,7 +130,7 @@ class Show extends React.Component {
     // console.log(lastFmData, 'LASTFMDATA')
     console.log(createdBy, 'Created By')
 
-    const trackPreviews = this.state.previews.slice(1,15)
+    const trackPreviews = this.state.previews.slice(0,8)
     console.log(trackPreviews, 'DEEZER PREVIEW')
 
     return (
