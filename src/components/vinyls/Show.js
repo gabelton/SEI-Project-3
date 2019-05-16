@@ -4,9 +4,7 @@ import axios from 'axios'
 import Promise from 'bluebird'
 import Card from './Card'
 import Auth from '../../lib/Auth'
-
 import Loading from '../common/Loading'
-import Comment from '../comments/Comment'
 
 class Show extends React.Component {
   constructor(props) {
@@ -131,7 +129,7 @@ class Show extends React.Component {
     // console.log(lastFmData, 'LASTFMDATA')
     console.log(createdBy, 'Created By')
 
-    const trackPreviews = this.state.previews.slice(1,15)
+    const trackPreviews = this.state.previews.slice(0,10)
     console.log(trackPreviews, 'DEEZER PREVIEW')
 
     return (
