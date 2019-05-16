@@ -27,7 +27,6 @@ class New extends React.Component {
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     this.setState({ data })
-
   }
 
   handleSubmit(e) {
@@ -40,7 +39,6 @@ class New extends React.Component {
     })
       .then(() => this.props.history.push('/vinyls'))
       .catch(err => this.setState({ errors: err.response.data.errors }))
-
   }
 
   render() {

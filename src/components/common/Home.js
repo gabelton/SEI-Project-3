@@ -42,7 +42,7 @@ class Home extends React.Component {
         </div>
 
         <div className="recently-added">
-          <div className="notification">
+          <div className="notification is-white">
             <h2 className="subtitle is-6 home-recent">RECENTLY ADDED</h2>
             <div className="columns is-multiline">
               {recentFour.map(vinyl =>
