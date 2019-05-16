@@ -33,7 +33,6 @@ class Show extends React.Component {
     })
       .then(res => {
         return Promise.props({
-
           albumInfo: axios.get('http://ws.audioscrobbler.com/2.0', {
             params: {
               method: 'album.getinfo',
@@ -117,7 +116,7 @@ class Show extends React.Component {
   render() {
     console.log(this.state, 'I am state')
     console.log(this.state.data, 'DATA')
-    if(!this.state.vinyl) return null
+    if(!this.state.vinyl) return <Loading />
     const { artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy, comments } = this.state.vinyl
     console.log(this.state.vinyl, 'ONE VINYL')
     // console.log(this.state.vinyls, 'ALL VINYLS')
@@ -132,7 +131,7 @@ class Show extends React.Component {
     // console.log(lastFmData, 'LASTFMDATA')
     console.log(createdBy, 'Created By')
 
-    const trackPreviews = this.state.previews.slice(0,10)
+    const trackPreviews = this.state.previews.slice(1,15)
     console.log(trackPreviews, 'DEEZER PREVIEW')
 
     return (
@@ -188,13 +187,13 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Format: </span>{format}</h2>
               <h2 className="subtitle is-6 show"><span>Speed: </span>{speed}</h2>
               <h2 className="subtitle is-6 show"><span>Barcode:</span> {barcode}</h2>
-              <h2 className="subtitle is-6 show"><span>Catalogue number:</span>{catalogueNumber}</h2>
+              <h2 className="subtitle is-6 show"><span>Catalogue number:</span> {catalogueNumber}</h2>
               <h2 className="subtitle is-6 show"><span>Notes: </span>{notes}</h2>
               <h2 className="subtitle is-6 show"><span>Link to more info on Last FM: </span>{lastFmData.url}</h2>
               <hr />
               <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
                 <ul className="show-tracklisting">
-                  {tracksLastFm.map(track =>
+                  {tracksLastFm.length === 0 ? <p>Tracklisting not available</p> : tracksLastFm.map(track =>
                     <li key={track.url}>
                       <h4 className="subtitle is-6">{track.name}</h4>
                     </li>)}
