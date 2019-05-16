@@ -58,7 +58,7 @@ class Index extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
-          <div className="control column index-control">
+            <div className="control column index-control">
               <div className="select">
                 <select
                   name="genre"
