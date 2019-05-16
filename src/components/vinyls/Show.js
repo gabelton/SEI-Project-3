@@ -33,7 +33,7 @@ class Show extends React.Component {
     })
       .then(res => {
         return Promise.props({
-          albumInfo: axios.get('http://ws.audioscrobbler.com/2.0', {
+          albumInfo: axios.get('https://ws.audioscrobbler.com/2.0', {
             params: {
               method: 'album.getinfo',
               api_key: process.env.LASTFM_API_KEY,
