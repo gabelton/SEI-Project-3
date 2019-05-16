@@ -2,8 +2,8 @@ import React from 'react'
 
 const Team = () => {
   return (
-    <div className="container">
-    <div className=" section columns  teambox">
+    <div className="container teamContainer">
+    <div className=" section columns teambox">
       <div className="column">
         <div className="box">
           <article className="media">
@@ -47,7 +47,7 @@ const Team = () => {
       </div>
     </div>
 </div>
-<div className=" section columns  teambox">
+<div className=" section columns">
 
       <div className="column">
       <div className="box">
@@ -70,8 +70,6 @@ const Team = () => {
         </article>
       </div>
     </div>
-
-
 
 
 
