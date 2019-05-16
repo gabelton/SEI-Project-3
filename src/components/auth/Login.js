@@ -43,7 +43,7 @@ class Login extends React.Component {
     console.log(this.state)
     return (
       <section className="section">
-        <div className="container">
+        <div className="container box">
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
               <form onSubmit={this.handleSubmit}>
@@ -53,7 +53,7 @@ class Login extends React.Component {
                     <input
                       className="input"
                       name="email"
-                      placeholder="eg: leela@planetexpress.nnyc"
+                      placeholder="eg: vinnieDaVinylhead@technics.com"
                       onChange={this.handleChange}
                     />
                   </div>
@@ -73,7 +73,7 @@ class Login extends React.Component {
                   {this.state.error && <div className="help is-danger">{this.state.error}</div>}
                 </div>
 
-                <button className="button is-primary">Submit</button>
+                <button className="button is-dark">Submit</button>
               </form>
             </div>
           </div>

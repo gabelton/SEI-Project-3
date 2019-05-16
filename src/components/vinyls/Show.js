@@ -4,9 +4,7 @@ import axios from 'axios'
 import Promise from 'bluebird'
 import Card from './Card'
 import Auth from '../../lib/Auth'
-
 import Loading from '../common/Loading'
-import Comment from '../comments/Comment'
 
 class Show extends React.Component {
   constructor(props) {
@@ -33,8 +31,7 @@ class Show extends React.Component {
     })
       .then(res => {
         return Promise.props({
-
-          albumInfo: axios.get('http://ws.audioscrobbler.com/2.0', {
+          albumInfo: axios.get('https://ws.audioscrobbler.com/2.0', {
             params: {
               method: 'album.getinfo',
               api_key: process.env.LASTFM_API_KEY,
@@ -117,12 +114,13 @@ class Show extends React.Component {
   render() {
     console.log(this.state, 'I am state')
     console.log(this.state.data, 'DATA')
-    if(!this.state.vinyl) return null
+    if(!this.state.vinyl) return <Loading />
     const { artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy, comments } = this.state.vinyl
     console.log(this.state.vinyl, 'ONE VINYL')
     // console.log(this.state.vinyls, 'ALL VINYLS')
 
-    const similar = this.state.vinyls.filter(vinyl => vinyl.genre === this.state.vinyl.genre && vinyl.title !== this.state.vinyl.title)
+    let similar = this.state.vinyls.filter(vinyl => vinyl.genre === this.state.vinyl.genre && vinyl.title !== this.state.vinyl.title)
+    similar = similar.slice(0,5)
     // console.log(similar, 'SIMILAR')
 
 
@@ -132,7 +130,7 @@ class Show extends React.Component {
     // console.log(lastFmData, 'LASTFMDATA')
     console.log(createdBy, 'Created By')
 
-    const trackPreviews = this.state.previews.slice(0,10)
+    const trackPreviews = this.state.previews.slice(0,8)
     console.log(trackPreviews, 'DEEZER PREVIEW')
 
     return (
@@ -142,9 +140,25 @@ class Show extends React.Component {
             <figure className="image">
               <img src={image} alt={title} />
             </figure>
-
+            <div className="container edit">
+              <div className="buttons is-gapless">
+                {Auth.isAuthenticated() &&
+                  <Link to={{
+                    pathname: `/users/${Auth.getPayload().sub}`,
+                    state: {vinyl: this.state.vinyl}
+                  }}>
+                    <button className="button is-light a1">Add to Wish List</button>
+                  </Link>
+                }
+                {this.canModify() &&
+                      <div className="level-right is-gapless edit2">
+                        <Link to={`/vinyls/${this.state.vinyl._id}/edit`} className="button is-light e1">Edit</Link>
+                        <button className="button is-light d2" onClick={this.handleDelete}>Delete</button>
+                      </div>
+                }
+              </div>
+            </div>
             {/* COMMENTS ==============================================*/}
-
             <div className="show-content-video subheading-show">
               <h2 className="title is-5 subheading-show">{artist} Top Tracks</h2>
               <ul>
@@ -172,13 +186,13 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Format: </span>{format}</h2>
               <h2 className="subtitle is-6 show"><span>Speed: </span>{speed}</h2>
               <h2 className="subtitle is-6 show"><span>Barcode:</span> {barcode}</h2>
-              <h2 className="subtitle is-6 show"><span>Catalogue number:</span>{catalogueNumber}</h2>
+              <h2 className="subtitle is-6 show"><span>Catalogue number:</span> {catalogueNumber}</h2>
               <h2 className="subtitle is-6 show"><span>Notes: </span>{notes}</h2>
               <h2 className="subtitle is-6 show"><span>Link to more info on Last FM: </span>{lastFmData.url}</h2>
               <hr />
               <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
                 <ul className="show-tracklisting">
-                  {tracksLastFm.map(track =>
+                  {tracksLastFm.length === 0 ? <p>Tracklisting not available</p> : tracksLastFm.map(track =>
                     <li key={track.url}>
                       <h4 className="subtitle is-6">{track.name}</h4>
                     </li>)}
@@ -272,22 +286,6 @@ class Show extends React.Component {
             </div>
           </div>
         </div>
-        {this.canModify() &&
-              <div className="level-right">
-                <Link to={`/vinyls/${this.state.vinyl._id}/edit`} className="button is-black">Edit</Link>
-                <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
-              </div>
-        }
-
-        {Auth.isAuthenticated() &&
-          <Link to={{
-            pathname: `/users/${Auth.getPayload().sub}`,
-            state: {vinyl: this.state.vinyl}
-          }}>
-            <button className="button is-black">Add to Wish List</button>
-          </Link>
-        }
-
       </section>
     )
   }

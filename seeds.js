@@ -17,10 +17,16 @@ mongoose.connect(dbURI, (err, db) => {
         password: 'pass',
         passwordConfirmation: 'pass',
         image: 'https://i.imgur.com/aFoCicH.jpg'
+      },{
+        username: 'eprice',
+        email: 'ekprice01@gmail.com',
+        password: 'pass',
+        passwordConfirmation: 'pass',
+        image: 'https://s1.r29static.com//bin/entry/9d4/x,80/2164076/taylor-swift-cant-stop-teasing-2164076.jpg'
       }])
     })
     .then(users => {
-      const [ sean, gabe ] = users
+      const [ sean, gabe, emma ] = users
       return Vinyl.create([{
         artist: 'Childish Gambino',
         title: 'Awaken, My Love',
@@ -36,7 +42,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'GLS-0209-01',
         barcode: 810599021412,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'A Tribe Called Quest',
         title: 'The Low End Theory',
@@ -100,7 +106,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '7738531',
         barcode: 602577385315,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Robyn',
         title: 'Honey',
@@ -116,7 +122,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'KOR057LP',
         barcode: 602567994688,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Nancy Wilson/Cannonball Adderley',
         title: 'Nancy Wilson/Cannonball Adderley',
@@ -132,7 +138,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'ST-1657',
         barcode: 123456789,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'St. Vincent',
         title: 'St. Vincent',
@@ -148,7 +154,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'UNIW40355',
         barcode: 60253672509,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Radiohead',
         title: 'In Rainbows',
@@ -164,7 +170,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'XLLP 324',
         barcode: 880882162313,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'D\'Angelo',
         title: 'Brown Sugar',
@@ -180,7 +186,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '4724081',
         barcode: 602547240811,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Kendrick Lamar',
         title: 'Damn',
@@ -196,7 +202,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '5761828',
         barcode: 602557618280,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'Glass Animals',
         title: 'How To Be A Human Being',
@@ -212,7 +218,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'WOLFTONE012LP',
         barcode: 602547950871,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'Kate Tempest',
         title: 'Let Them Eat Chaos',
@@ -228,7 +234,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'CHAOS23',
         barcode: 602557128277,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'Taylor Swift',
         title: '1989',
@@ -244,7 +250,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'LC01846',
         barcode: 602547092687,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Tame Impala',
         title: 'Currents',
@@ -260,7 +266,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '4730677',
         barcode: 602547306777,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Sam Cooke',
         title: 'Portrait Of A Legend',
@@ -276,7 +282,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'LC22670',
         barcode: 18771926412,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Count Basie and his orchestra',
         title: 'April in Paris',
@@ -308,7 +314,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '6749301',
         barcode: 602567493013,
-        createdBy: sean
+        createdBy: gabe
       },{
         artist: 'Chris Stapleton',
         title: 'Traveller',
@@ -324,7 +330,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '4725522',
         barcode: 602547255228,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Amy Winehouse',
         title: 'Back To Black',
@@ -340,7 +346,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '1734128',
         barcode: 602517341289,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'Max Richter',
         title: 'Recomposed: Vivaldi - The Four Seasons',
@@ -356,7 +362,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '4793337',
         barcode: 28947933373,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'Bjork',
         title: 'Vulnicura',
@@ -372,7 +378,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'LC 03275',
         barcode: 5016958998271,
-        createdBy: gabe
+        createdBy: sean
       },{
         artist: 'Nina Simone',
         title: 'I Put A Spell On You',
@@ -388,7 +394,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '5360570',
         barcode: 600753605707,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Stevie Wonder',
         title: 'Innervisions',
@@ -420,23 +426,23 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '5722751',
         barcode: 602557227512,
-        createdBy: gabe
+        createdBy: sean
       },{
-        artist: 'David Brent & Foregone Conclusion',
-        title: 'Lady Gypsy / Life On The Road',
-        image: 'https://img.discogs.com/DnbsP2OWsu8tXzXOx700FqjpgoY=/fit-in/500x500/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-8937502-1471831863-5552.jpeg.jpg',
+        artist: 'David Brent',
+        title: 'Life On The Road',
+        image: 'https://img.discogs.com/P01-m6o3BsKXuiCzusFUFz6MJus=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-8944925-1471974447-3079.jpeg.jpg',
         releaseYear: 2016,
         genre: 'Rock',
         condition: 'Near-Mint',
         length: '5:23',
-        notes: 'Two lead singles from David Brent: Life on the Road, soundtrack to the 2016 British mockumentary comedy film written, directed, and produced by Ricky Gervais and released by Entertainment One.',
+        notes: 'Life on the Road, soundtrack to the 2016 British mockumentary comedy film written, directed, and produced by Ricky Gervais and released by Entertainment One.',
         label: 'Caroline International',
-        size: '7',
-        format: '1LP',
+        size: '10',
+        format: '2LP',
         speed: '45 RPM',
         catalogueNumber: '5702631',
         barcode: 602557026313,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Keith Jarrett',
         title: 'The Koln Concert',
@@ -452,7 +458,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '2727888',
         barcode: 602527278889,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'Dr. Dre',
         title: '2001',
@@ -468,7 +474,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'LC06406',
         barcode: 606949048617,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Kendrick Lamar',
         title: 'To Pimp A Butterfly',
@@ -484,7 +490,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '4731100',
         barcode: 602547311009,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Nick Drake',
         title: 'Five Leaves Left',
@@ -500,7 +506,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '3734756',
         barcode: 602537347568,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Bill Evans',
         title: 'Conversations With Myself',
@@ -548,7 +554,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'LC00383',
         barcode: 60253750658,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'Thelonious Monk',
         title: 'Brilliant Corners',
@@ -580,7 +586,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'CAD3117',
         barcode: 652637311716,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'James Blake',
         title: 'James Blake',
@@ -596,7 +602,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'ATLAS02LP',
         barcode: 602527554723,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'Charlie Parker',
         title: 'Charlie Parker With Strings',
@@ -612,7 +618,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'MG C-675',
         barcode: 600753458884,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'Erykah Badu',
         title: 'Baduizm',
@@ -628,7 +634,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'LC 01056',
         barcode: 601215302714,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'Marvin Gaye',
         title: 'Let\'s Get It On',
@@ -660,7 +666,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'CAROLO11LP',
         barcode: 602547778215,
-        createdBy: gabe
+        createdBy: emma
       },{
         artist: 'John Coltrane',
         title: 'Blue Train',
@@ -676,7 +682,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '3771410',
         barcode: 602537714100,
-        createdBy: gabe
+        createdBy: sean
       },{
         artist: 'Cannonball Adderley',
         title: 'Somethin\' Else',
@@ -708,7 +714,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'LVR00224',
         barcode: 888072037113,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'The Rolling Stones',
         title: 'Sticky Fingers',
@@ -724,7 +730,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: '376482',
         barcode: 60253764821,
-        createdBy: sean
+        createdBy: gabe
       },{
         artist: 'Caribou',
         title: 'Our Love',
@@ -740,7 +746,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'SLANG50070LP',
         barcode: 4250506809560,
-        createdBy: sean
+        createdBy: emma
       },{
         artist: 'David Bowie',
         title: 'Aladdin Sane',
@@ -836,7 +842,7 @@ mongoose.connect(dbURI, (err, db) => {
         speed: '45 RPM',
         catalogueNumber: 'CAROL009CD',
         barcode: 602547595546,
-        createdBy: gabe
+        createdBy: emma
       },
       {
         artist: 'Nic Jones',
@@ -956,6 +962,70 @@ mongoose.connect(dbURI, (err, db) => {
         catalogueNumber: '379563',
         barcode: 22471726545,
         createdBy: gabe
+      },{
+        artist: '21 Savage',
+        title: 'I Am > I Was',
+        image: 'https://img.discogs.com/_TKWTKSV_lPLUNKOTNWvJsqfc2g=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-13117602-1548359239-2670.jpeg.jpg',
+        releaseYear: 2019,
+        genre: 'Hip-Hop',
+        condition: 'Mint',
+        length: '54:54',
+        notes: 'I Am > I Was is the second studio album by rapper 21 Savage, released on December 21, 2018. I Am > I Was features vocals by J. Cole, Childish Gambino, Schoolboy Q, Post Malone, Offset, Lil Baby, Gunna, and Travis Scott, among others. I Am > I Was was supported by two singles, "A Lot" and "Monster"',
+        label: 'Slaughter Gang',
+        size: '12',
+        format: '2LP',
+        speed: '33 1/3 RPM',
+        catalogueNumber: 'IAM216drftg',
+        barcode: 19075922121,
+        createdBy: sean
+      },{
+        artist: 'Eminem',
+        title: 'Kamakaze',
+        image: 'https://img.discogs.com/25-v40pGMEyj31Y8x1l3m-ZdqxU=/fit-in/471x468/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-12491325-1536888615-7220.jpeg.jpg',
+        releaseYear: 2018,
+        genre: 'Hip-Hop',
+        condition: 'Mint',
+        length: '45:49',
+        notes: 'Kamikaze is the tenth studio album by American rapper Eminem, released on August 31, 2018 by Aftermath Entertainment, Interscope Records, and Shady Records without prior announcement. The album features guest appearances from Joyner Lucas, Royce, Jessie Reyez, and uncredited vocals by Justin Vernon',
+        label: 'Aftermath',
+        size: '12',
+        format: '2LP',
+        speed: '33 1/3 RPM',
+        catalogueNumber: 'bhcqwn14o23eiqyu',
+        barcode: 234578909876,
+        createdBy: sean
+      },{
+        artist: 'Joey BadA$$',
+        title: 'ALL-AMERIKKKAN BADA$$',
+        image: 'https://img.discogs.com/7-PZilRyNp_uy69jKqtqMUVZquc=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-10090232-1492361537-7477.png.jpg',
+        releaseYear: 2017,
+        genre: 'Hip-Hop',
+        condition: 'Mint',
+        length: '49:42',
+        notes: 'All-Amerikkkan Badass is the second studio album by American rapper Joey Badass. It was released on April 7, 2017, by Cinematic Music Group and Pro Era Records. All-Amerikkkan Badass was supported by three singles: "Devastated", "Land of the Free" and "Temptation".',
+        label: 'Cinematic',
+        size: '12',
+        format: '2LP',
+        speed: '33 1/3 RPM',
+        catalogueNumber: 'b3456bdqup',
+        barcode: 23456786520,
+        createdBy: sean
+      },{
+        artist: 'Denzel Curry',
+        title: 'TA1300',
+        image: 'https://img.discogs.com/Gf8mjgWHqEwrX94zha09EuaOjoo=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-12330406-1533061667-3043.jpeg.jpg',
+        releaseYear: 2018,
+        genre: 'Hip-Hop',
+        condition: 'Mint',
+        length: '43:20',
+        notes: 'Ta13oo, is the third studio album by American rapper Denzel Curry. The album was released on July 27, 2018 by PH Recordings and Loma Vista Recordings. The album serves as the follow-up to Curry\'s second studio album, Imperial, released in 2016, and the 13 EP, released in 2017',
+        label: 'Loma Vista',
+        size: '12',
+        format: '3LP',
+        speed: '33 1/3 RPM',
+        catalogueNumber: 'dv6rqer84e9',
+        barcode: 1235323677532,
+        createdBy: sean
       }
       ])
     })

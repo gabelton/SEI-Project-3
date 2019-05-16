@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/Auth'
 import { Link } from 'react-router-dom'
-
 class Show extends React.Component {
 
   constructor(props){
@@ -30,18 +29,16 @@ class Show extends React.Component {
 
   handleWish() {
     const token = Auth.getToken()
-    console.log(this.props.match.params.id)
-    console.log(Auth.getPayload().sub)
-    console.log(this.state.data)
     const currentUser = this.state.user._id
 
 
     const vinylWish = this.state.user.vinylWish.slice()
-    console.log('I AM USER', this.state.user._id)
     vinylWish.push(this.props.location.state.vinyl)
     const user = {...this.state.user, vinylWish}
-    axios.put(`/api/users/${currentUser}`, {vinylWish: vinylWish._id}, {headers: { 'Authorization': `Bearer ${token}` }})
+    console.log('TO BE PUSHED TO DB', vinylWish)
+    axios.put(`/api/users/${currentUser}`, {vinylWish: vinylWish}, {headers: { 'Authorization': `Bearer ${token}` }})
       .then(() => this.setState({ user }))
+      .catch(err => console.error(err))
 
 
     //axios.post(`/api/users/${Auth.getPayload().sub}/vinylWish`, this.state.vinyl._id ,{
@@ -118,18 +115,7 @@ class Show extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="sellList box">
-                <h3 className="subtitle subheading-show">Sell List</h3>
-                <div className="columns is-multiline">
-                  {this.state.user.vinyls.map(vinyl =>
-                    <div key={vinyl._id} className="column is-one-fifth">
-                      <Link to={`/vinyls/${vinyl._id}`}>
-                        <img src={vinyl.image} alt="meeeeee"/>
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
