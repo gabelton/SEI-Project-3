@@ -25,7 +25,6 @@ html {
   border: 1px solid $background-color;
   padding-bottom: 8px;
   background-color: $secondary-background-color;
-  letter-spacing: 2px;
 }
 
 .genres {
@@ -196,14 +195,15 @@ nav {
 .edit {
   .e1 {
   border: solid $text-color 1px;
-  background-color: $secondary-background-color;
   }
   .d2 {
     border: solid $text-color 1px;
-    background-color: $secondary-background-color;
   }
   .a1 {
     border: solid $text-color 1px;
-    background-color: $secondary-background-color;
   }
+}
+
+.teamContainer, .teambox {
+  margin-top: 120px;
 }

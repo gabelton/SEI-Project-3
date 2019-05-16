@@ -7,6 +7,7 @@ import FlashMessages from './components/common/FlashMessages'
 
 import Home from './components/common/Home'
 import Navbar from './components/common/Navbar'
+import Team from './components/common/team'
 
 import VinylsShow from './components/vinyls/Show'
 import VinylsNew from './components/vinyls/New'
@@ -41,6 +42,7 @@ class App extends React.Component {
             <Route path="/vinyls" component={VinylsIndex} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
+            <Route path="/team" component={Team} />
             <Route path="/" component={Home} />
           </Switch>
         </div>

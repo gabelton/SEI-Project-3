@@ -71,7 +71,7 @@ class Home extends React.Component {
         <footer className="footer">
           <div className="content has-text-centered">
             <p>
-              <strong>Project black </strong> by <a>Team Black</a>.
+              <strong>Project black </strong> by <Link to={'/team'}>Team Black</Link>
             </p>
           </div>
         </footer>
