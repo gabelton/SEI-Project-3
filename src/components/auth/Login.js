@@ -69,18 +69,6 @@ class Login extends React.Component {
                       onChange={this.handleChange}
                     />
                   </div>
-                </div>
-                <div className="field">
-                  <label className="label">Password</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      name="password"
-                      type="password"
-                      placeholder="eg: ••••••••"
-                      onChange={this.handleChange}
-                    />
-                  </div>
 
                   {this.state.error && <div className="help is-danger">{this.state.error}</div>}
                 </div>
