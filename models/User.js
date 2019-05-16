@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
   bio: {
     type: String
   },
-  vinylWish: [{ 
+  vinylWish: [{
     type: mongoose.Schema.ObjectId,
     ref: 'Vinyl'
   }]

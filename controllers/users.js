@@ -31,6 +31,7 @@ function updateRoute(req, res, next) {
     .findById(req.params.id)
     .then(user => user.set(req.body))
     .then(user => user.save())
+    .then(() => console.log('REQ BODY ***********', req.body))
     .then(user => res.json(user))
     .catch(next)
 }

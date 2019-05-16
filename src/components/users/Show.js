@@ -29,18 +29,16 @@ class Show extends React.Component {
 
   handleWish() {
     const token = Auth.getToken()
-    console.log(this.props.match.params.id)
-    console.log(Auth.getPayload().sub)
-    console.log(this.state.data)
     const currentUser = this.state.user._id
 
 
     const vinylWish = this.state.user.vinylWish.slice()
-    console.log('I AM USER', this.state.user._id)
     vinylWish.push(this.props.location.state.vinyl)
     const user = {...this.state.user, vinylWish}
-    axios.put(`/api/users/${currentUser}`, {vinylWish: vinylWish._id}, {headers: { 'Authorization': `Bearer ${token}` }})
+    console.log('TO BE PUSHED TO DB', vinylWish)
+    axios.put(`/api/users/${currentUser}`, {vinylWish: vinylWish}, {headers: { 'Authorization': `Bearer ${token}` }})
       .then(() => this.setState({ user }))
+      .catch(err => console.error(err))
 
 
     //axios.post(`/api/users/${Auth.getPayload().sub}/vinylWish`, this.state.vinyl._id ,{

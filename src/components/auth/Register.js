@@ -34,22 +34,19 @@ class Register extends React.Component {
     console.log(this.state)
     return (
       <section className="section">
-        <div className="section">
-          <div className="container register">
-            <div className="columns is-centered">
-              <div className="column is-half-desktop is-two-thirds-tablet">
-                <form onSubmit={this.handleSubmit}>
-                  <div className="field">
-                    <label className="label">Username</label>
-                    <div className="control">
-                      <input
-                        className="input"
-                        name="username"
-                        placeholder="eg: VinnieDaVinylHead45"
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                    {this.state.errors.username && <div className="help is-danger">{this.state.errors.username}</div>}
+        <div className="container box is-fluid">
+          <div className="columns is-centered">
+            <div className="column is-half-desktop is-two-thirds-tablet">
+              <form onSubmit={this.handleSubmit}>
+                <div className="field">
+                  <label className="label">Username</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      name="username"
+                      placeholder="eg: VinnieDaVinylHead45"
+                      onChange={this.handleChange}
+                    />
                   </div>
                   <div className="field">
                     <label className="label">Email</label>
@@ -89,9 +86,10 @@ class Register extends React.Component {
                     </div>
                     {this.state.errors.passwordConfirmation && <div className="help is-danger">{this.state.errors.passwordConfirmation}</div>}
                   </div>
-                  <button className="button is-dark">Submit</button>
-                </form>
-              </div>
+                  {this.state.errors.passwordConfirmation && <div className="help is-danger">{this.state.errors.passwordConfirmation}</div>}
+                </div>
+                <button className="button is-dark">Submit</button>
+              </form>
             </div>
           </div>
         </div>
