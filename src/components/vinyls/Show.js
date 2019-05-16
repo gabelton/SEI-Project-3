@@ -141,9 +141,25 @@ class Show extends React.Component {
             <figure className="image">
               <img src={image} alt={title} />
             </figure>
-
+            <div className="container edit">
+              <div className="buttons is-gapless">
+                {Auth.isAuthenticated() &&
+                  <Link to={{
+                    pathname: `/users/${Auth.getPayload().sub}`,
+                    state: {vinyl: this.state.vinyl}
+                  }}>
+                    <button className="button is-light a1">Add to Wish List</button>
+                  </Link>
+                }
+                {this.canModify() &&
+                      <div className="level-right is-gapless edit2">
+                        <Link to={`/vinyls/${this.state.vinyl._id}/edit`} className="button is-light e1">Edit</Link>
+                        <button className="button is-light d2" onClick={this.handleDelete}>Delete</button>
+                      </div>
+                }
+              </div>
+            </div>
             {/* COMMENTS ==============================================*/}
-
             <div className="show-content-video subheading-show">
               <h2 className="title is-5 subheading-show">{artist} Top Tracks</h2>
               <ul>
@@ -271,22 +287,6 @@ class Show extends React.Component {
             </div>
           </div>
         </div>
-        {this.canModify() &&
-              <div className="level-right">
-                <Link to={`/vinyls/${this.state.vinyl._id}/edit`} className="button is-black">Edit</Link>
-                <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
-              </div>
-        }
-
-        {Auth.isAuthenticated() &&
-          <Link to={{
-            pathname: `/users/${Auth.getPayload().sub}`,
-            state: {vinyl: this.state.vinyl}
-          }}>
-            <button className="button is-black">Add to Wish List</button>
-          </Link>
-        }
-
       </section>
     )
   }
