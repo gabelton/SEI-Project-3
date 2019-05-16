@@ -1,8 +1,15 @@
 const path = require('path')
 const webpack = require('webpack')
 const Dotenv = require('dotenv-webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const environmentPlugin = process.env.NODE_ENV === 'production' ? (
+  new webpack.EnvironmentPlugin({ ...process.env })
+) : (
+  new Dotenv()
+)
 
 module.exports = {
   entry: './src/app.js',
@@ -48,8 +55,11 @@ module.exports = {
     }
   },
   plugins: [
-    new Dotenv(),
     new webpack.HotModuleReplacementPlugin(),
+    environmentPlugin,
+    new CopyWebpackPlugin([
+      { from: 'src/images', to: 'images' }
+    ]),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       filename: 'index.html',
