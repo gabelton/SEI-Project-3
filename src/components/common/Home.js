@@ -57,7 +57,7 @@ class Home extends React.Component {
           </div>
         </div>
 
-        <div className="columns is-multiline is-centered">
+        <div className="columns is-multiline is-centered genres">
           {genres.map(genre =>
             <div key={genre} className="column is-one-quarter-desktop  blues is-one-third-tablet has-text-centered folder">
               <Link to={`/vinyls?genre=${genre}`}>
