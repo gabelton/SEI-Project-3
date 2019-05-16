@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
 $font-stack: Roboto, sans-serif;
+$background-color: #e3e3e3;
+$secondary-background-color: white;
+$secondary-color: #DD8964;
+$tertiary-color: #008CBA;
+$text-color: #575656;
 
 html {
-  background-color: #e3e3e3;
+  background-color: $background-color;
 }
 
 .logo {
@@ -16,7 +22,7 @@ html {
 
 .recently-added {
   margin-top: 20px;
-  background-color: #e3e3e3;
+  background-color: $background-color;
 }
 
 .home-recent {
@@ -26,10 +32,10 @@ html {
 }
 
 .show-content {
-  background-color: white;
+  background-color: $secondary-background-color;
   padding: 5px;
   border-radius: 4px;
-  border-top: 2px solid #DD8964;
+  border-top: 1px solid $secondary-color;
 }
 
 .show-tracklisting{
@@ -40,31 +46,31 @@ html {
   background-color: white;
   padding: 5px;
   border-radius: 4px;
-  border-top: 2px solid #DD8964;
+  border-top: 1px solid $secondary-color;
   margin-top: 10px;
 }
 
 #vinyl-show {
   margin-top: 20px;
-  background-color: #e3e3e3;
+  background-color: $background-color;
 }
 
 .show {
-  color: #575656;
+  color: $text-color;
 }
 
 .subheading-show {
-  color: #008CBA;
+  color: $tertiary-color;
   text-transform: uppercase;
   letter-spacing: 4px;
   font-weight: bold;
 }
 
 .similar-show {
-  background-color: white;
+  background-color: $secondary-background-color;
   padding: 5px;
   border-radius: 4px;
-  border-top: 2px solid #DD8964;
+  border-top: 1px solid $secondary-color;
 }
 
 .similar-artist-image {
@@ -72,8 +78,8 @@ html {
 }
 
 .formBox {
-  border-top: 2px solid #008CBA;
-  background-color: white;
+  border-top: 1px solid $tertiary-color;
+  background-color: $secondary-background-color;
   padding: 20px;
 
     .field {
@@ -89,7 +95,7 @@ html {
   text-transform: uppercase;
   letter-spacing: 6px;
   font-weight: bold;
-  color: #DD8964;
+  color: $secondary-color;
 }
 
 #title-show {
@@ -109,7 +115,7 @@ span {
 }
 
 audio {
-  background-color: #DD8964;
+  background-color: $secondary-color;
   height: 30px;
   margin-bottom: 5px;
   width: 550px;
@@ -135,7 +141,7 @@ nav {
 }
 
 .title-home{
-  color: black;
+  color: $text-color;
   font-size: 72px;
   color: #FFFFFF;
   // text-shadow: 1px 1px 29px rgba(0, 84, 31, 1);
@@ -146,7 +152,7 @@ nav {
 }
 
 .profile {
-  color: black;
+  color: $text-color;
 }
 
 .flashMessage {
@@ -171,13 +177,14 @@ nav {
 
 .commentText {
   font-size: 1rem;
-  color: #575656;
+  color: $text-color;
   font-weight: 400;
   line-height: 1.25;
   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   text-transform: none;
   letter-spacing: 1px;
 }
+
 .index-control {
   margin-left: 0;
   flex-grow: 0;
@@ -190,17 +197,18 @@ nav {
 .edit2 {
   margin-left: 10px;
 }
+
 .edit {
   .e1 {
-  border: solid #008CBA 1px;
+  border: solid $text-color 1px;
   background-color: white;
   }
   .d2 {
-    border: solid #008CBA 1px;
+    border: solid $text-color 1px;
     background-color: white;
   }
   .a1 {
-    border: solid #008CBA 1px;
+    border: solid $text-color 1px;
     background-color: white;
   }
 }
