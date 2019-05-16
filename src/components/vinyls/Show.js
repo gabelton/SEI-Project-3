@@ -119,7 +119,8 @@ class Show extends React.Component {
     console.log(this.state.vinyl, 'ONE VINYL')
     // console.log(this.state.vinyls, 'ALL VINYLS')
 
-    const similar = this.state.vinyls.filter(vinyl => vinyl.genre === this.state.vinyl.genre && vinyl.title !== this.state.vinyl.title)
+    let similar = this.state.vinyls.filter(vinyl => vinyl.genre === this.state.vinyl.genre && vinyl.title !== this.state.vinyl.title)
+    similar = similar.slice(0,5)
     // console.log(similar, 'SIMILAR')
 
 
@@ -129,7 +130,7 @@ class Show extends React.Component {
     // console.log(lastFmData, 'LASTFMDATA')
     console.log(createdBy, 'Created By')
 
-    const trackPreviews = this.state.previews.slice(0,10)
+    const trackPreviews = this.state.previews.slice(0,8)
     console.log(trackPreviews, 'DEEZER PREVIEW')
 
     return (
