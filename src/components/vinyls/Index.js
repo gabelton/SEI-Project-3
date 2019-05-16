@@ -48,8 +48,8 @@ class Index extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <div className="container columns navigatore">
-            <div className="control column">
+          <div className="container columns ">
+            <div className="control column index-control">
               <input
                 className="input"
                 type="text"
@@ -58,7 +58,7 @@ class Index extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div className="control column">
+          <div className="control column index-control">
               <div className="select">
                 <select
                   name="genre"
