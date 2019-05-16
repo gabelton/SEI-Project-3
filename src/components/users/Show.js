@@ -116,18 +116,7 @@ class Show extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="sellList box">
-                <h3 className="subtitle subheading-show">Sell List</h3>
-                <div className="columns is-multiline">
-                  {this.state.user.vinyls.map(vinyl =>
-                    <div key={vinyl._id} className="column is-one-fifth">
-                      <Link to={`/vinyls/${vinyl._id}`}>
-                        <img src={vinyl.image} alt="meeeeee"/>
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
