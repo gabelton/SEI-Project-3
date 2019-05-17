@@ -5,7 +5,6 @@ import Card from './Card'
 import qs from 'query-string'
 import genres from '../../lib/genres'
 
-
 class Index extends React.Component {
   constructor(props) {
     super(props)
