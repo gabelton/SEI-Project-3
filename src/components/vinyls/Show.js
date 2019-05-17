@@ -112,11 +112,11 @@ class Show extends React.Component {
   }
 
   render() {
-    console.log(this.state, 'I am state')
-    console.log(this.state.data, 'DATA')
+    // console.log(this.state, 'I am state')
+    // console.log(this.state.data, 'DATA')
     if(!this.state.vinyl) return <Loading />
     const { artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy, comments } = this.state.vinyl
-    console.log(this.state.vinyl, 'ONE VINYL')
+    // console.log(this.state.vinyl, 'ONE VINYL')
     // console.log(this.state.vinyls, 'ALL VINYLS')
 
     let similar = this.state.vinyls.filter(vinyl => vinyl.genre === this.state.vinyl.genre && vinyl.title !== this.state.vinyl.title)
@@ -127,10 +127,10 @@ class Show extends React.Component {
     const lastFmData = this.state.lastFmData
     // console.log(tracksLastFm, 'TRACKSLASTFM')
     // console.log(lastFmData, 'LASTFMDATA')
-    console.log(createdBy, 'Created By')
+    // console.log(createdBy, 'Created By')
 
     const trackPreviews = this.state.previews.slice(0,8)
-    console.log(trackPreviews, 'DEEZER PREVIEW')
+    // console.log(trackPreviews, 'DEEZER PREVIEW')
 
     return (
       <section className="section" id="vinyl-show">
@@ -157,7 +157,7 @@ class Show extends React.Component {
                 }
               </div>
             </div>
-            {/* COMMENTS =====================================================*/}
+            {/* TOP TRACKS =====================================================*/}
             <div className="show-content-video subheading-show">
               <h2 className="title is-5 subheading-show">{artist} Top Tracks</h2>
               <ul>
@@ -187,7 +187,7 @@ class Show extends React.Component {
               <h2 className="subtitle is-6 show"><span>Barcode:</span> {barcode}</h2>
               <h2 className="subtitle is-6 show"><span>Catalogue number:</span> {catalogueNumber}</h2>
               <h2 className="subtitle is-6 show"><span>Notes: </span>{notes}</h2>
-              <h2 className="subtitle is-6 show"><span>Link to more info on Last FM: </span>{lastFmData.url}</h2>
+              <h2 className="subtitle is-6 show"><span>Link to more info: </span><a href={lastFmData.url} rel="noopener noreferrer" target="_blank">LAST FM</a></h2>
               <hr />
               <h2 className="subtitle is-6 show"><span>Tracklisting:</span>
                 <ul className="show-tracklisting">
@@ -198,7 +198,7 @@ class Show extends React.Component {
                 </ul>
               </h2>
             </div>
-            {/* TOP TRACKS ===================================================*/}
+            {/* COMMENTS ===================================================*/}
 
             <div className="show-content-comments subheading-show">
               Comments
