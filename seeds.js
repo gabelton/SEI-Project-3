@@ -979,22 +979,6 @@ mongoose.connect(dbURI, (err, db) => {
         barcode: 19075922121,
         createdBy: sean
       },{
-        artist: 'Eminem',
-        title: 'Kamakaze',
-        image: 'https://img.discogs.com/25-v40pGMEyj31Y8x1l3m-ZdqxU=/fit-in/471x468/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-12491325-1536888615-7220.jpeg.jpg',
-        releaseYear: 2018,
-        genre: 'Hip-Hop',
-        condition: 'Mint',
-        length: '45:49',
-        notes: 'Kamikaze is the tenth studio album by American rapper Eminem, released on August 31, 2018 by Aftermath Entertainment, Interscope Records, and Shady Records without prior announcement. The album features guest appearances from Joyner Lucas, Royce, Jessie Reyez, and uncredited vocals by Justin Vernon',
-        label: 'Aftermath',
-        size: '12',
-        format: '2LP',
-        speed: '33 1/3 RPM',
-        catalogueNumber: 'bhcqwn14o23eiqyu',
-        barcode: 234578909876,
-        createdBy: sean
-      },{
         artist: 'Joey BadA$$',
         title: 'ALL-AMERIKKKAN BADA$$',
         image: 'https://img.discogs.com/7-PZilRyNp_uy69jKqtqMUVZquc=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-10090232-1492361537-7477.png.jpg',
