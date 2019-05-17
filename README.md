@@ -65,13 +65,15 @@ Within the user profile page, is the users Wishlist of vinyls they are on the hu
 
 ### Process
 
-- Once we'd decided on the theme for our project, we created a group Trello board to breakdown and manage our workload and created wireframes for the website.
+Once we'd decided on the theme for our project, we created a group Trello board to breakdown and manage our workload and created wireframes for the website.
 
--
+
 
 ### Challenges
 
 ### Wins
+
+Storing our genres in an array on a separate 'genre' file meant we could make our code more DRY, as whenever we wanted to refer to the genres (for example on our home page and index page) we just mapped over the genre array rather than writing a line of code for each genre.
 
 ## Future Features
 
