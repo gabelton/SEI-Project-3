@@ -19,11 +19,6 @@ class New extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount() {
-    // axios.get('/api/vinyls')
-    //   .then(res => this.setState({ vinyls: res.data }))
-  }
-
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     this.setState({ data })

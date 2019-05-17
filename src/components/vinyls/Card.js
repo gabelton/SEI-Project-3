@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Card = ({ artist, image, title }) => {
+const Card = ({ image, title }) => {
   return (
     <div className="card">
       <div className="card-image">

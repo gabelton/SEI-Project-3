@@ -18,7 +18,6 @@ function showRoute(req, res, next) {
     .catch(next)
 }
 
-// no need for this
 function createRoute(req, res, next) {
   User
     .create(req.body)

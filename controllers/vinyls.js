@@ -38,12 +38,10 @@ function deleteRoute(req, res, next) {
 }
 
 function commentCreateRoute(req, res, next) {
-  //  add the currentUser to the data
-  req.body.user = req.currentUser // this comes from `secureRoute`
-  // find the character we want to add a comment to
+
+  req.body.user = req.currentUser
   Vinyl.findById(req.params.id)
     .then(vinyl => {
-      // add a comment to the character
       vinyl.comments.push(req.body)
       return vinyl.save()
     })
@@ -52,15 +50,11 @@ function commentCreateRoute(req, res, next) {
 }
 
 function commentDeleteRoute(req, res, next) {
-  // find the vinyl we want to delete the comment from
   Vinyl.findById(req.params.id)
     .then(vinyl => {
-      console.log(vinyl)
-      console.log(req.params.commentId, 'LOOK ALIVE!')
-      const comment = vinyl.comments.id(req.params.commentId) // find the comment by its ID
-      console.log(comment, 'OVER HERE!')
-      comment.remove() // remove the comment
-      return vinyl.save() // save the vinyl
+      const comment = vinyl.comments.id(req.params.commentId) 
+      comment.remove()
+      return vinyl.save()
     })
     .then(vinyl => res.json(vinyl))
     .catch(next)

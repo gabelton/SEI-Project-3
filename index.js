@@ -1,6 +1,6 @@
 require('dotenv').config()
 const express = require('express')
-const bodyParser = require('body-parser') // this comes with express
+const bodyParser = require('body-parser') 
 const mongoose = require('mongoose')
 const routes = require('./config/routes')
 const errorHandler = require('./lib/errorHandler')

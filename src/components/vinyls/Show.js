@@ -66,7 +66,6 @@ class Show extends React.Component {
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     this.setState({ data })
-    console.log(this.state.data)
   }
 
   handleComment(e) {
@@ -83,14 +82,9 @@ class Show extends React.Component {
 
   handleDeleteComments(e) {
 
-    console.log(e.target.value)
-    console.log(this.props.match.params.id)
-
     const token = Auth.getToken()
 
     if (e.target.value === Auth.getPayload().sub) {
-      console.log('yooooooo')
-      console.log(`${this.props.match.params.id}`)
       axios.delete(`/api/vinyls/${this.props.match.params.id}/comments/${e.target.id}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       } )
@@ -112,25 +106,35 @@ class Show extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
+    if(!this.state.vinyl) return <Loading />
+    const { artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode } = this.state.vinyl
+
+=======
     // console.log(this.state, 'I am state')
     // console.log(this.state.data, 'DATA')
     if(!this.state.vinyl) return <Loading />
     const { artist, title, image, releaseYear, notes, genre, condition, length, label, size, format, speed, catalogueNumber, barcode, createdBy, comments } = this.state.vinyl
     // console.log(this.state.vinyl, 'ONE VINYL')
     // console.log(this.state.vinyls, 'ALL VINYLS')
+>>>>>>> development
 
     let similar = this.state.vinyls.filter(vinyl => vinyl.genre === this.state.vinyl.genre && vinyl.title !== this.state.vinyl.title)
     similar = similar.slice(0,5)
-    // console.log(similar, 'SIMILAR')
 
     const tracksLastFm = this.state.tracks
     const lastFmData = this.state.lastFmData
+<<<<<<< HEAD
+
+    const trackPreviews = this.state.previews.slice(0,8)
+=======
     // console.log(tracksLastFm, 'TRACKSLASTFM')
     // console.log(lastFmData, 'LASTFMDATA')
     // console.log(createdBy, 'Created By')
 
     const trackPreviews = this.state.previews.slice(0,8)
     // console.log(trackPreviews, 'DEEZER PREVIEW')
+>>>>>>> development
 
     return (
       <section className="section" id="vinyl-show">
@@ -157,7 +161,10 @@ class Show extends React.Component {
                 }
               </div>
             </div>
+<<<<<<< HEAD
+=======
             {/* TOP TRACKS =====================================================*/}
+>>>>>>> development
             <div className="show-content-video subheading-show">
               <h2 className="title is-5 subheading-show">{artist} Top Tracks</h2>
               <ul>
@@ -169,8 +176,6 @@ class Show extends React.Component {
               </ul>
             </div>
           </div>
-
-          {/* ALBUM INFO =====================================================*/}
           <div className="column is-two-fifths-desktop is-half-tablet is-full-mobile">
             <div className="show-content">
               <h2 className="subtitle is-4 show" id="artist-show">{artist}</h2>
@@ -198,8 +203,11 @@ class Show extends React.Component {
                 </ul>
               </h2>
             </div>
+<<<<<<< HEAD
+=======
             {/* COMMENTS ===================================================*/}
 
+>>>>>>> development
             <div className="show-content-comments subheading-show">
               Comments
               <article className="media">
@@ -263,8 +271,6 @@ class Show extends React.Component {
               )}
             </div>
           </div>
-
-          {/* SIMILAR ARITSTS ============================================== */}
           <div className="column is-one-fifth-desktop is-half-tablet is-full-mobile">
             <div className="similar-show">
 

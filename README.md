@@ -21,9 +21,9 @@ Backend: Node.js, MongoDB, Mongoose, Bluebird,
 
 Unlike our previous project, where we relied entirely on third-party APIs, here we were required to build our own database. We started by planning out our Vinyl model and then sketched out our user model. These formed the foundation of our project, upon which we would later embed information such as comments and a user wishlist.
 
-After installing key dependencies (see technologies), we created an app.js page and set up a 'Hello world' message running on localhost:4000. Next we stored this port variable in an enviroment.js file in our config folder. Then, while half of the group worked on the user and vinyl models, the other half started creating the users, vinyls, and auth controllers. After this we exported routes from our controllers files into a routes file in our config folder.
+After installing key dependencies (see technologies), we created an app.js page and set up a 'Hello world' message running on localhost:4000. Next we stored this port variable in an environment.js file in our config folder. Then, while half of the group worked on the user and vinyl models, the other half started creating the users, vinyls, and auth controllers. After this we exported routes from our controllers files into a routes file in our config folder.
 
-Once we had completed the models we created a seeds folder, to make it easier to update the database. We then looked at authorisation, creating a secureRoute file, to make sure that only logged in users would be able to add vinyls to the site and then delete or update only their own collections.
+Once we had completed the models we created a seeds folder, to make it easier to update the database. We then looked at authorisation, creating a secureRoute file, to make sure that only logged in users would be able to add vinyls to the site and then delete or update only their own collections. Finally, in the same lib folder we created an errorHandler file.
 
 ## HomePage / landing page
 
@@ -71,6 +71,20 @@ Once we'd decided on the theme for our project, we created a group Trello board 
 
 ### Challenges
 
+
+
+- search bar
+
+- axios request in vinyl show using bluebird chain
+
+- sorting recently added
+
+- wishlist
+
+- Comment delete
+
+Vinyl Collection on the user profile - this proved a challenge to implement at first, but as soon as we populated the id the issues were resolved
+
 ### Wins
 
 Storing our genres in an array on a separate 'genre' file meant we could make our code more DRY, as whenever we wanted to refer to the genres (for example on our home page and index page) we just mapped over the genre array rather than writing a line of code for each genre.
@@ -84,3 +98,5 @@ In a future version of the site we would like to implement a more secure messagi
 PayPal
 
 Paypal would be another interesting addition as it would really allow the website to be run at maximum potential.
+
+- refactor show page to make separate comments folder
