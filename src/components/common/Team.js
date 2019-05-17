@@ -2,7 +2,7 @@ import React from 'react'
 
 const Team = () => {
   return (
-    <div className="container teamContainer"> 
+    <div className="container teamContainer">
       <div className=" section columns  teambox">
         <div className="column">
           <div className="box">

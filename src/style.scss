@@ -195,13 +195,22 @@ nav {
 
 .edit {
   .e1 {
-  border: solid $text-color 1px;
+  border-top: solid 1px $secondary-color;
+  background-color: $secondary-background-color;
+  text-transform: uppercase;
+  font-size: 15px;
   }
   .d2 {
-    border: solid $text-color 1px;
+    border-top: solid 1px $secondary-color;
+    background-color: $secondary-background-color;
+    text-transform: uppercase;
+    font-size: 15px;
   }
   .a1 {
-    border: solid $text-color 1px;
+    border-top: solid 1px $secondary-color;
+    background-color: $secondary-background-color;
+    text-transform: uppercase;
+    font-size: 15px;
   }
 }
 
