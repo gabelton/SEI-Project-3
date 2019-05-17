@@ -100,3 +100,9 @@ PayPal
 Paypal would be another interesting addition as it would really allow the website to be run at maximum potential.
 
 - refactor show page to make separate comments folder
+
+- add remove from wishlist
+
+- add message when adding comments if user isn't logged in
+
+- refresh vinyl collection from vinyl filtered stage
