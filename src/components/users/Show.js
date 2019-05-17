@@ -52,12 +52,7 @@ class Show extends React.Component {
     const { _id } = this.state.user
     return(
       <section className="section">
-        {this.canModify() &&
-          <div className="level-right">
-            <Link to={`/users/${_id}/edit`} className="button is-black">Edit</Link>
-          </div>
-        }
-        <div className="container">
+        <div className="container editpage">
 
           <div className="columns is-variable is-2">
 
@@ -75,6 +70,11 @@ class Show extends React.Component {
                   <p className="profile">{this.state.user.bio}</p>
                 </div>
               </div>
+              {this.canModify() &&
+                <div className="level-left">
+                  <Link to={`/users/${_id}/edit`} className="button is-black">Edit</Link>
+                </div>
+              }
             </div>
 
             <div className="column is-third">
