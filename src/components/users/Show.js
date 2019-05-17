@@ -35,15 +35,9 @@ class Show extends React.Component {
     const vinylWish = this.state.user.vinylWish.slice()
     vinylWish.push(this.props.location.state.vinyl)
     const user = {...this.state.user, vinylWish}
-    console.log('TO BE PUSHED TO DB', vinylWish)
     axios.put(`/api/users/${currentUser}`, {vinylWish: vinylWish}, {headers: { 'Authorization': `Bearer ${token}` }})
       .then(() => this.setState({ user }))
       .catch(err => console.error(err))
-
-
-    //axios.post(`/api/users/${Auth.getPayload().sub}/vinylWish`, this.state.vinyl._id ,{
-    //  headers: { 'Authorization': `Bearer ${token}` }
-    //  })
   }
 
 
@@ -54,9 +48,7 @@ class Show extends React.Component {
 
   render() {
 
-    console.log(this.props.location.state, 'new item')
     if(!this.state.user) return null
-    console.log(this.state.user)
     const { _id } = this.state.user
     return(
       <section className="section">
@@ -115,7 +107,7 @@ class Show extends React.Component {
                   </div>
                 </div>
               </div>
-              
+
             </div>
           </div>
         </div>

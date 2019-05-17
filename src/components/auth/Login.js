@@ -4,7 +4,7 @@ import axios from 'axios'
 import Flash from '../../lib/Flash'
 
 import Auth from '../../lib/Auth'
-//import Flash from '../../lib/Flash'
+
 
 class Login extends React.Component {
 
@@ -21,10 +21,8 @@ class Login extends React.Component {
   }
 
   handleChange(e) {
-    // merge data on state with new data from the form
     const data = { ...this.state.data, [e.target.name]: e.target.value }
-    // set the data back on state
-    this.setState({ data }) // equivalent to { data: data }
+    this.setState({ data }) 
   }
 
   handleSubmit(e) {

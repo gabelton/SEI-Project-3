@@ -33,7 +33,7 @@ Unlike our previous project, where we relied entirely on third-party APIs, here 
 
 After installing key dependencies (see technologies), we created an app.js page and set up a 'Hello world' message running on localhost:4000. Next we stored this port variable in an enviroment.js file in our config folder. Then, while half of the group worked on the user and vinyl models, the other half started creating the users, vinyls, and auth controllers. After this we exported routes from our controllers files into a routes file in our config folder.
 
-Once we had completed the models we created a seeds folder, to make it easier to update the database. We then looked at authorisation, creating a secureRoute file, to make sure that only logged in users would be able to add vinyls to the site and then delete or update only their own collections.
+Once we had completed the models we created a seeds folder, to make it easier to update the database. We then looked at authorisation, creating a secureRoute file, to make sure that only logged in users would be able to add vinyls to the site and then delete or update only their own collections. Finally, in the same lib folder we created an errorHandler file.
 
 ## HomePage / landing page
 
@@ -67,6 +67,18 @@ Within the user profile page, is the users Wishlist of vinyls they are on the hu
 
 ### Challenges
 
+
+
+- search bar
+
+- axios request in vinyl show using bluebird chain
+
+- sorting recently added
+
+- wishlist
+
+- Comment delete
+
 ### Wins
 
 ## Future Features
@@ -78,3 +90,5 @@ In a future version of the site we would like to implement a more secure messagi
 PayPal
 
 Paypal would be another interesting addition as it would really allow the website to be run at maximum potential.
+
+- refactor show page to make separate comments folder

@@ -16,17 +16,15 @@ class Register extends React.Component {
   }
 
   handleChange(e) {
-    // merge data on state with new data from the form
     const data = { ...this.state.data, [e.target.name]: e.target.value }
-    // set the data back on state
-    this.setState({ data }) // equivalent to { data: data }
+    this.setState({ data })
   }
 
   handleSubmit(e) {
     e.preventDefault()
 
     axios.post('/api/register', this.state.data)
-      .then(() => this.props.history.push('/login')) // redirect the user to the login page...
+      .then(() => this.props.history.push('/login'))
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
 

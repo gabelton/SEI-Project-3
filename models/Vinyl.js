@@ -13,9 +13,8 @@ const commentSchema = new mongoose.Schema({
     maxlength: 280
   }
 }, {
-  timestamps: true, // this adds `createdAt` and `updatedAt` properties
+  timestamps: true,
   toJSON: {
-    // whenever the comment is converted to JSON
     transform(doc, json) {
       delete json.__v
       return json
@@ -94,7 +93,6 @@ const vinylSchema = new mongoose.Schema({
 }, {
   timestamps: true,
   toJSON: {
-    // whenever the vinyl is converted to JSON
     transform(doc, json) {
       delete json.__v
       return json

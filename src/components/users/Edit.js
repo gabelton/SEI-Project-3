@@ -29,7 +29,6 @@ class Edit extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log(this.state, 'inside submit')
 
     const token = Auth.getToken()
 
@@ -42,7 +41,6 @@ class Edit extends React.Component{
 
 
   render() {
-    console.log(this.state, 'i am state')
     return (
       <section className="section">
         <div className="container ">

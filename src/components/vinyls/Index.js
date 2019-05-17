@@ -11,7 +11,6 @@ class Index extends React.Component {
 
     this.props.match.query = qs.parse(this.props.location.search)
     this.handleChange = this.handleChange.bind(this)
-    console.log(this.props.location.search ,'SHOW ME')
     this.state= {
       vinyls: [],
       list: '',
@@ -25,7 +24,6 @@ class Index extends React.Component {
   }
 
   componentDidMount() {
-    // this.setState({list: this.props.location.search.substr(1)})
     axios('/api/vinyls')
       .then(res => this.setState({ vinyls: res.data }))
   }
