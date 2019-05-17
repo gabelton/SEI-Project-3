@@ -15,7 +15,7 @@ const Team = () => {
               <div className="media-content">
                 <div className="content">
                   <p>
-                    <strong>Emma Price</strong> <small>@johnsmith</small>
+                    <strong>Emma Price</strong> <small>ekprice01@gmail.com</small>
                     <br />
                         API ninja
                   </p>
@@ -35,7 +35,7 @@ const Team = () => {
               <div className="media-content">
                 <div className="content">
                   <p>
-                    <strong>Gabe Naughton</strong> <small>@johnsmith</small>
+                    <strong>Gabe Naughton</strong> <small>gabriel.naughton135@gmail.com</small>
                     <br />
                       GIT master
                   </p>
