@@ -31,7 +31,7 @@ Backend: Node.js, MongoDB, Mongoose, Bluebird,
 
 Unlike our previous project, where we relied entirely on third-party APIs, here we were required to build our own database. We started by planning out our Vinyl model and then sketched out our user model. These formed the foundation of our project, upon which we would later embed information such as comments and a user wishlist.
 
-After installing key dependencies (see technologies), we created an app.js page and set up a 'Hello world' message running on localhost:4000. Next we stored this port variable in an enviroment.js file in our config folder. Then, while half of the group worked on the user and vinyl models, the other half started creating the users, vinyls, and auth controllers. After this we exported routes from our controllers files into a routes file in our config folder.
+After installing key dependencies (see technologies), we created an app.js page and set up a 'Hello world' message running on localhost:4000. Next we stored this port variable in an environment.js file in our config folder. Then, while half of the group worked on the user and vinyl models, the other half started creating the users, vinyls, and auth controllers. After this we exported routes from our controllers files into a routes file in our config folder.
 
 Once we had completed the models we created a seeds folder, to make it easier to update the database. We then looked at authorisation, creating a secureRoute file, to make sure that only logged in users would be able to add vinyls to the site and then delete or update only their own collections.
 
@@ -66,6 +66,8 @@ Within the user profile page, is the users Wishlist of vinyls they are on the hu
 ### Process
 
 ### Challenges
+
+Vinyl Collection on the user profile - this proved a challenge to implement at first, but as soon as we populated the id the issues were resolved
 
 ### Wins
 
