@@ -3,6 +3,7 @@ import React from 'react'
 const Team = () => {
   return (
     <div className="container teamContainer">
+<<<<<<< HEAD
       <div className=" section columns  teambox">
         <div className="column">
           <div className="box">
@@ -11,6 +12,24 @@ const Team = () => {
                 <figure className="image is-128x128">
                   <img  className="is-rounded" src="https://i.imgur.com/fZXBxMO.jpg" alt="Image"/>
                 </figure>
+=======
+    <div className=" section columns teambox">
+      <div className="column">
+        <div className="box">
+          <article className="media">
+            <div className="media-left">
+              <figure className="image is-128x128">
+                <img  className="is-rounded" src="https://i.imgur.com/fZXBxMO.jpg" alt="Image"/>
+              </figure>
+            </div>
+            <div className="media-content">
+              <div className="content">
+                <p>
+                  <strong>Emma Price</strong> <small>@johnsmith</small> <small>31m</small>
+                  <br />
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+                </p>
+>>>>>>> development
               </div>
               <div className="media-content">
                 <div className="content">
@@ -45,6 +64,7 @@ const Team = () => {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
       <div className=" section columns  teambox">
         <div className="column">
           <div className="box">
@@ -65,6 +85,43 @@ const Team = () => {
               </div>
             </article>
           </div>
+=======
+    </div>
+</div>
+<div className=" section columns">
+
+      <div className="column">
+      <div className="box">
+        <article className="media">
+          <div className="media-left">
+          <figure className="image is-128x128">
+  <img className="is-rounded" src="https://i.imgur.com/OgeplkZ.jpg" alt="Image"/>
+            </figure>
+          </div>
+          <div className="media-content">
+            <div className="content">
+              <p>
+                <strong>Sean Gray</strong> <small>sean.myles.gray@gmail.com</small> <small>31m</small>
+                <br />
+
+              </p>
+            </div>
+
+          </div>
+        </article>
+      </div>
+    </div>
+
+
+
+    <div className="column">
+    <div className="box">
+      <article className="media">
+        <div className="media-left">
+        <figure className="image is-128x128">
+    <img className="is-rounded" src="https://i.imgur.com/CRNpJil.jpg" alt="Image"/>
+          </figure>
+>>>>>>> development
         </div>
         <div className="column">
           <div className="box">
