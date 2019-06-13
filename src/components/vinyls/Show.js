@@ -127,6 +127,8 @@ class Show extends React.Component {
             </figure>
             <div className="container edit">
               <div className="buttons is-gapless">
+
+
                 {Auth.isAuthenticated() &&
                   <Link to={{
                     pathname: `/users/${Auth.getPayload().sub}`,

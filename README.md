@@ -13,7 +13,7 @@ Backend: Node.js, MongoDB, Mongoose, Bluebird,
 
 1. Clone or download the repo
 2. Run 'yarn init' in CLI
-3.
+
 
 ## Overview
 
