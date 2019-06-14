@@ -210,6 +210,7 @@ class Show extends React.Component {
                   </nav>
                 </div>
               </article>
+              
               {this.state.vinyl.comments.map(comment =>
                 <article key={comment._id} className="media">
                   <figure className="media-left">

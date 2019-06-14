@@ -6,14 +6,13 @@
 7 days
 
 ## Technologies used
-Frontend: HTML, SCSS, Bulma, React JS, Webpack, Axios, Babel,
-Backend: Node.js, MongoDB, Mongoose, Bluebird,
+Frontend: HTML, SCSS, Bulma, React.js, Webpack, Axios, Babel, Promise
+Backend: Node.js, Express, MongoDB, Mongoose, Bluebird
 
 ## Installation
 
 1. Clone or download the repo
-2. Run 'yarn init' in CLI
-3.
+2. Run 'yarn init' in the terminal
 
 ## Overview
 
@@ -29,7 +28,7 @@ Unlike our previous project, where we relied entirely on third-party APIs, here 
 
 After installing key dependencies (see technologies), we created an app.js page and set up a 'Hello world' message running on localhost:4000. Next we stored this port variable in an environment.js file in our config folder. Then, while half of the group worked on the user and vinyl models, the other half started creating the users, vinyls, and auth controllers. After this we exported routes from our controllers files into a routes file in our config folder.
 
-Once we had completed the models we created a seeds folder, to make it easier to update the database. We then looked at authorisation, creating a secureRoute file, to make sure that only logged in users would be able to add vinyls to the site and then delete or update only their own collections.
+Once we had completed the models we created a seeds file, to make it easier to update the database. We then looked at authorisation, creating a secureRoute file, to make sure that only logged in users would be able to add vinyls to the site and then delete or update only their own collections.
 
 ## HomePage / landing page
 
@@ -49,8 +48,7 @@ function orderByDate(arr) {
 }
 ```
 
-Finally the hoverable icons at the bottom of the page allow the user to access the index page, where albums are filtered according to the genre property. Looking forward, it might be useful to incorporate a creatable React Select bar, so that users can add their own genres, since currently they can only choose from our set list.
-
+Finally the hoverable icons at the bottom of the page allow the user to access the index page, where albums are filtered according to the genre property. Looking forward, it might be useful to incorporate a React Select bar, so that users can add their own genres, since currently they can only choose from our set list.
 
 
 ## Vinyl Collection
@@ -63,8 +61,6 @@ Finally the hoverable icons at the bottom of the page allow the user to access t
 
 ##### Vinyl show
 ![show](./PresentImages/VinylShowMain.jpg)
-
-
 
 
 - Next we wanted to have a section displaying similar artists on the page.
@@ -151,11 +147,14 @@ On the vinyls Show.js page we added a Bulma media object. We then attached an ev
 
 - Though we did discuss the possibility of dividing work across the front end and the back end, ultimately we thought it made more sense to work on the backend together, since this was new territory for the project and we all wanted to gain familiarity with Node.js. We felt that we were vindicated in taking this approach because we very quickly set up a working database and this allowed us to reach MVP in good time.
 
-- Once we had reached MVP on the front end
+- Once we'd reached MVP, we used the Last FM and Deezer APIs on the vinyl show page to pull in the tracklisting for the album from Last FM's API, and the artists top 8 tracks from Deezer's API.
+
 
 ### Challenges
 
 - Vinyl Collection on the user profile - this proved a challenge to implement at first, but as soon as we populated the id the issues were resolved
+
+- Recently added (see above under homepage)
 
 ### Wins
 
@@ -172,10 +171,10 @@ On the vinyls Show.js page we added a Bulma media object. We then attached an ev
 
 - The comments section already points in this direction, but a fully realised version of the app ought to include some form of payment, so that users might follow up after the initial contact has been made via comment or messenger.
 
-### Refactoring
+#### Refactoring
 
 - For instance, the code would be more readable and modular, if we were to make a separate comments folder, rather than keeping these on the show page.
 
-### Accessibility
+#### Accessibility
 
 - There are still a few corners of the site where we could add more error messages and redirect the user to the login page. For example, when a user is not logged in they cannot add comments, though no message informs them of this.

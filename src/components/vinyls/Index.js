@@ -28,6 +28,12 @@ class Index extends React.Component {
       .then(res => this.setState({ vinyls: res.data }))
   }
 
+  componentDidUpdate(prevProps) {
+    if(prevProps.location.pathname !== this.props.location.pathname) {
+      this.getData()
+    }
+  }
+
   searchVinyl() {
 
     const search = new RegExp(this.state.searchText, 'i')

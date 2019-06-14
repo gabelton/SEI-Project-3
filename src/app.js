@@ -20,7 +20,6 @@ import Register from './components/auth/Register'
 import UsersShow from './components/users/Show'
 import UsersEdit from './components/users/Edit'
 
-
 import 'bulma'
 import './style.scss'
 

@@ -30,8 +30,6 @@ class Show extends React.Component {
   handleWish() {
     const token = Auth.getToken()
     const currentUser = this.state.user._id
-
-
     const vinylWish = this.state.user.vinylWish.slice()
     vinylWish.push(this.props.location.state.vinyl)
     const user = {...this.state.user, vinylWish}
