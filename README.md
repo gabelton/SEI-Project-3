@@ -7,7 +7,7 @@
 
 ## Technologies used
 Frontend: HTML, SCSS, Bulma, React JS, Webpack, Axios, Babel,
-Backend: Node.js, MongoDB, Mongoose, Bluebird,
+Backend: Node.js, MongoDB, Mongoose, Bluebird, Photoshop
 
 ## Installation
 
