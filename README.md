@@ -6,14 +6,14 @@
 7 days
 
 ## Technologies used
-Front end: HTML, SCSS, Bulma, React.js, Webpack, Axios, Babel, Promise, JavaScript
+Front end: JavaScript, HTML, SCSS, Bulma, React.js, Webpack, Axios, Babel, Promise, Photoshop
 Back end: Node.js, Express, MongoDB, Mongoose, Bluebird
 
 ## Installation
 
 1. Clone or download the repo
 2. Run 'yarn init' in the CLI
-3. Run 'mongod', 'yarn seed', 'yarn run:server' and 'yarn run:client' in the CLI 
+3. Run 'mongod', 'yarn seed', 'yarn run:server' and 'yarn run:client' in the CLI
 
 ## Overview
 
