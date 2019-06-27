@@ -6,13 +6,14 @@
 7 days
 
 ## Technologies used
-Frontend: HTML, SCSS, Bulma, React.js, Webpack, Axios, Babel, Promise
-Backend: Node.js, Express, MongoDB, Mongoose, Bluebird
+Front end: HTML, SCSS, Bulma, React.js, Webpack, Axios, Babel, Promise, JavaScript
+Back end: Node.js, Express, MongoDB, Mongoose, Bluebird
 
 ## Installation
 
 1. Clone or download the repo
-2. Run 'yarn init' in the terminal
+2. Run 'yarn init' in the CLI
+3. Run 'mongod', 'yarn seed', 'yarn run:server' and 'yarn run:client' in the CLI 
 
 ## Overview
 
@@ -20,23 +21,23 @@ Backend: Node.js, Express, MongoDB, Mongoose, Bluebird
 
 ## Introduction
 
-As a group we are all very proud of our record collections and so we were quickly able to settle on a concept for our app. Project Black not only allows users to post their own records and browse those of others but also through use of the LastFM API to listen to snippets from individual tracks.
+As a group we are all very proud of our record collections and so we were quickly able to settle on a concept for our app. Project Black not only allows users to post their own records and browse those of others but also through use of the LastFM and Deezer APIs to listen to snippets from individual tracks.
 
-## Database
+## Back End
 
-Unlike our previous project, where we relied entirely on third-party APIs, here we were required to build our own database. We started by planning out our Vinyl model and then sketched out our user model. These formed the foundation of our project, upon which we would later embed information such as comments and a user wishlist.
+Unlike our previous project, where we relied entirely on third-party APIs, here we were required to build our own database. We started by planning out our vinyl model and then sketched out our user model. These formed the foundation of our project, upon which we would later embed information such as comments and a user wishlist.
 
-After installing key dependencies (see technologies), we created an app.js page and set up a 'Hello world' message running on localhost:4000. Next we stored this port variable in an environment.js file in our config folder. Then, while half of the group worked on the user and vinyl models, the other half started creating the users, vinyls, and auth controllers. After this we exported routes from our controllers files into a routes file in our config folder.
+After installing key dependencies (see technologies), we created an app.js page and set up a 'Hello world' message running on localhost:4000. Next we stored this port variable in an environment.js file in our config folder. Then, while half of the group worked on the user and vinyl models, the other half started creating the user, vinyl, and auth controllers. After this we exported routes from our controllers files into a routes file in our config folder.
 
-Once we had completed the models we created a seeds file, to make it easier to update the database. We then looked at authorisation, creating a secureRoute file, to make sure that only logged in users would be able to add vinyls to the site and then delete or update only their own collections.
+Once we had completed the models we created a seeds file, to make it easier to update the database. We then looked at authorisation, creating a SecureRoute file, to make sure that only logged in users would be able to add vinyl to the site and then delete or update only their own collections.
 
-## HomePage / landing page
+## Home Page
 
 ![homepage](PresentImages/home.17.50.png)
 
-The homepage is divided into three sections: main hero (above), recently added, and genres.
+The homepage is divided into three sections: main hero, recently added, and genres.
 
-The 'recently added' section presented some challenges, as this was the first time that we had worked with timestamps when building models. Another problem arose when we tried to sort an array according to this property. While we had the right approach in principle, we had not realised that we needed to use JavaScript's Date functionality, if we wanted to compare one property with another.
+The 'recently added' section presented some challenges, as this was the first time that we had worked with timestamps when building models. Another problem arose when we tried to sort an array according to this property. While we had the right approach in principle, we had not realised that we needed to use JavaScript's date functionality, if we wanted to compare one property with another.
 
 ```
 function orderByDate(arr) {
@@ -50,7 +51,6 @@ function orderByDate(arr) {
 
 Finally the hoverable icons at the bottom of the page allow the user to access the index page, where albums are filtered according to the genre property. Looking forward, it might be useful to incorporate a React Select bar, so that users can add their own genres, since currently they can only choose from our set list.
 
-
 ## Vinyl Collection
 
 ![homepage](./PresentImages/VinylCollection.jpg)
@@ -62,12 +62,11 @@ Finally the hoverable icons at the bottom of the page allow the user to access t
 ##### Vinyl show
 ![show](./PresentImages/VinylShowMain.jpg)
 
-
 - Next we wanted to have a section displaying similar artists on the page.
 
 ![show](./PresentImages/youmightalsolike.jpg)
 
- This involved doing another axios request to get all the information on the vinyls to the vinyl show component and then set this to state. Both of these requests had to happen at the same time so both requests were handled within a Bluebird promise. We then wrote a filter function within the render of the vinyl show component to display similar vinyl filtered by genre. Finally, we sliced the 'similar' variable so a maximum of 5 similar LPs were displayed on the page.
+- This involved doing another axios request to get all the information on the vinyls to the vinyl show component and then set this to state. Both of these requests had to happen at the same time so both requests were handled within a Bluebird promise. We then wrote a filter function within the render of the vinyl show component to display similar vinyl filtered by genre. Finally, we used slice on the 'similar' variable so a maximum of 5 similar vinyl were displayed on the page.
 
  ```
  getData() {
@@ -100,7 +99,7 @@ Finally the hoverable icons at the bottom of the page allow the user to access t
  }
  ```
 
-- To display the tracklisting of the vinyl and the artist top tracks we used Last FM and Deezer's APIs. Both these requests were handled within a new block on the promise chain as they needed to happen after the axios request for the vinyl and vinyls had been made.
+- To display the tracklisting of the vinyl and the artist top tracks we used the Last FM and Deezer APIs. Both these requests were handled within a new block on the promise chain as they needed to happen after the axios request for the vinyl and vinyls had been made.
 
 ![show](./PresentImages/TopTracks.jpg)
 
@@ -111,10 +110,9 @@ Finally the hoverable icons at the bottom of the page allow the user to access t
 
 ### Comments
 
-On the vinyls Show.js page we added a Bulma media object. We then attached an event listener to push the content to the vinyl's comment property via our commentCreate route before displaying it on the page. We also attached a commentDelete event listener to the cross icon. Inside this handler we wrote an 'if statement' to ensure that users could only delete their own comments and not those of other users. Finally we added a reload method, so that the new comments would display on the page after the user clicked.
+On the vinyls Show.js page we added a Bulma media object. We then attached an event listener to push the content to the vinyl comment property via our commentCreate route before displaying it on the page. We also attached a commentDelete event listener to the cross icon. Inside this handler we wrote an 'if statement' to ensure that users could only delete their own comments and not those of other users. Finally we added a reload method, so that the new comments would display on the page after the user clicked.
 
 ![show](./PresentImages/Comments.jpg)
-
 
 ## User Register / login
 
@@ -137,18 +135,17 @@ On the vinyls Show.js page we added a Bulma media object. We then attached an ev
 
 #### Wish list
 
-- Within the user profile page, is the users Wishlist of vinyls they are on the hunt for. On each of the vinyl pages, there is a button the gives you the option to add the current vinyl to your wish list. This is for other users to see what you are interested in and if they have it, they can leave a comment on the vinyl in order to let the user know.
+- Within the user profile page, is the users Wishlist of vinyl they are on the hunt for. On each of the vinyl pages, there is a button that gives you the option to add the current vinyl to your wish list. This is for other users to see what you are interested in and if they have it, they can leave a comment on the vinyl in order to let the user know.
 
 ### Process
 
 - Once we'd decided on the theme for our project, we created a group Trello board to breakdown and manage our workload and created wireframes for the website.
 
-- Throughout the process of constructing the site, we divided up who did what page and each created the page given to us. This did not mean that others could not help each other with their pages. Pair coding and group coding seemed to really work for us.
+- Throughout the process of constructing the site, we divided up who did what page and each created the page given to us. This did not mean that others could not help each other with their pages. A mixture of solo, pair coding and group coding worked well for us.
 
-- Though we did discuss the possibility of dividing work across the front end and the back end, ultimately we thought it made more sense to work on the backend together, since this was new territory for the project and we all wanted to gain familiarity with Node.js. We felt that we were vindicated in taking this approach because we very quickly set up a working database and this allowed us to reach MVP in good time.
+- Though we did discuss the possibility of dividing work across the front end and the back end, ultimately we thought it made more sense to work on the back end together, since this was new territory for the project and we all wanted to gain familiarity with Node.js. We felt that we were vindicated in taking this approach because we very quickly set up a working database and this allowed us to reach MVP in good time.
 
 - Once we'd reached MVP, we used the Last FM and Deezer APIs on the vinyl show page to pull in the tracklisting for the album from Last FM's API, and the artists top 8 tracks from Deezer's API.
-
 
 ### Challenges
 
@@ -159,7 +156,6 @@ On the vinyls Show.js page we added a Bulma media object. We then attached an ev
 ### Wins
 
 - Mapping over arrays was a great win, it allowed us to get the vinyl collection and wishlist list onto the user profile page. It also made us understand the concept a lot more.
-
 
 ## Future Features
 
