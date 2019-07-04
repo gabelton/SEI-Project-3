@@ -123,7 +123,7 @@ On the vinyls Show.js page we added a Bulma media object. We then attached an ev
 
 - Up in the right hand corner of the screen there is a register button, which redirects to the register page. Once the user has entered in a username, email, password and password confirmation, the user will be redirected to the login page, where the will be prompted to log in.
 
-![user](./PresentImages/login.jpg)
+![user](./PresentImages/Login.jpg)
 
 ## User Profile page / Edit
 
@@ -131,7 +131,7 @@ On the vinyls Show.js page we added a Bulma media object. We then attached an ev
 
 - Now in place of where the register button was, is now the Profile page button. When the user follows this link, they will be redirected to their profile page which contains a user card, holding the user information such as the username, profile picture and a short bio about themselves, a vinyl collection, which would contain all the vinyls the user has or potentially will add to the database, and finally a Wish list.
 
-![user](./PresentImages/profile.png)
+![user](./PresentImages/Profile.jpg)
 
 #### Wish list
 
