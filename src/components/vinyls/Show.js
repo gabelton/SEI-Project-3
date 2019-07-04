@@ -193,7 +193,7 @@ class Show extends React.Component {
               <article className="media">
                 <figure className="media-left">
                   <p className="image is-64x64">
-                    <img src="https://candobristol.co.uk/img/profile-pic.svg" />
+                    <img src="https://profile.actionsprout.com/default.jpeg" />
                   </p>
                 </figure>
                 <div className="media-content">
@@ -212,6 +212,7 @@ class Show extends React.Component {
                   </nav>
                 </div>
               </article>
+
               {this.state.vinyl.comments.map(comment =>
                 <article key={comment._id} className="media">
                   <figure className="media-left">
